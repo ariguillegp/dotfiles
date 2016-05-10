@@ -26,7 +26,7 @@ do
 	fi
 	if [ -e ~/.$filename ] && [ ! -L ~/.$filename ]; then
 		mkdir -p ~/.dotfiles/original
-		mv ~/.$filename ~/.dotfiles/original/
+		mv ~/.$filename ~/.dotfiles/original_backup/
 	fi
 
 	ln -fsv $f ~/.$filename

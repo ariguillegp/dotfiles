@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+version=$1
+
+if [[ $version == "" ]]; then
+	echo Error: please specify the version number \(eq. 1.6.2\)
+	exit 1
+fi
+
+echo \*\*\* Downloading golang version $1
+
+platform=`uname`
+
+if [[ $platform == 'Linux' ]]; then
+	curl https://storage.googleapis.com/golang/go$version.linux-amd64.tar.gz -o /tmp/golang.tar.gz
+	echo \*\*\* Installing Golang version $1
+	sudo tar -C /usr/local -xzf /tmp/golang.tar.gz
+	rm /tmp/golang.tar.gz
+elif [[ $platform == 'FreeBSD' ]]; then
+	curl https://storage.googleapis.com/golang/go$version.freebsd-amd64.tar.gz -o /tmp/golang.tar.gz
+	echo \*\*\* Installing Golang version $1
+	sudo tar -C /usr/local -xzf /tmp/golang.tar.gz
+	rm /tmp/golang.tar.gz
+elif [[ $platform == 'OpenBSD' ]]; then
+	echo Error: it\'s needed to install from source on $platform.
+	exit 3
+elif [[ $platform == 'Darwin' ]]; then
+	curl https://storage.googleapis.com/golang/go$version.darwin-amd64.pkg -o /tmp/golang.pkg
+	echo \*\*\* Installing Golang version $1
+	sudo installer -allowUntrusted -pkg "/tmp/golang.pkg" -target /
+	rm /tmp/golang.pkg
+else
+	echo Error: do not know what to do on $platform platform
+	exit 2
+fi
+
+# Configure GO development environment
+if [ ! -e /code ]; then
+	echo \*\*\* Creating /code directory structure
+	sudo mkdir -p /code/go/src
+	sudo mkdir -p /code/go3rd/bin
+	sudo chown -R cello /code
+else
+	echo \*\*\* Updating Vendor packages
+	if [[ ! "$PATH" =~ .*\/go3rd\/.* ]]; then
+		export GOPATH=/code/go3rd:/code/go
+		export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
+	fi
+	go get -u all
+fi

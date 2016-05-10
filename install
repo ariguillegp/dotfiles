@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-declare -a exclusion=(install original_backup)
+declare -a exclusion=(install original_backup vim)
 
 #git clone --recursive git://github.com/cello1500/dotfiles.git
 #git submodule update --init --recursive "${DOTBOT_DIR}"
@@ -37,12 +37,22 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 # install lastest VIM Syntastic
-cd ~/.vim/bundle
-git clone https://github.com/scrooloose/syntastic.git
+if [ -e ~/.vim/bundle/syntastic ]; then
+	rm -rf  ~/.vim/bundle/syntastic
+fi
+git clone https://github.com/scrooloose/syntastic.git ~/.vim/bundle/syntastic
 
 # Install lastest VIM Sensible
-cd ~/.vim/bundle
-git clone git://github.com/tpope/vim-sensible.git
+if [ -e  ~/.vim/bundle/vim-sensible ]; then
+	rm -rf  ~/.vim/bundle/vim-sensible
+fi
+git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
+
+# Install lastest VIM vim-go
+if [ -e  ~/.vim/bundle/vim-sensible ]; then
+	rm -rf  ~/.vim/bundle/vim-go
+fi
+git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
 
 # Install VIM Conque-Term
 vim 'https://conque.googlecode.com/files/conque_2.3.vmb' -c ':so % | q'

@@ -131,3 +131,6 @@ fi
 # Add GO programming language environment
 export GOPATH=/code/go3rd:/code/go
 export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
+
+# Disable the console freezing with CTRL-S
+stty -ixon

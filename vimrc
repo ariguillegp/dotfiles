@@ -87,9 +87,6 @@ au FileType go nmap <Leader>e <Plug>(go-rename)
 
 au Filetype go nnoremap <leader>m :exe "GoErrCheck"<CR>
 
-" turn off autoindent when pasting code
-set paste
-
 " run local customization to override global customization
 
 let $LOCALFILE=expand("~/.vimrc_local")

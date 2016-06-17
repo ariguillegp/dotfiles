@@ -76,10 +76,10 @@ fi
 
 if [ "$color_prompt" = yes ]; then
 #    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-     PS1="\[\e[38;5;39m\]\$(s=\$(printf %*s \$COLUMNS); echo \${s// /―})\[\e[0m\]\n\t \[\e[1;37m\][\u@\h]\[\e[0m\] LastExitCode: 0 - History: \! - \[\e[1;37m\](\w)\n\[\e[0m\]$ "
+    PS1="\[\e[38;5;235m\]$(s=$(printf %*s $COLUMNS); echo ${s// /―})\[\e[0m\]\n\[\e[38;5;240m\][\u@\h]\[\e[38;5;238m\] \t - LastExitCode: 0 - History: \! - \w\[\e[0m\]\n$ "
 else
 #    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-     PS1="\$(s=\$(printf %*s \$COLUMNS); echo \${s// /―})\n\t [\U@\h] LastExitCode: 0 - History: \! - (\w)\n$ "
+    PS1="$(s=$(printf %*s $COLUMNS); echo ${s// /―})\n[\u@\h] \t - LastExitCode: 0 - History: \! - \w\n$ "
 fi
 unset color_prompt force_color_prompt
 

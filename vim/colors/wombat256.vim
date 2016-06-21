@@ -37,7 +37,7 @@ hi ErrorMsg		ctermfg=196		ctermbg=236		cterm=bold		guifg=#ff2026	guibg=#3a3a3a	g
 
 " Vim >= 7.0 specific colors
 if version >= 700
-hi CursorLine					ctermbg=none		cterm=none						guibg=nome
+"hi CursorLine					ctermbg=none		cterm=none						guibg=none
 "hi CursorLine					ctermbg=236		cterm=none						guibg=#32322f
 hi MatchParen	ctermfg=228		ctermbg=101		cterm=bold		guifg=#eae788	guibg=#857b6f	gui=bold
 hi Pmenu		ctermfg=230		ctermbg=238						guifg=#ffffd7	guibg=#444444

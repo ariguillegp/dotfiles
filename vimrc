@@ -11,7 +11,7 @@ inoremap <F3> <C-O>:set invnumber<CR>
 
 colorscheme wombat256
 set number
-set cursorline
+"set cursorline
 highlight cursorline cterm=none
 highlight cursorlinenr ctermfg=yellow
 

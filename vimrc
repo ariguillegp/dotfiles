@@ -9,9 +9,12 @@ let mapleader=","
 noremap <F3> :set invnumber<CR>
 inoremap <F3> <C-O>:set invnumber<CR>
 
+" try to get terminal colors as close to the gui colors as possible
+let g:rehash256 = 1
+
 colorscheme wombat256
 set number
-"set cursorline
+" set cursorline
 highlight cursorline cterm=none
 highlight cursorlinenr ctermfg=yellow
 
@@ -37,7 +40,29 @@ set viminfo='100,\"2500,:200,%,n~/.viminfo
 " use goimports for formatting
 let g:go_fmt_command = "goimports"
 
+" change GoTest time out default from its 10s default (if needed)
+let g:go_test_timeout = '10s'
+
+" use quickfix list only for all the errors
+let g:go_list_type = "quickfix"
+
+"  show a single tab as 4 spaces instead of the default 8
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+" update time for the identifier underneath the cursor
+set updatetime=800
+
+" jump between errors in quickfix list
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
 " turn highlighting on
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_build_constraints = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -85,7 +110,16 @@ au FileType go nmap <Leader>i <Plug>(go-info)
 " Rename the identifier under the cursor to a new name
 au FileType go nmap <Leader>e <Plug>(go-rename)
 
+" Run GoMetaLinter
+au FileType go nmap <Leader>l <Plug>(go-metalinter)
+
 au Filetype go nnoremap <leader>m :exe "GoErrCheck"<CR>
+
+" commands to open the alternate file
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
 " run local customization to override global customization
 

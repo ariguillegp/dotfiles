@@ -58,3 +58,5 @@ vim -c "GoInstallBinaries" -c "qa"
 # Install VIM Conque-Term
 vim 'https://conque.googlecode.com/files/conque_2.3.vmb' -c ':so % | q'
 
+# Rebuild the help tag files for the pluggins
+vim -c "Helptags" -c "qa"

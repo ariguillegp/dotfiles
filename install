@@ -55,6 +55,36 @@ fi
 git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
 vim -c "GoInstallBinaries" -c "qa"
 
+# Install lastest VIM NERDTree
+if [ -e  ~/.vim/bundle/nerdtree ]; then
+	rm -rf  ~/.vim/bundle/nerdtree
+fi
+git clone https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
+
+# Install lastest VIM lightline
+if [ -e  ~/.vim/bundle/lightline ]; then
+	rm -rf  ~/.vim/bundle/lightline
+fi
+git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline
+
+# Install lastest VIM neocomplete
+if [ -e  ~/.vim/bundle/neocomplete ]; then
+	rm -rf  ~/.vim/bundle/neocomplete
+fi
+git clone https://github.com/Shougo/neocomplete.vim.git ~/.vim/plugin/neocomplete
+
+# Install lastest VIM ultiSnips
+if [ -e  ~/.vim/bundle/ultisnips ]; then
+	rm -rf  ~/.vim/bundle/ultisnips
+fi
+git clone https://github.com/SirVer/ultisnips.git ~/.vim/bundle/ultisnips
+
+# Install lastest VIM vim-choosewin
+if [ -e  ~/.vim/bundle/vim-choosewin ]; then
+	rm -rf  ~/.vim/bundle/vim-choosewin
+fi
+git clone https://github.com/t9md/vim-choosewin.git ~/.vim/bundle/vim-choosewin
+
 # Install VIM Conque-Term
 vim 'https://conque.googlecode.com/files/conque_2.3.vmb' -c ':so % | q'
 

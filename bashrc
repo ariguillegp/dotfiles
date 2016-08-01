@@ -145,7 +145,7 @@ fi
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
 # Add GO programming language environment
-export GOPATH=/code/go3rd:/code/go
+export GOPATH=~/code/go3rd:~/code/go
 export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
 
 # Disable the console freezing with CTRL-S

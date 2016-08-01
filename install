@@ -71,7 +71,7 @@ git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline
 if [ -e  ~/.vim/bundle/neocomplete ]; then
 	rm -rf  ~/.vim/bundle/neocomplete
 fi
-git clone https://github.com/Shougo/neocomplete.vim.git ~/.vim/plugin/neocomplete
+git clone https://github.com/Shougo/neocomplete.vim.git ~/.vim/bundle/neocomplete
 
 # Install lastest VIM ultiSnips
 if [ -e  ~/.vim/bundle/ultisnips ]; then

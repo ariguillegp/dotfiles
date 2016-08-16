@@ -56,7 +56,7 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # force TERM xterm-256color
-export TERM=xterm-256color
+export TERM=screen-256color
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -80,11 +80,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1="\[\e[38;5;235m\]\$(s=\$(printf %*s \$COLUMNS); echo \${s// /―})\[\e[0m\]\n\[\e[38;5;240m\][\u@\h]\[\e[38;5;238m\] \t - LastExitCode: \$? - History: \! - \w\[\e[0m\]\n$ "
+    export PROMPT_COMMAND=prompt_color
 else
-#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    PS1="\$(s=\$(printf %*s \$COLUMNS); echo \${s// /―})\n[\u@\h] \t - LastExitCode: \$? - History: \! - \w\n$ "
+    export PROMPT_COMMAND=prompt_text
 fi
 unset color_prompt force_color_prompt
 
@@ -150,3 +148,17 @@ export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
 
 # Disable the console freezing with CTRL-S
 stty -ixon
+
+prompt_color() {
+    local code="$?"
+    PS1='\[\e[38;5;235m\]$(s=$(printf %*s $COLUMNS); echo ${s// /―})\[\e[0m\]\n\[\e[38;5;240m\][\u@\h]\[\e[38;5;238m\] \t - LastExitCode: '
+    PS1+="$code"
+    PS1+=' - History: \! - \w\[\e[0m\]\n$ '
+}
+
+prompt_text() {
+    local code="$?"
+    PS1="\$(s=\$(printf %*s \$COLUMNS); echo \${s// /―})\n[\u@\h] \t - LastExitCode: "
+    PS1+="$code"
+    PS1+=" - History: \! - \w\n$ "
+}

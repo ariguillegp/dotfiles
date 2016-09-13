@@ -12,6 +12,9 @@ inoremap <F3> <C-O>:set invnumber<CR>
 " try to get terminal colors as close to the gui colors as possible
 let g:rehash256 = 1
 
+" set mouse support
+set mouse=a
+
 colorscheme wombat256
 set number
 " set cursorline

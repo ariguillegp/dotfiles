@@ -54,6 +54,12 @@ let g:go_test_timeout = '10s'
 " use quickfix list only for all the errors
 let g:go_list_type = "quickfix"
 
+" use camelcase on conversions by default
+let g:go_snippet_case_type = "camelcase"
+
+" show func and type declarations on GoDecls and GoDeclsDir
+let g:go_decls_includes = "func,type"
+
 "  show a single tab as 4 spaces instead of the default 8
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 

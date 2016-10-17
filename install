@@ -85,8 +85,25 @@ if [ -e  ~/.vim/bundle/vim-choosewin ]; then
 fi
 git clone https://github.com/t9md/vim-choosewin.git ~/.vim/bundle/vim-choosewin
 
+# Install VIM crlp.vim (used by vim-go)
+if [ -e  ~/.vim/bundle/ctrlp.vim ]; then
+	rm -rf  ~/.vim/bundle/ctrlp.vim
+fi
+git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
+
+# Install lastest VIM splitjoin
+if [ -e  ~/.vim/bundle/splitjoin ]; then
+	rm -rf  ~/.vim/bundle/splitjoin
+fi
+git clone git://github.com/AndrewRadev/splitjoin.vim.git ~/.vim/bundle/splitjoin
+
 # Install VIM Conque-Term
 vim 'https://conque.googlecode.com/files/conque_2.3.vmb' -c ':so % | q'
 
 # Rebuild the help tag files for the pluggins
 vim -c "Helptags" -c "qa"
+
+# Cleanup
+if [ -L ~/.dotfiles/vim/vim ]; then
+	rm ~/.dotfiles/vim/vim
+fi

@@ -39,13 +39,12 @@ if [[ ! "$PATH" =~ .*\/go3rd\/.* ]]; then
 	export GOPATH=~/code/go3rd:~/code/go
 	export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
 fi
-if [ ! -e /code ]; then
+if [ ! -e ~/code ]; then
 	echo \*\*\* Creating /code directory structure
-	sudo mkdir -p ~/code/go/src
-	sudo mkdir -p ~/code/go3rd/bin
-	sudo chown -R cello ~/code
+	mkdir -p ~/code/go/src
+	mkdir -p ~/code/go3rd/bin
 	# install all go additional tools
-	sudo -E go get golang.org/x/tools/cmd/...
+	go get golang.org/x/tools/cmd/...
 else
 	echo \*\*\* Updating Vendor packages
 	go get -u all

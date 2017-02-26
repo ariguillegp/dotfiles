@@ -55,6 +55,12 @@ fi
 git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
 vim -c "GoInstallBinaries" -c "qa"
 
+# Install lastest VIM tagbar (package ctags needs to be installed previously)
+if [ -e  ~/.vim/bundle/tagbar ]; then
+	rm -rf  ~/.vim/bundle/tagbar
+fi
+git clone https://github.com/majutsushi/tagbar
+
 # Install lastest VIM NERDTree
 if [ -e  ~/.vim/bundle/nerdtree ]; then
 	rm -rf  ~/.vim/bundle/nerdtree

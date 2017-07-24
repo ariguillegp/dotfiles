@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/cello/.vim/bundle'
-let g:netrw_dirhist_2='/home/cello/.dotfiles/vim'
-let g:netrw_dirhist_3='/home/cello/.vim'
-let g:netrw_dirhist_4='/home/cello/.dotfiles/vim'
-let g:netrw_dirhist_5='/home/cello/.dotfiles/original_backup'
-let g:netrw_dirhist_6='/code/go/src/bitbucket.org/maid'

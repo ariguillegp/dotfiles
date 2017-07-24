@@ -1,0 +1,10 @@
+Before executing any script in this folder you need to:
+
+pacman -S python
+pacman -S lua
+pacman -S vim
+
+Then run the scripts in the following order:
+
+./install-golang
+./install

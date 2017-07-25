@@ -1,8 +1,10 @@
-Before executing any script in this folder you need to:
+Before executing any script in this folder you need to (this is done on Arch Linux by the script by default):
 
-pacman -S python
-pacman -S lua
-pacman -S vim
+sudo pacman -S --needed python
+sudo pacman -S --needed lua
+sudo pacman -S --needed vim
+sudo pacman -S --needed curl
+sudo pacman -S --needed tmux
 
 Then run the scripts in the following order:
 

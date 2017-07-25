@@ -14,11 +14,13 @@ platform=`uname`
 if [[ $platform == 'Linux' ]]; then
 	curl https://storage.googleapis.com/golang/go$version.linux-amd64.tar.gz -o /tmp/golang.tar.gz
 	echo \*\*\* Installing Golang version $1
+	sudo rm -R /usr/local/go
 	sudo tar -C /usr/local -xzf /tmp/golang.tar.gz
 	rm /tmp/golang.tar.gz
 elif [[ $platform == 'FreeBSD' ]]; then
 	curl https://storage.googleapis.com/golang/go$version.freebsd-amd64.tar.gz -o /tmp/golang.tar.gz
 	echo \*\*\* Installing Golang version $1
+	sudo rm -R /usr/local/go
 	sudo tar -C /usr/local -xzf /tmp/golang.tar.gz
 	rm /tmp/golang.tar.gz
 elif [[ $platform == 'OpenBSD' ]]; then

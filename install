@@ -32,6 +32,15 @@ do
 	ln -fsv $f ~/.$filename
 done
 
+if [[ `uname -r` == *"ARCH" ]]; then
+	sudo pacman -S --needed python
+	sudo pacman -S --needed lua
+	sudo pacman -S --needed vim
+	sudo pacman -S --needed curl
+	sudo pacman -S --needed tmux
+fi
+
+
 # Install latest VIM Pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim

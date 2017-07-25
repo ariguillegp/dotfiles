@@ -5,6 +5,7 @@ sudo pacman -S --needed lua
 sudo pacman -S --needed vim
 sudo pacman -S --needed curl
 sudo pacman -S --needed tmux
+sudo pacman -S --needed git
 
 Then run the scripts in the following order:
 

@@ -47,6 +47,9 @@ if [ -d "/usr/local/go" ]; then
 	export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
 fi
 
+curl -o ~/.git-completion.bash  https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+curl -o ~/.git-prompt.sh  https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+
 # Install latest VIM Pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim

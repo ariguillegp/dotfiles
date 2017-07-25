@@ -148,6 +148,9 @@ export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
 # Disable the console freezing with CTRL-S
 stty -ixon
 
+source ~/.git-completion.bash
+source ~/.git-prompt.sh
+
 prompt_color() {
     local code="$?"
     PS1='\[\e[38;5;235m\]$(s=$(printf %*s $COLUMNS); echo ${s// /―})\[\e[0m\]\n\[\e[38;5;240m\][\u@\h]\[\e[38;5;238m\] \t - LastExitCode: '

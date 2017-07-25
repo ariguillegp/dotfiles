@@ -40,6 +40,10 @@ if [[ `uname -r` == *"ARCH" ]]; then
 	sudo pacman -S --needed tmux
 fi
 
+if [ -d "/usr/loca/go" ]; then
+        export GOPATH=~/code/go3rd:~/code/go
+        export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
+fi
 
 # Install latest VIM Pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle

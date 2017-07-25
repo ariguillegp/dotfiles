@@ -33,17 +33,18 @@ do
 done
 
 if [[ `uname -r` == *"ARCH" ]]; then
-	sudo pacman -S --needed python
-	sudo pacman -S --needed lua
-	sudo pacman -S --needed vim
-	sudo pacman -S --needed curl
-	sudo pacman -S --needed tmux
-	sudo pacman -S --needed git
+	sudo pacman -S --needed --noconfirm git
+	sudo pacman -S --needed --noconfirm python
+	sudo pacman -S --needed --noconfirm lua
+	sudo pacman -S --needed --noconfirm vim
+	sudo pacman -S --needed --noconfirm curl
+	sudo pacman -S --needed --noconfirm tmux
+	sudo pacman -S --needed --noconfirm git
 fi
 
-if [ -d "/usr/loca/go" ]; then
-        export GOPATH=~/code/go3rd:~/code/go
-        export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
+if [ -d "/usr/local/go" ]; then
+	export GOPATH=~/code/go3rd:~/code/go
+	export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
 fi
 
 # Install latest VIM Pathogen

@@ -49,5 +49,5 @@ if [ ! -e ~/code ]; then
 	go get golang.org/x/tools/cmd/...
 else
 	echo \*\*\* Updating Vendor packages
-	sudo go get -u all
+	go get -u all
 fi

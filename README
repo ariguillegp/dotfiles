@@ -6,6 +6,7 @@ sudo pacman -S --needed --noconfirm vim
 sudo pacman -S --needed --noconfirm curl
 sudo pacman -S --needed --noconfirm tmux
 sudo pacman -S --needed --noconfirm git
+sudo pacman -S --needed --noconfirm bash-completion
 
 Then run the scripts in the following order:
 

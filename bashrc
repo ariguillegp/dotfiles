@@ -144,7 +144,9 @@ fi
 # Add GO programming language environment
 export GOPATH=~/code/go3rd:~/code/go
 export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
-export CDPATH=~/code/go
+export CDPATH=.:~/code/go
+alias cd='>/dev/null cd'
+source /usr/share/bash-completion/bash_completion
 
 # Disable the console freezing with CTRL-S
 stty -ixon

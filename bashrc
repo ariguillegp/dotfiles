@@ -144,12 +144,13 @@ fi
 # Add GO programming language environment
 export GOPATH=~/code/go3rd:~/code/go
 export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
+export CDPATH=$GOPATH
 
 # Disable the console freezing with CTRL-S
 stty -ixon
 
 source ~/.git-completion.bash
-source ~/.git-prompt.sh
+#source ~/.git-prompt.sh
 
 prompt_color() {
     GIT_PROMPT_ONLY_IN_REPO=1

@@ -152,10 +152,16 @@ source ~/.git-completion.bash
 source ~/.git-prompt.sh
 
 prompt_color() {
+    GIT_PROMPT_ONLY_IN_REPO=1
+    GIT_PROMPT_THEME=Custom
     local code="$?"
     PS1='\[\e[38;5;235m\]$(s=$(printf %*s $COLUMNS); echo ${s// /―})\[\e[0m\]\n\[\e[38;5;240m\][\u@\h]\[\e[38;5;238m\] \t - LastExitCode: '
     PS1+="$code"
-    PS1+=' - History: \! - \w\[\e[0m\]\n$ '
+    PS1+=' - History: \! - \w\[\e[0m\]\n'
+    GIT_PROMPT_START=$PS1
+    GIT_PROMPT_END=' $ '
+    PS1+='$ '
+    source ~/.bash-git-prompt/gitprompt.sh
 }
 
 prompt_text() {

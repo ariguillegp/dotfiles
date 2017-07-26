@@ -15,7 +15,7 @@ noremap <F2> :tabnew %<CR>
 let g:rehash256 = 1
 
 " set mouse support
-set mouse=a
+set mouse=
 
 colorscheme wombat256
 set number

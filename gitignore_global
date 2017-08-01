@@ -1,6 +1,6 @@
-# Compiled source #
-###################
-*.com
+## # Compiled source #
+## ###################
+#*.com   I'm not sure why but if uncommented git will not add any directory named vendor
 *.class
 *.dll
 *.exe
@@ -11,7 +11,6 @@
 # Editing tools and IDEs #
 ##########################
 *.swp
-*~
 
 # Logs and databases #
 ######################
@@ -53,7 +52,6 @@ _cgo_export.*
 
 _testmain.go
 
-*.exe
 *.test
 *.prof
 

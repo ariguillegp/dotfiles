@@ -37,14 +37,13 @@ else
 fi
 
 # Configure GO development environment
-if [[ ! "$PATH" =~ .*\/go3rd\/.* ]]; then
-	export GOPATH=~/code/go3rd:~/code/go
+if [[ ! "$PATH" =~ .*\/go\/.* ]]; then
+	export GOPATH=~/code/go
 	export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
 fi
 if [ ! -e ~/code ]; then
 	echo \*\*\* Creating /code directory structure
 	mkdir -p ~/code/go/src
-	mkdir -p ~/code/go3rd/bin
 	# install all go additional tools
 	go get golang.org/x/tools/cmd/...
 else

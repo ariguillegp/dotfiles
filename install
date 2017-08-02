@@ -44,7 +44,7 @@ if [[ `uname -r` == *"ARCH" ]]; then
 fi
 
 if [ -d "/usr/local/go" ]; then
-	export GOPATH=~/code/go3rd:~/code/go
+	export GOPATH=~/code/go
 	export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
 fi
 

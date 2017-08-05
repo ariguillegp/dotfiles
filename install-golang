@@ -42,7 +42,7 @@ if [[ ! "$PATH" =~ .*\/go\/.* ]]; then
 	export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
 fi
 if [ ! -e ~/code ]; then
-	echo \*\*\* Creating /code directory structure
+	echo \*\*\* Creating ~/code directory structure
 	mkdir -p ~/code/go/src
 	# install all go additional tools
 	go get golang.org/x/tools/cmd/...

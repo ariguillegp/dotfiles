@@ -66,6 +66,9 @@ autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 " update time for the identifier underneath the cursor
 set updatetime=800
 
+" enable syntax based folding
+set foldmethod=syntax
+
 " jump between errors in quickfix list
 map <C-j> :cnext<CR>
 map <C-h> :cprevious<CR>

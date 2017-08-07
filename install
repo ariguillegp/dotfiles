@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-declare -a exclusion=(install original_backup)
+declare -a exclusion=(install install-golang install-vim original_backup README.md)
 
 #git clone --recursive git://github.com/cello1500/dotfiles.git
 #git submodule update --init --recursive "${DOTBOT_DIR}"
@@ -36,7 +36,6 @@ if [[ `uname -r` == *"ARCH" ]]; then
 	sudo pacman -S --needed --noconfirm git
 	sudo pacman -S --needed --noconfirm python
 	sudo pacman -S --needed --noconfirm lua
-	sudo pacman -S --needed --noconfirm vim
 	sudo pacman -S --needed --noconfirm curl
 	sudo pacman -S --needed --noconfirm tmux
 	sudo pacman -S --needed --noconfirm git
@@ -53,61 +52,4 @@ curl -o ~/.git-prompt.sh  https://raw.githubusercontent.com/git/git/master/contr
 rm -rf ~/.bash-git-prompt 2> /dev/null
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 
-# Install latest VIM Pathogen
-mkdir -p ~/.vim/autoload ~/.vim/bundle
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-# install lastest VIM Syntastic
-rm -rf ~/.vim/bundle/syntastic 2> /dev/null
-git clone https://github.com/scrooloose/syntastic.git ~/.vim/bundle/syntastic
-
-# Install lastest VIM Sensible
-rm -rf  ~/.vim/bundle/vim-sensible 2> /dev/null
-git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
-
-# Install lastest VIM vim-go
-rm -rf  ~/.vim/bundle/vim-go 2> /dev/null
-git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
-vim -c "GoInstallBinaries" -c "qa"
-
-# Install lastest VIM tagbar (package ctags needs to be installed previously)
-rm -rf  ~/.vim/bundle/tagbar 2> /dev/null
-git clone https://github.com/majutsushi/tagbar
-
-# Install lastest VIM NERDTree
-rm -rf  ~/.vim/bundle/nerdtree 2> /dev/null
-git clone https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
-
-# Install lastest VIM lightline
-rm -rf  ~/.vim/bundle/lightline 2> /dev/null
-git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline
-
-# Install lastest VIM neocomplete
-rm -rf  ~/.vim/bundle/neocomplete 2> /dev/null
-git clone https://github.com/Shougo/neocomplete.vim.git ~/.vim/bundle/neocomplete
-
-# Install lastest VIM ultiSnips
-rm -rf  ~/.vim/bundle/ultisnips 2> /dev/null
-git clone https://github.com/SirVer/ultisnips.git ~/.vim/bundle/ultisnips
-
-# Install lastest VIM vim-choosewin
-rm -rf  ~/.vim/bundle/vim-choosewin 2> /dev/null
-git clone https://github.com/t9md/vim-choosewin.git ~/.vim/bundle/vim-choosewin
-
-# Install VIM crlp.vim (used by vim-go)
-rm -rf  ~/.vim/bundle/ctrlp.vim 2> /dev/null
-git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
-
-# Install lastest VIM splitjoin
-rm -rf  ~/.vim/bundle/splitjoin 2> /dev/null
-git clone git://github.com/AndrewRadev/splitjoin.vim.git ~/.vim/bundle/splitjoin
-
-# Install VIM Conque-Term
-vim 'https://conque.googlecode.com/files/conque_2.3.vmb' -c ':so % | q'
-
-# Rebuild the help tag files for the pluggins
-vim -c "Helptags" -c "qa"
-
-# Cleanup
-rm ~/.dotfiles/vim/vim 2> /dev/null
-
+source install-vim

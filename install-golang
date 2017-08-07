@@ -50,3 +50,5 @@ else
 	echo \*\*\* Updating Vendor packages
 	go get -u all
 fi
+
+source install-vim

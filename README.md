@@ -12,3 +12,7 @@ Then run the scripts in the following order:
 
 ./install-golang
 ./install
+./install-root
+
+
+install-root sets root user with the same prompt and vim configuration as the current user

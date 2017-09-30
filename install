@@ -47,6 +47,11 @@ if [ -d "/usr/local/go" ]; then
 	export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
 fi
 
+# create an ssh key in case we don't have it yet
+if [ ! -e "~/.ssh/id_rsa" ]; then
+	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -C "cello1500@gmail.com" -q -f ~/.ssh/id_rsa -N "" > /dev/null
+fi
+
 curl -o ~/.git-completion.bash  https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 curl -o ~/.git-prompt.sh  https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 rm -rf ~/.bash-git-prompt 2> /dev/null

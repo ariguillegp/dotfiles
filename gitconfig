@@ -16,6 +16,7 @@
 	ca = commit --amend -v
 	save = commit -a -m "Save"
 	co = checkout
+	df = difftool
 	di = diff
 	dis = diff --stat
 	diw = diff --color-words
@@ -64,6 +65,7 @@
 [diff]
 	mnemonicPrefix = true
 	wordRegex = "[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+"
+	tool = vimdiff
 
 [color]
 	ui = auto
@@ -103,7 +105,10 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = vim
 
 # Allow local customizations in the .gitconfig_local file
 [include]
 	path = ~/.gitconfig_local
+[difftool]
+	prompt = false

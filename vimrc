@@ -67,7 +67,7 @@ autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 set updatetime=800
 
 " enable syntax based folding
-set foldmethod=syntax
+"set foldmethod=syntax
 
 " jump between errors in quickfix list
 map <C-j> :cnext<CR>

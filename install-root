@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-sudo ln -sfv /home/cello/.dotfiles/bashrc /root/.bashrc
-sudo ln -sfv /home/cello/.git-completion.bash /root/.git-completion.bash
-sudo ln -sfv /home/cello/.bash-git-prompt /root/.bash-git-prompt
-sudo ln -sfv /home/cello/.vim /root/.vim
-sudo ln -sfv /home/cello/.vimrc /root/.vimrc
+sudo ln -sfv /home/aristides/.dotfiles/bashrc /root/.bashrc
+sudo ln -sfv /home/aristides/.git-completion.bash /root/.git-completion.bash
+sudo ln -sfv /home/aristides/.bash-git-prompt /root/.bash-git-prompt
+sudo ln -sfv /home/aristides/.vim /root/.vim
+sudo ln -sfv /home/aristdes/.vimrc /root/.vimrc

@@ -8,5 +8,5 @@ Then run the scripts in the following order:
 ./install
 ./install-root
 
-
+Before running ./install-root, make sure to put the correct username in the script (default is aristides)
 install-root sets root user with the same prompt and vim configuration as the current user

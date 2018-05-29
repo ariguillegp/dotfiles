@@ -17,7 +17,7 @@ let g:rehash256 = 1
 " set mouse support
 set mouse=
 
-colorscheme wombat256
+colorscheme molokai
 set number
 " set cursorline
 highlight cursorline cterm=none

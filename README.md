@@ -13,8 +13,7 @@ If you want to test the environment just follow these instructions:
 * Clone the repository.  
 * Change the name of the dotfiles directory to .dotfiles.  
 * Go into the directory.
-* On the install script change to email to yours.
-* On the install-root script change the home directory to yours.
+* Take a look into the install scripts to chnage any user related information.
 * Run the install scripts.  
 
 ## Prerequisites  
@@ -33,7 +32,7 @@ How to get a development env up and running
 cd
 git clone https://github.com/ariguillegp/dotfiles.git
 mv dotfiles .dotfiles && cd .dotfiles
-** Change the needed script parameters **
+** Change needed script parameters **
 ./install-golang 1.10.2
 ./install
 ./install-root

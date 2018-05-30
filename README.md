@@ -13,7 +13,7 @@ If you want to test the environment just follow these instructions:
 * Clone the repository.  
 * Change the name of the dotfiles directory to .dotfiles.  
 * Go into the directory.
-* Take a look into the install scripts to chnage any user related information.
+* Take a look into the install scripts to change any user related information.
 * Run the install scripts.  
 
 ## Prerequisites  

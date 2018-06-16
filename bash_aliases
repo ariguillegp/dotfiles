@@ -1,4 +1,5 @@
 alias vim='vim -O'
+alias vi='vim'
 alias ll='ls -l'
 alias la='ls -la'
 alias ld='ls -ld'

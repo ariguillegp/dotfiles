@@ -1,1 +1,7 @@
 alias vim='vim -O'
+alias ll='ls -l'
+alias la='ls -la'
+alias ld='ls -ld'
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'

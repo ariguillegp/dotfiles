@@ -39,7 +39,7 @@ fi
 
 # create an ssh key in case we don't have it yet
 if [ ! -e "~/.ssh/id_rsa" ]; then
-	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -C "ariguile.gp@gmail.com" -q -f ~/.ssh/id_rsa -N "" > /dev/null
+	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -C "ariguille.gp@gmail.com" -q -f ~/.ssh/id_rsa -N "" > /dev/null
 fi
 
 curl -o ~/.git-completion.bash  https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash

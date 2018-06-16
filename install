@@ -32,24 +32,14 @@ do
 	ln -fsv $f ~/.$filename
 done
 
-if [[ `uname -r` == *"ARCH" ]]; then
-	sudo pacman -S --needed --noconfirm git
-	sudo pacman -S --needed --noconfirm python
-	sudo pacman -S --needed --noconfirm lua
-	sudo pacman -S --needed --noconfirm curl
-	sudo pacman -S --needed --noconfirm tmux
-	sudo pacman -S --needed --noconfirm git
-	sudo pacman -S --needed --noconfirm bash-completion
-fi
-
 if [ -d "/usr/local/go" ]; then
-	export GOPATH=~/code/go
+	export GOPATH=~/workspace/go
 	export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
 fi
 
 # create an ssh key in case we don't have it yet
 if [ ! -e "~/.ssh/id_rsa" ]; then
-	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -C "cello1500@gmail.com" -q -f ~/.ssh/id_rsa -N "" > /dev/null
+	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -C "ariguile.gp@gmail.com" -q -f ~/.ssh/id_rsa -N "" > /dev/null
 fi
 
 curl -o ~/.git-completion.bash  https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash

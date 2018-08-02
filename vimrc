@@ -25,11 +25,12 @@ let g:rehash256 = 1
 " set mouse support
 set mouse=
 
-colorscheme molokai
+colorscheme wombat256
 set number
 " set cursorline
 highlight cursorline cterm=none
 highlight cursorlinenr ctermfg=yellow
+set background=dark
 
 " change the color for the line numbers
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE

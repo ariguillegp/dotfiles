@@ -14,10 +14,10 @@ set expandtab
 let mapleader=","
 
 " toggle the display of line numbers
-noremap <F3> :set invnumber<CR>
+noremap <F10> :set invnumber<CR>
 
 " zoom out the current windows
-noremap <F2> :tabnew %<CR>
+noremap <F9> :tabnew %<CR>
 
 " try to get terminal colors as close to the gui colors as possible
 let g:rehash256 = 1

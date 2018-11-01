@@ -16,7 +16,7 @@ git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
 
 # Install lastest VIM tagbar (package ctags needs to be installed previously)
 rm -rf  ~/.vim/bundle/tagbar 2> /dev/null
-git clone https://github.com/majutsushi/tagbar
+git clone https://github.com/majutsushi/tagbar ~/.vim/bundle/tagbar
 
 # Install lastest VIM NERDTree
 rm -rf  ~/.vim/bundle/nerdtree 2> /dev/null

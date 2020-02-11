@@ -8,11 +8,10 @@ if [[ $version == "" ]]; then
 fi
 
 echo \*\*\* Downloading golang version $1
-curl https://storage.googleapis.com/golang/go$version.linux-amd64.tar.gz -o /tmp/golang.tar.gz
+curl https://storage.googleapis.com/golang/go$version.darwin-amd64.pkg -o /tmp/golang.pkg
 echo \*\*\* Installing Golang version $1
-sudo rm -R /usr/local/go
-sudo tar -C /usr/local -xzf /tmp/golang.tar.gz
-rm /tmp/golang.tar.gz
+sudo installer -allowUntrusted -pkg "/tmp/golang.pkg" -target /
+rm /tmp/golang.pkg
 
 # Configure GO development environment
 if [[ ! "$PATH" =~ .*\/go\/.* ]]; then

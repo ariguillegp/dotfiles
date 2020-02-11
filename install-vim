@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install -y vim
-
  # Install latest VIM Pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim

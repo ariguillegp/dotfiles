@@ -1,13 +1,73 @@
-" plugins expect bash - not fish, zsh, etc
-set shell=bash
+set nocompatible " not vi compatible
 
-filetype plugin indent on
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
+"---------------------------------------------
+" Syntax and indent
+"---------------------------------------------
+
+syntax on " turn on syntax highlighting
+set showmatch " show matching braces when text indicator is over them
+
+" highlight current line, but only in active window
+augroup CursorLineOnlyInActiveWindow
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    autocmd WinLeave * setlocal nocursorline
+augroup END
+
+colorscheme wombat256 " color schemes
+set background=dark
+
+" set cursorline
+highlight cursorline cterm=none
+highlight cursorlinenr ctermfg=yellow
+
+" change the color for the line numbers
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+" default file encoding
+set encoding=utf-8
+set fileencoding=utf-8
+
+let g:airline_powerline_fonts = 1 " correcting font issues
+filetype plugin indent on " enable file type detection
+
+"---------------------------------------------
+" Basic Editing Configs
+"---------------------------------------------
+
+set shortmess+=I  " disable startup message
+set number " show line numbers
+set rnu " relative line numbering
+set incsearch " incremental search (as string is being typed)
+set hls " highlight search
+
+" backspace compatibility
+" " indent  allow backspacing over autoindent
+" eol     allow backspacing over line breaks (join lines)
+" start   allow backspacing over the start of insert; CTRL-W and CTRL-U
+"        stop once at the start of insert.
+set backspace=indent,eol,start
+
+" show existing tab with 2 spaces width
+set tabstop=2
+set softtabstop=2
+" when indenting with '>', use 2 spaces width
+set shiftwidth=2
+" On pressing tab, insert 2 spaces
 set expandtab
+
+" smart case-sensitive search
+set ignorecase
+set smartcase
+
+" set mouse support
+set mouse+=a
+
+set nofoldenable " disable folding by default
+
+"---------------------------------------------
+" Misc Configs
+"---------------------------------------------
 
 " which key should be the <leader>
 " (\ is the default, but ',' is more common, and easier to reach)
@@ -16,24 +76,14 @@ let mapleader=","
 " toggle the display of line numbers
 noremap <F10> :set invnumber<CR>
 
-" zoom out the current windows
+" open new tabs
 noremap <F9> :tabnew %<CR>
 
-" try to get terminal colors as close to the gui colors as possible
-let g:rehash256 = 1
+" toggle relative numbering
+nnoremap <C-n> :set rnu!<CR>
 
-" set mouse support
-set mouse=
-
-colorscheme wombat256
-set number
-" set cursorline
-highlight cursorline cterm=none
-highlight cursorlinenr ctermfg=yellow
-set background=dark
-
-" change the color for the line numbers
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+" save read-only files
+command -nargs=0 Sudow w !sudo tee % >/dev/null
 
 " pathogen will load the other modules
 execute pathogen#infect()
@@ -50,6 +100,13 @@ autocmd BufWritePre * :%s/\s\+$//e
 " tell vim to allow you to copy between files, remember your cursor
 " position and other little nice things like that
 set viminfo='100,\"2500,:200,%,n~/.viminfo
+
+" disable audible bell
+set noerrorbells visualbell t_vb=
+
+" open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
 
 "---------------------------------------------
 " GO-VIM
@@ -70,13 +127,13 @@ let g:go_snippet_case_type = "camelcase"
 let g:go_decls_includes = "func,type"
 
 "  show a single tab as 4 spaces instead of the default 8
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2
 
 " update time for the identifier underneath the cursor
 set updatetime=800
 
 " enable syntax based folding
-"set foldmethod=syntax
+set foldmethod=syntax
 
 " jump between errors in quickfix list
 map <C-j> :cnext<CR>
@@ -95,6 +152,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+" Automatically get signature/type info for object under cursor
 let g:go_auto_type_info = 1
 
 let g:go_fmt_autosave = 1
@@ -104,10 +162,15 @@ let g:go_fmt_autosave = 1
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
+" :GoDef and GoInfo will use gopls
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 " Open go doc in vertical window, horizontal, or tab
 " au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
 " au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
 " au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
+
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
@@ -145,128 +208,6 @@ autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-
-"---------------------------------------------
-" lightline
-"---------------------------------------------
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste'],
-      \             [ 'fugitive', 'filename', 'modified', 'ctrlpmark' ],
-      \             [ 'go'] ],
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'inactive': {
-      \   'left': [ [ 'go'] ],
-      \ },
-      \ 'component_function': {
-      \   'lineinfo': 'LightLineInfo',
-      \   'percent': 'LightLinePercent',
-      \   'modified': 'LightLineModified',
-      \   'filename': 'LightLineFilename',
-      \   'go': 'LightLineGo',
-      \   'fileformat': 'LightLineFileformat',
-      \   'filetype': 'LightLineFiletype',
-      \   'fileencoding': 'LightLineFileencoding',
-      \   'mode': 'LightLineMode',
-      \   'fugitive': 'LightLineFugitive',
-      \   'ctrlpmark': 'CtrlPMark',
-      \ },
-      \ }
-
-function! LightLineModified()
-  if &filetype == "help"
-    return ""
-  elseif &modified
-    return "+"
-  elseif &modifiable
-    return ""
-  else
-    return ""
-  endif
-endfunction
-
-function! LightLineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! LightLineFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! LightLineFileencoding()
-  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! LightLineInfo()
-  return winwidth(0) > 60 ? printf("%3d:%-2d", line('.'), col('.')) : ''
-endfunction
-
-function! LightLinePercent()
-  return &ft =~? 'vimfiler' ? '' : (100 * line('.') / line('$')) . '%'
-endfunction
-
-function! LightLineFugitive()
-  return exists('*fugitive#head') ? fugitive#head() : ''
-endfunction
-
-function! LightLineGo()
-  " return ''
-  return exists('*go#jobcontrol#Statusline') ? go#jobcontrol#Statusline() : ''
-endfunction
-
-function! LightLineMode()
-  let fname = expand('%:t')
-  return fname == 'ControlP' ? 'CtrlP' :
-        \ &ft == 'vimfiler' ? 'VimFiler' :
-        \ winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-function! LightLineFilename()
-  let fname = expand('%:t')
-  if mode() == 't'
-    return ''
-  endif
-
-  return fname == 'ControlP' ? g:lightline.ctrlp_item :
-        \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-        \ ('' != fname ? fname : '[No Name]')
-endfunction
-
-function! LightLineReadonly()
-  return &ft !~? 'help' && &readonly ? 'RO' : ''
-endfunction
-
-function! CtrlPMark()
-  if expand('%:t') =~ 'ControlP'
-    call lightline#link('iR'[g:lightline.ctrlp_regex])
-    return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
-          \ , g:lightline.ctrlp_next], 0)
-  else
-    return ''
-  endif
-endfunction
-
-let g:ctrlp_status_func = {
-      \ 'main': 'CtrlPStatusFunc_1',
-      \ 'prog': 'CtrlPStatusFunc_2',
-      \ }
-
-function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
-  let g:lightline.ctrlp_regex = a:regex
-  let g:lightline.ctrlp_prev = a:prev
-  let g:lightline.ctrlp_item = a:item
-  let g:lightline.ctrlp_next = a:next
-  return lightline#statusline(0)
-endfunction
-
-function! CtrlPStatusFunc_2(str)
-  return lightline#statusline(0)
-endfunction
 
 "---------------------------------------------
 " NERDTree

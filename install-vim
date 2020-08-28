@@ -16,13 +16,21 @@ git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
 rm -rf  ~/.vim/bundle/tagbar 2> /dev/null
 git clone https://github.com/majutsushi/tagbar ~/.vim/bundle/tagbar
 
+# Install VIM Airline
+rm -rf  ~/.vim/bundle/vim-airline 2> /dev/null
+git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+
+# Install VIM Fugitive
+rm -rf  ~/.vim/bundle/vim-fugitive 2> /dev/null
+git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+
 # Install lastest VIM NERDTree
 rm -rf  ~/.vim/bundle/nerdtree 2> /dev/null
 git clone https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
 
 # Install lastest VIM lightline
-rm -rf  ~/.vim/bundle/lightline 2> /dev/null
-git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline
+#rm -rf  ~/.vim/bundle/lightline 2> /dev/null
+#git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline
 
 # Install lastest VIM neocomplete
 rm -rf  ~/.vim/bundle/neocomplete 2> /dev/null

@@ -7,9 +7,9 @@ if [[ $version == "" ]]; then
 	exit 1
 fi
 
-echo \*\*\* Downloading golang version $1
-curl https://storage.googleapis.com/golang/go$version.darwin-amd64.pkg -o /tmp/golang.pkg
-echo \*\*\* Installing Golang version $1
+echo \*\*\* Downloading golang version "$version"
+curl https://storage.googleapis.com/golang/go"$version".darwin-amd64.pkg -o /tmp/golang.pkg
+echo \*\*\* Installing Golang version "$version"
 sudo installer -allowUntrusted -pkg "/tmp/golang.pkg" -target /
 rm /tmp/golang.pkg
 
@@ -27,5 +27,3 @@ else
 	echo \*\*\* Updating Vendor packages
 	go get -u all
 fi
-
-source install-vim

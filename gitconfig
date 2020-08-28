@@ -1,6 +1,6 @@
 [user]
 	name = Aristides Gonzalez
-	email = ariguille.gp@gmail.com
+	email = apol@conquestcyber.com
 
 [github]
 	user = ariguillegp
@@ -66,6 +66,7 @@
 	mnemonicPrefix = true
 	wordRegex = "[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+"
 	tool = vimdiff
+  compactionHeuristic = true
 
 [color]
 	ui = auto
@@ -102,6 +103,7 @@
 
 [advice]
 	detachedHead = false
+  waitingForEditor = false
 
 [core]
 	excludesfile = ~/.gitignore_global

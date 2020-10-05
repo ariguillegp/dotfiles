@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+## This scripts needs Golang installed beforehand
+
 ## Download source code
 git clone https://github.com/hashicorp/terraform.git
 

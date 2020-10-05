@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+## Download source code
+git clone https://github.com/hashicorp/terraform.git
+
+## Compile source code and put the binary in the PATH
+cd terraform
+go install
+
+## Clean source code
+cd ..
+rm -rf terraform
+
+## Successful exit
+exit 0

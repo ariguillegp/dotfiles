@@ -4,7 +4,7 @@
 git clone https://github.com/hashicorp/terraform.git
 
 ## Compile source code and put the binary in the PATH
-cd terraform
+cd terraform || exit 1
 go install
 
 ## Clean source code

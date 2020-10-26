@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Install docker daemon
+sudo pacman -S docker
+
+# Add current user to docker group so he/she doesn't
+# need to be root to run docker
+sudo usermod -aG docker $USER
+
+## Successful exit
+exit 0

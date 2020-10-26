@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-declare -a exclusion=(i3 install-env install-golang install-root install-vim install-terraform original_backup README.md)
+declare -a exclusion=(i3 install-docker install-env install-golang install-root install-vim install-terraform original_backup README.md)
 
 in_array() {
     local haystack=${1}[@]

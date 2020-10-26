@@ -51,3 +51,6 @@ curl -o ~/.git-completion.bash  https://raw.githubusercontent.com/git/git/master
 # check git repo status in your prompt
 rm -rf ~/.bash-git-prompt 2> /dev/null
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+
+# install shellcheck -- very useful to audit bash scripts
+sudo pacman -S shellcheck

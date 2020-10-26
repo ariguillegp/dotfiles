@@ -1,10 +1,6 @@
 
 # Dotfiles
 
-These files make a nice and useful environment for developing Go applications on a Linux-based machine.  
-Some configurations such as the command prompt and the Golang development environment are noteworthy.  
-
-
 ## Getting Started  
 
 If you want to test the environment just follow these instructions:  
@@ -18,10 +14,12 @@ If you want to test the environment just follow these instructions:
 
 ## Prerequisites  
 
-Before executing any script in this folder you need to (default setting is for Fedora):  
+Before executing any script in this folder you need to (default setting is for Arch Linux):  
+
+> **NOTE:** When installing i3, do not select i3-wm since it has conflicts with i3-gaps, just select every option but i3-wm
 
 ```
-sudo dnf install -y python lua vim curl tmux git bash-completion
+sudo pacman -S python lua vim curl tmux git bash-completion xorg-xinit i3 dmenu terminator scrot imagemagick feh arandr
 
 ```
 ## Installing
@@ -33,7 +31,8 @@ cd
 git clone https://github.com/ariguillegp/dotfiles.git
 mv dotfiles .dotfiles && cd .dotfiles
 ** Change needed script parameters **
-./install-golang 1.10.2
+./install-golang 1.15.3
+./install-terraform
 ./install
 ./install-root
 ```

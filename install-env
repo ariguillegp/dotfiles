@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-declare -a exclusion=(install install-golang install-vim install-terraform original_backup README.md)
+declare -a exclusion=(i3 install-env install-golang install-root install-vim install-terraform original_backup README.md)
 
 in_array() {
     local haystack=${1}[@]
@@ -29,6 +29,12 @@ do
 	ln -fsv $f ~/.$filename
 done
 
+if [[ `uname -r` == *"arch"* ]]; then
+	sudo pacman -S --needed --noconfirm python lua curl tmux git bash-completion xorg-xinit dmenu terminator scrot imagemagick feh arandr
+  sudo pacman -S i3
+  cp -R i3/ ~/.config/i3/
+fi
+
 if [ -d "/usr/local/go" ]; then
 	export GOPATH=~/workspace/go
 	export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
@@ -39,4 +45,9 @@ if [ ! -e "~/.ssh/id_rsa" ]; then
 	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -C "ariguille.gp@gmail.com" -q -f ~/.ssh/id_rsa -N "" > /dev/null
 fi
 
-curl -o ~/.git-prompt.sh  https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+# support for git commands completion on bash
+curl -o ~/.git-completion.bash  https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+
+# check git repo status in your prompt
+rm -rf ~/.bash-git-prompt 2> /dev/null
+git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1

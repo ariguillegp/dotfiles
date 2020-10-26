@@ -1,19 +1,23 @@
 #!/usr/bin/env bash
 
+set -x
+
 version=$1
 
 if [[ $version == "" ]]; then
-	echo Error: please specify the version number \(eq. 1.6.2\)
-	exit 1
+    echo Error: please specify the version number \(e.g. 1.6.2\)
+    exit 1
 fi
 
+# Installing Go
 echo \*\*\* Downloading golang version "$version"
-curl https://storage.googleapis.com/golang/go"$version".darwin-amd64.pkg -o /tmp/golang.pkg
+curl https://storage.googleapis.com/golang/go"$version".linux-amd64.tar.gz -o /tmp/golang.tar.gz
 echo \*\*\* Installing Golang version "$version"
-sudo installer -allowUntrusted -pkg "/tmp/golang.pkg" -target /
-rm /tmp/golang.pkg
+sudo rm -r /usr/local/go
+sudo tar -C /usr/local -xzf /tmp/golang.tar.gz
+rm /tmp/golang.tar.gz
 
-# Configure GO development environment
+# Configure Go development environment
 if [[ ! "$PATH" =~ .*\/go\/.* ]]; then
 	export GOPATH=~/workspace/go
 	export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin

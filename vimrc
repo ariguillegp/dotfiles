@@ -1,3 +1,4 @@
+set shell=bash " plugins expect bash
 set nocompatible " not vi compatible
 
 "---------------------------------------------

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
- # Install latest VIM Pathogen
+# Install VIM first
+sudo pacman -S --needed --noconfirm vim ctags
+
+# Install latest VIM Pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
@@ -27,10 +30,6 @@ git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
 # Install lastest VIM NERDTree
 rm -rf  ~/.vim/bundle/nerdtree 2> /dev/null
 git clone https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
-
-# Install lastest VIM lightline
-#rm -rf  ~/.vim/bundle/lightline 2> /dev/null
-#git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline
 
 # Install lastest VIM neocomplete
 rm -rf  ~/.vim/bundle/neocomplete 2> /dev/null
@@ -61,7 +60,6 @@ if [ -d "/usr/local/go" ]; then
 	git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
 	vim -c "GoInstallBinaries" -c "qa"
 fi
-
 
 # Rebuild the help tag files for the pluggins
 vim -c "Helptags" -c "qa"

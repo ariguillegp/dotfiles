@@ -55,6 +55,9 @@ rm -rf ~/.bash-git-prompt 2> /dev/null
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 
 # Bluetooth management
-# sudo pacman -S bluez-utils
-# auto-start after boot
-# TBD...
+sudo pacman -S bluez bluez-utils pulseaudio-bluetooth
+sudo systemctl enable bluetooth
+
+# If you have a system-wide PulseAudio setup make sure the user running the daemon (usually pulse) is in the lp group and you load the bluetooth modules in your PulseAudio config:
+echo "load-module module-bluetooth-policy" >> /etc/pulse/system.pa
+echo "load-module module-bluetooth-discover" >> /etc/pulse/system.pa

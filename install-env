@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## Do not make soft links out of these file system objects
-declare -a exclusion=(i3 install-docker install-env install-golang install-root install-vim install-terraform original_backup README.md)
+declare -a exclusion=(i3 rofi install-docker install-env install-golang install-root install-vim install-terraform original_backup README.md)
 
 in_array() {
     local haystack=${1}[@]
@@ -41,6 +41,10 @@ sudo pacman -S --needed --noconfirm python lua curl tmux git bash-completion xor
 sudo pacman -S i3 --needed i3
 ## Copy i3 config files
 cp -R i3/ ~/.config/i3/
+
+## Copy rofi themes
+sudo cp rofi/* /usr/share/rofi/themes/
+rofi-theme-selector
 
 ## Install helper for dealing with AUR packages
 git clone https://aur.archlinux.org/yay.git

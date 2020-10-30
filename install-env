@@ -36,7 +36,7 @@ sudo pacman -S --needed --noconfirm python lua curl tmux git bash-completion xor
 				    shellcheck jq ncdu wget bluez bluez-utils pulseaudio-bluetooth htop \
 				    ttf-font-awesome materia-gtk-theme pacman-contrib papirus-icon-theme \
 				    lxappearance ttf-ubuntu-font-family ttf-droid picom pulseaudio-alsa \
-				    pulseaudio-equalizer pulseaudio-jack alsa-utils playerctl thunar
+				    pulseaudio-equalizer pulseaudio-jack alsa-utils playerctl thunar okular
 ## Needs confirmation
 sudo pacman -S i3 --needed i3
 ## Copy i3 config files
@@ -46,15 +46,21 @@ cp -R i3/ ~/.config/i3/
 sudo cp rofi/* /usr/share/rofi/themes/
 rofi-theme-selector
 
-## Use polybar instead of i3status
-sudo yay -S polybar
-cp -r polybar ~/.config/
-
 ## Install helper for dealing with AUR packages
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 rm -r yay
+
+## Use polybar instead of i3status
+yay -S polybar
+cp -r polybar ~/.config/
+
+## Added whatsapp desktop client
+yay -S whatsapp-nativefier
+
+## Added slack desktop client
+yay -S slack-desktop
 
 ## Start bluetooth service
 sudo systemctl enable bluetooth

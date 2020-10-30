@@ -53,11 +53,14 @@ makepkg -si
 rm -r yay
 
 ## Use polybar instead of i3status
-sudo yay -S polybar
+yay -S polybar
 cp -r polybar ~/.config/
 
 ## Added whatsapp desktop client
-sudo yay -S whatsapp-nativefier
+yay -S whatsapp-nativefier
+
+## Added slack desktop client
+yay -S slack-desktop
 
 # Start bluetooth service
 sudo systemctl enable bluetooth

@@ -20,8 +20,8 @@ Before executing any script in this folder you need to (default setting is for A
 
 ```
 sudo pacman -S --needed --noconfirm python lua vim curl git
-
 ```
+
 ## Installing
 
 How to get a development env up and running

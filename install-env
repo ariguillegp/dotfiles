@@ -36,7 +36,8 @@ sudo pacman -S --needed --noconfirm python lua curl tmux git bash-completion xor
 				    shellcheck jq ncdu wget bluez bluez-utils pulseaudio-bluetooth htop \
 				    ttf-font-awesome materia-gtk-theme pacman-contrib papirus-icon-theme \
 				    lxappearance ttf-ubuntu-font-family ttf-droid picom pulseaudio-alsa \
-				    pulseaudio-equalizer pulseaudio-jack alsa-utils playerctl thunar okular
+				    pulseaudio-equalizer pulseaudio-jack alsa-utils playerctl thunar \
+				    okular lsof
 ## Needs confirmation
 sudo pacman -S i3 --needed i3
 ## Copy i3 config files

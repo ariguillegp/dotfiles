@@ -31,7 +31,7 @@ done
 
 if [[ `uname -r` == *"arch"* ]]; then
 	sudo pacman -S --needed --noconfirm python lua curl tmux git bash-completion xorg-xinit \
-	                                    dmenu terminator scrot imagemagick feh arandr \
+	                                    rofi terminator scrot imagemagick feh arandr \
 					    shellcheck jq ncdu wget
         sudo pacman -S i3
         cp -R i3/ ~/.config/i3/
@@ -64,4 +64,4 @@ echo "load-module module-bluetooth-discover" >> /etc/pulse/system.pa
 
 # Get extra icons and themes for environment customization
 sudo pacman -S ttf-font-awesome materia-gtk-theme pacman-contrib papirus-icon-theme lxappearance ttf-ubuntu-fonts-family ttf-droid \
-               rofi picom pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pulseaudio-jack alsa-utils playerctl 
+               picom pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pulseaudio-jack alsa-utils playerctl 

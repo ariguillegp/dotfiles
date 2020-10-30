@@ -19,7 +19,7 @@ Before executing any script in this folder you need to (default setting is for A
 > **NOTE:** When installing i3, do not select i3-wm since it has conflicts with i3-gaps, just select every option but i3-wm
 
 ```
-sudo pacman -S python lua vim curl tmux git bash-completion xorg-xinit i3 dmenu terminator scrot imagemagick feh arandr
+sudo pacman -S --needed --noconfirm python lua vim curl git
 
 ```
 ## Installing
@@ -32,8 +32,11 @@ git clone https://github.com/ariguillegp/dotfiles.git
 mv dotfiles .dotfiles && cd .dotfiles
 ** Change needed script parameters **
 ./install-env
+./install-vim
 ./install-golang 1.15.3
 ./install-terraform
+./install-docker
+./install-kubectl
 ./install-root
 ```
 ## Authors

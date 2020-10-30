@@ -46,15 +46,18 @@ cp -R i3/ ~/.config/i3/
 sudo cp rofi/* /usr/share/rofi/themes/
 rofi-theme-selector
 
-## Use polybar instead of i3status
-sudo yay -S polybar
-cp -r polybar ~/.config/
-
 ## Install helper for dealing with AUR packages
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 rm -r yay
+
+## Use polybar instead of i3status
+sudo yay -S polybar
+cp -r polybar ~/.config/
+
+## Added whatsapp desktop client
+sudo yay -S whatsapp-nativefier
 
 # Start bluetooth service
 sudo systemctl enable bluetooth

@@ -66,7 +66,7 @@
 	mnemonicPrefix = true
 	wordRegex = "[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+"
 	tool = vimdiff
-  compactionHeuristic = true
+        compactionHeuristic = true
 
 [color]
 	ui = auto
@@ -103,7 +103,7 @@
 
 [advice]
 	detachedHead = false
-  waitingForEditor = false
+        waitingForEditor = false
 
 [core]
 	excludesfile = ~/.gitignore_global

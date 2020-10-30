@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+## Download source code
+curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+
+## Assign execution permissions
+chmod +x ./kubectl
+
+## Move binary to the PATH
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+## Checking client vesion installed
+kubectl version --client
+
+## Successful exit
+exit 0

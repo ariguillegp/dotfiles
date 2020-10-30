@@ -6,8 +6,7 @@ prompt_color() {
     GIT_PROMPT_ONLY_IN_REPO=1
     GIT_PROMPT_THEME=Custom
     local code="$?"
-    PS1='\[\e[0;33m\]$(s=$(printf %*s $COLUMNS); echo ${s// /―})\[\e[0m\]\n\[\e[0;33m\][\u@\h]\[\e[0;33m\] \t - History: \! - \w\[\e[0m\]\n'
-    #PS1='\[\e[38;5;235m\]$(s=$(printf %*s $COLUMNS); echo ${s// /―})\[\e[0m\]\n\[\e[38;5;240m\][\u@\h]\[\e[38;5;238m\] \t - History: \! - \w\[\e[0m\]\n'
+    PS1='\[\e[38;5;235m\]$(s=$(printf %*s $COLUMNS); echo ${s// /―})\[\e[0m\]\n\[\e[38;5;240m\][\u@\h]\[\e[38;5;238m\] \t - History: \! - \w\[\e[0m\]\n'
     GIT_PROMPT_START=$PS1
     GIT_PROMPT_END=' $ '
     PS1+='$ '
@@ -113,21 +112,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -151,11 +135,6 @@ fi
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
-# Add GO programming language environment
-export GOPATH=~/workspace/go
-export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
-export CDPATH=.:~/workspace/go
-alias cd='>/dev/null cd'
 source /usr/share/bash-completion/bash_completion
 
 # Disable the console freezing with CTRL-S
@@ -172,7 +151,10 @@ fi
 # start tmux immediatly with terminal
 if command -v tmux >/dev/null 2>&1 && [ "${DISPLAY}" ]; then
     # if not inside a tmux session, and if no session is started, start a new session
-    [ -z "${TMUX}" ] && (tmux attach >/dev/null 2>&1 || tmux new -s arch)
+    [ -z "${TMUX}" ] && (tmux attach >/dev/null 2>&1 || tmux new -s arch${RANDOM})
 fi
+
+export GOPATH=~/workspace/go
+export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
 
 complete -C /home/arod/workspace/go/bin/terraform terraform

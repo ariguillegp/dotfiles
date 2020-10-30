@@ -6,7 +6,7 @@ override_git_prompt_colors() {
         GIT_PROMPT_THEME_NAME="Custom"
 
         GIT_PROMPT_LEADING_SPACE=0
-        MY_COLOR="\e[0;33m"
+        MY_COLOR="\e[38;5;240m"
 
         # These are the color definitions used by gitprompt.sh
         if [ -z ${GIT_PROMPT_PREFIX} ]; then GIT_PROMPT_PREFIX="${MY_COLOR}["; fi                 # start of the git info string

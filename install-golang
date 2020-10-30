@@ -1,30 +1,37 @@
 #!/usr/bin/env bash
 
-set -x
-
+## Go version as an argument
 version=$1
-
 if [[ $version == "" ]]; then
     echo Error: please specify the version number \(e.g. 1.6.2\)
     exit 1
 fi
 
-# Installing Go
+## Remove previous version
+sudo rm -r /usr/local/go
+
+## Installing Go
 echo \*\*\* Downloading golang version "$version"
 curl https://storage.googleapis.com/golang/go"$version".linux-amd64.tar.gz -o /tmp/golang.tar.gz
 echo \*\*\* Installing Golang version "$version"
-sudo rm -r /usr/local/go
 sudo tar -C /usr/local -xzf /tmp/golang.tar.gz
 rm /tmp/golang.tar.gz
 
-# Configure Go development environment
+## Configure Go development environment
+## Set environment variables
 if [[ ! "$PATH" =~ .*\/go\/.* ]]; then
-	export GOPATH=~/workspace/go
-	export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
+  export GOPATH=~/workspace/go
+  export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
+
+  echo 'export GOPATH=~/workspace/go' >> ~/.bashrc
+  echo 'export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin' >> ~/.bashrc
 fi
+
+## Create workspace directory structure
+## and get all the initial tooling
 if [ ! -e ~/workspace ]; then
 	echo \*\*\* Creating ~/workspace directory structure
-	mkdir -p ~/workspace/go/src
+	mkdir -p ~/workspace/go/{src,bin,pkg}
 	# install all go additional tools
 	go get golang.org/x/tools/cmd/...
 else

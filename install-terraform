@@ -16,5 +16,8 @@ rm -rf terraform
 ## Enable terraform auto-completion
 terraform -install-autocomplete
 
+## Validate installation
+terraform version
+
 ## Successful exit
 exit 0

@@ -30,8 +30,8 @@ do
 done
 
 if [[ `uname -r` == *"arch"* ]]; then
-	sudo pacman -S --needed --noconfirm python lua curl tmux git bash-completion xorg-xinit \
-	                                    rofi terminator scrot imagemagick feh arandr \
+	sudo pacman -S --needed --noconfirm python lua curl tmux git bash-completion xorg-server \
+	                                    xorg-xinit rofi terminator scrot imagemagick feh arandr \
 					    shellcheck jq ncdu wget
         sudo pacman -S i3
         cp -R i3/ ~/.config/i3/

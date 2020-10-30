@@ -159,6 +159,9 @@ new_window 1pixel
 # assign programs to workspaces
 for_window [class="Terminator"] move to workspace $ws1
 for_window [class="firefox"] move to workspace $ws2
+for_window [class="Thunar"] move to workspace $ws3
+for_window [class="whatsapp-nativefier-d40211"] move to workspace $ws4
+for_window [class="Slack"] move to workspace $ws5
 
 # floating pop up automatically
 for_window [window_role="pop-up"] floating enable

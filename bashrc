@@ -158,3 +158,4 @@ export GOPATH=~/workspace/go
 export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
 
 complete -C /home/arod/workspace/go/bin/terraform terraform
+source <(kubectl completion bash)

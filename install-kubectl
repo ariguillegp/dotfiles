@@ -12,5 +12,8 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 ## Checking client vesion installed
 kubectl version --client
 
+## Enable kubectl auto-completion
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+
 ## Successful exit
 exit 0

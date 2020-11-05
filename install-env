@@ -63,6 +63,9 @@ yay -S whatsapp-nativefier
 ## Added slack desktop client
 yay -S slack-desktop
 
+## Added rar compression utils
+yay -S rar
+
 ## Start bluetooth service
 sudo systemctl enable bluetooth
 

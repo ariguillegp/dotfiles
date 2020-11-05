@@ -66,6 +66,9 @@ yay -S slack-desktop
 ## Added rar compression utils
 yay -S rar
 
+## Added dos to unix conversion tool
+yay -S dos2unix
+
 ## Start bluetooth service
 sudo systemctl enable bluetooth
 

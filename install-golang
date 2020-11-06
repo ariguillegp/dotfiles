@@ -1,40 +1,33 @@
 #!/usr/bin/env bash
 
-## Go version as an argument
-version=$1
-if [[ $version == "" ]]; then
-    echo Error: please specify the version number \(e.g. 1.6.2\)
-    exit 1
-fi
+## Install gimme
+echo "[1/4] Installing gimme (github.com/travis-ci/gimme)"
+sudo curl -sfL https://raw.githubusercontent.com/travis-ci/gimme/master/gimme -o /usr/bin/gimme
+sudo chmod +x /usr/bin/gimme
+echo "*** gimme is ready"
 
-## Remove previous version
-sudo rm -r /usr/local/go
+## Install direnv
+echo "[2/4] Installing direnv (github.com/direnv/direnv)"
+download_url=$(curl -sfL https://api.github.com/repos/direnv/direnv/releases/latest \
+     | grep browser_download_url \
+     | cut -d '"' -f 4 \
+     | grep linux-amd64 )
+sudo curl -sfL "$download_url" -o /usr/bin/direnv
+sudo chmod +x /usr/bin/direnv
+echo "*** Adding direnv hook into shell"
+echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
+echo "*** direnv is ready"
 
-## Installing Go
-echo \*\*\* Downloading golang version "$version"
-curl https://storage.googleapis.com/golang/go"$version".linux-amd64.tar.gz -o /tmp/golang.tar.gz
-echo \*\*\* Installing Golang version "$version"
-sudo tar -C /usr/local -xzf /tmp/golang.tar.gz
-rm /tmp/golang.tar.gz
+## Create workspace/go if it doesn't exist
+echo "[3/4] Installing Go stable version"
+mkdir -p "${HOME}"/workspace/go
+gimme stable >> "${HOME}"/.bashrc
+echo "export GOPATH=${HOME}/workspace/go" >> "${HOME}"/.bashrc
+echo 'export PATH=${GOPATH}/bin:${PATH}'  >> "${HOME}"/.bashrc
 
-## Configure Go development environment
-## Set environment variables
-if [[ ! "$PATH" =~ .*\/go\/.* ]]; then
-  export GOPATH=~/workspace/go
-  export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
+## Reload shell environment
+echo "[4/4] Reloading shell environment"
+exec "$BASH"
 
-  echo 'export GOPATH=~/workspace/go' >> ~/.bashrc
-  echo 'export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin' >> ~/.bashrc
-fi
-
-## Create workspace directory structure
-## and get all the initial tooling
-if [ ! -e ~/workspace ]; then
-	echo \*\*\* Creating ~/workspace directory structure
-	mkdir -p ~/workspace/go/{src,bin,pkg}
-	# install all go additional tools
-	go get golang.org/x/tools/cmd/...
-else
-	echo \*\*\* Updating Vendor packages
-	go get -u all
-fi
+## Successful exit code
+exit 0

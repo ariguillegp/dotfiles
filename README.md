@@ -31,12 +31,14 @@ cd
 git clone https://github.com/ariguillegp/dotfiles.git
 mv dotfiles .dotfiles && cd .dotfiles
 ** Change needed script parameters **
-./install-env
+./install-base
 ./install-vim
-./install-golang 1.15.3
+./install-golang
+./install-bpf-tools
 ./install-terraform
 ./install-docker
 ./install-kubectl
+./install-kind
 ./install-root
 ```
 ## Authors

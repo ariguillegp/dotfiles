@@ -117,3 +117,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+## Direnv configs are personal
+.direnv
+.envrc

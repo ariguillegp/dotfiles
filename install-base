@@ -72,6 +72,9 @@ yay -S dos2unix
 ## Added discord client
 sudo pacman -S discord
 
+## Added powerline-go
+yay -S powerline-go
+
 ## Start bluetooth service
 sudo systemctl enable bluetooth
 

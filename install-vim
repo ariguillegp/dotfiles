@@ -1,68 +1,7 @@
 #!/usr/bin/env bash
 
-# Install VIM first
-sudo pacman -S --needed --noconfirm vim ctags
-
-# Install latest VIM Pathogen
-mkdir -p ~/.vim/autoload ~/.vim/bundle
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-# install lastest VIM Syntastic
-rm -rf ~/.vim/bundle/syntastic 2> /dev/null
-git clone https://github.com/scrooloose/syntastic.git ~/.vim/bundle/syntastic
-
-# Install lastest VIM Sensible
-rm -rf  ~/.vim/bundle/vim-sensible 2> /dev/null
-git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
-
-# Install lastest VIM tagbar (package ctags needs to be installed previously)
-rm -rf  ~/.vim/bundle/tagbar 2> /dev/null
-git clone https://github.com/majutsushi/tagbar ~/.vim/bundle/tagbar
-
-# Install VIM Airline
-rm -rf  ~/.vim/bundle/vim-airline 2> /dev/null
-git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
-
-# Install VIM Fugitive
-rm -rf  ~/.vim/bundle/vim-fugitive 2> /dev/null
-git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
-
-# Install lastest VIM NERDTree
-rm -rf  ~/.vim/bundle/nerdtree 2> /dev/null
-git clone https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
-
-# Install lastest VIM neocomplete
-rm -rf  ~/.vim/bundle/neocomplete 2> /dev/null
-git clone https://github.com/Shougo/neocomplete.vim.git ~/.vim/bundle/neocomplete
-
-# Install lastest VIM ultiSnips
-rm -rf  ~/.vim/bundle/ultisnips 2> /dev/null
-git clone https://github.com/SirVer/ultisnips.git ~/.vim/bundle/ultisnips
-
-# Install lastest VIM vim-choosewin
-rm -rf  ~/.vim/bundle/vim-choosewin 2> /dev/null
-git clone https://github.com/t9md/vim-choosewin.git ~/.vim/bundle/vim-choosewin
-
-# Install VIM crlp.vim (used by vim-go)
-rm -rf  ~/.vim/bundle/ctrlp.vim 2> /dev/null
-git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
-
-# Install lastest VIM splitjoin
-rm -rf  ~/.vim/bundle/splitjoin 2> /dev/null
-git clone git://github.com/AndrewRadev/splitjoin.vim.git ~/.vim/bundle/splitjoin
+# Install VIM and needed utils
+sudo pacman -S --needed --noconfirm vim python-pip ctags
 
 # Install VIM Conque-Term
 vim 'https://conque.googlecode.com/files/conque_2.3.vmb' -c ':so % | q'
-
-# Install lastest VIM vim-go
-if [ -d "/usr/local/go" ]; then
-	rm -rf  ~/.vim/bundle/vim-go 2> /dev/null
-	git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
-	vim -c "GoInstallBinaries" -c "qa"
-fi
-
-# Rebuild the help tag files for the pluggins
-vim -c "Helptags" -c "qa"
-
-# Cleanup
-rm ~/.dotfiles/vim/vim 2> /dev/null

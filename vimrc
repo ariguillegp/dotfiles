@@ -2,6 +2,51 @@ set shell=bash " plugins expect bash
 set nocompatible " not vi compatible
 
 "---------------------------------------------
+" VIM plugins management
+"---------------------------------------------
+
+" Install vim-plug before doing anything
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Start plugins installation process
+call plug#begin('~/.vim/plugged')
+Plug 'fatih/vim-go', { 'tag': 'v1.24', 'do': ':GoUpdateBinaries'}
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-sensible'
+Plug 'majutsushi/tagbar'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'sirver/ultisnips'
+Plug 't9md/vim-choosewin'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'andrewradev/splitjoin.vim'
+Plug 'bling/vim-bufferline'
+Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/'}
+" Install deoplete
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+call plug#end()
+
+" Start deoplete
+let g:deoplete#enable_at_startup = 1
+
+" Run PlugInstall if there are missing plugins
+if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+"---------------------------------------------
 " Syntax and indent
 "---------------------------------------------
 
@@ -87,7 +132,7 @@ nnoremap <C-n> :set rnu!<CR>
 command -nargs=0 Sudow w !sudo tee % >/dev/null
 
 " pathogen will load the other modules
-execute pathogen#infect()
+" execute pathogen#infect()
 
 " we want to tell the syntastic module when to run
 " we want to see code highlighting and checks when  we open a file
@@ -153,6 +198,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
 " Automatically get signature/type info for object under cursor
 let g:go_auto_type_info = 1
 
@@ -166,11 +212,6 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 " :GoDef and GoInfo will use gopls
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
-
-" Open go doc in vertical window, horizontal, or tab
-" au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
-" au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
-" au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
@@ -224,32 +265,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " quit vim if the only buffer left is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-"---------------------------------------------
-" neocomplete
-"---------------------------------------------
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-if !exists('g:neocomplete#sources')
-	let g:neocomplete#sources = {}
-endif
-let g:neocomplete#sources._ = ['buffer', 'member', 'tag', 'file', 'dictionary']
-let g:neocomplete#sources.go = ['omni']
-
-" disable sorting
-call neocomplete#custom#source('_', 'sorters', [])
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 "---------------------------------------------
 " UltiSnips

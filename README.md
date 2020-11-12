@@ -37,8 +37,7 @@ mv dotfiles .dotfiles && cd .dotfiles
 ./install-bpf-tools
 ./install-terraform
 ./install-docker
-./install-kubectl
-./install-kind
+./install-k8s-tools
 ./install-root
 ```
 ## Authors

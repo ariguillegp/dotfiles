@@ -22,6 +22,7 @@ echo "*** direnv is ready"
 echo "[3/4] Installing Go stable version"
 mkdir -p "${HOME}"/workspace/go
 gimme stable >> "${HOME}"/.bashrc
+sed -i '/go\ version/d' "${HOME}"/.bashrc
 echo "export GOPATH=${HOME}/workspace/go" >> "${HOME}"/.bashrc
 echo 'export PATH=${GOPATH}/bin:${PATH}'  >> "${HOME}"/.bashrc
 

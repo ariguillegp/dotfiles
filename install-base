@@ -37,7 +37,7 @@ sudo pacman -S --needed --noconfirm python lua curl tmux git bash-completion xor
 				                            ttf-font-awesome materia-gtk-theme pacman-contrib papirus-icon-theme \
 				                            lxappearance ttf-ubuntu-font-family ttf-droid picom pulseaudio-alsa \
 				                            pulseaudio-equalizer pulseaudio-jack alsa-utils playerctl thunar \
-				                            okular lsof
+				                            okular lsof powerline powerline-fonts
 
 ## Needs confirmation
 sudo pacman -S i3 --needed i3
@@ -72,9 +72,6 @@ yay -S dos2unix
 
 ## Added discord client
 sudo pacman -S --needed discord
-
-## Added powerline-go
-yay -S powerline-go
 
 ## Start bluetooth service
 sudo systemctl enable bluetooth

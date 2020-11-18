@@ -26,8 +26,6 @@ Plug 'sirver/ultisnips'
 Plug 't9md/vim-choosewin'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'andrewradev/splitjoin.vim'
-Plug 'bling/vim-bufferline'
-Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/'}
 " Install deoplete
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

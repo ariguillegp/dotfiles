@@ -42,7 +42,8 @@ sudo pacman -S --needed --noconfirm python lua curl tmux git bash-completion xor
 ## Needs confirmation
 sudo pacman -S i3 --needed i3
 ## Copy i3 config files
-cp -R i3/ ~/.config/i3/
+mv ~/.config/i3 ~/.dotfiles/original_backup/i3
+ln -s ~/.dotfiles/i3 ~/.config/i3
 
 ## Copy rofi themes
 sudo cp rofi/* /usr/share/rofi/themes/
@@ -56,7 +57,8 @@ rm -r yay
 
 ## Use polybar instead of i3status
 yay -S polybar
-cp -r polybar ~/.config/
+mv ~/.config/polybar ~/.dotfiles/original_backup/polybar
+ln -s ~/.dotfiles/polybar ~/.config/polybar
 
 ## Installing powerline
 yay -S powerline-go-git awesome-terminal-fonts

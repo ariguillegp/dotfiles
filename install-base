@@ -39,6 +39,9 @@ sudo pacman -S --needed --noconfirm python lua curl tmux git bash-completion xor
 				                            pulseaudio-equalizer pulseaudio-jack alsa-utils playerctl thunar \
 				                            okular lsof
 
+## Needed for vim8+ and deoplete
+pip3 install pynvim
+
 ## Needs confirmation
 sudo pacman -S i3 --needed i3
 ## Copy i3 config files

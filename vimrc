@@ -29,6 +29,7 @@ Plug 'andrewradev/splitjoin.vim'
 Plug 'andrewstuart/vim-kubernetes'
 Plug 'Yggdroot/indentLine'
 Plug 'pedrohdz/vim-yaml-folds'
+Plug 'dense-analysis/ale'
 " Install deoplete
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

@@ -27,6 +27,7 @@ Plug 't9md/vim-choosewin'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'andrewstuart/vim-kubernetes'
+Plug 'Yggdroot/indentLine'
 " Install deoplete
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

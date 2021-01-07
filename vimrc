@@ -359,6 +359,14 @@ au VimEnter * nested :call LoadSession()
 au VimLeave * :call UpdateSession()
 map <leader>y :call MakeSession()<CR>
 
+" JSON formatting
+function! JSONFormat()
+  :%!python3 -m json.tool
+endfunction
+
+au FileType json nmap <Leader>j :call JSONFormat()<cr>
+command! -range JSONFormat <line1>,<line2>!python -m json.tool
+
 "---------------------------------------------
 " End config
 "

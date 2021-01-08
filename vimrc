@@ -365,7 +365,7 @@ function! JSONFormat()
 endfunction
 
 au FileType json nmap <Leader>j :call JSONFormat()<cr>
-command! -range JSONFormat <line1>,<line2>!python -m json.tool
+command! -range JSONFormat <line1>,<line2>call JSONFormat()
 
 "---------------------------------------------
 " End config

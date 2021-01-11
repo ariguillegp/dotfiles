@@ -18,8 +18,5 @@ fi
 alias vi='vim'
 alias vim='vim -O'
 
-# kubectl helpers (needs kubectl installed)
-alias k=`which kubectl`
-
 # tmux
 alias tmux='direnv exec / tmux'

@@ -109,6 +109,3 @@ if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
 fi
 
 neofetch
-
-complete -C /home/arod/workspace/go/bin/terraform terraform
-source <(kubectl completion bash)

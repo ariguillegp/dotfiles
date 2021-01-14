@@ -48,14 +48,6 @@ fi
 
 ### Required for powerline-go
 export TERM=xterm-256color
-#
-function _update_ps1() {
-    PS1="$($GOPATH/bin/powerline-go -error $?)"
-}
-
-if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -87,10 +79,10 @@ stty -ixon
 
 source ~/.git-completion.bash
 
-# start xserver immediately after login
-if [[ -z ${DISPLAY} && "${XDG_VTNR}" -eq 1 ]]; then
-  exec startx
-fi
+## start xserver immediately after login
+#if [[ -z ${DISPLAY} && "${XDG_VTNR}" -eq 1 ]]; then
+#  exec startx
+#fi
 
 # start tmux immediatly with terminal
 if command -v tmux >/dev/null 2>&1 && [ "${DISPLAY}" ]; then
@@ -100,6 +92,23 @@ fi
 
 export GOPATH=~/workspace/go
 export PATH=$PATH:/usr/local/go/bin:${GOPATH//://bin:}/bin
+
+function _update_ps1() {
+    PS1="$($GOPATH/bin/powerline-go -error $? -jobs $(jobs -p | wc -l))"
+
+    # Uncomment the following line to automatically clear errors after showing
+    # them once. This not only clears the error for powerline-go, but also for
+    # everything else you run in that shell. Don't enable this if you're not
+    # sure this is what you want.
+
+    #set "?"
+}
+
+if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
+neofetch
 
 complete -C /home/arod/workspace/go/bin/terraform terraform
 source <(kubectl completion bash)

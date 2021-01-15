@@ -34,6 +34,7 @@ done
 sudo pacman -S --needed --noconfirm python lua curl tmux git bash-completion shellcheck jq ncdu wget htop lsof \
                                     bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa \
 				                            pulseaudio-equalizer pulseaudio-jack alsa-utils playerctl vlc \
+                                    p7zip unrar tar rsync
 
 ## Audio codecs
 sudo pacman -S --needed --noconfirm a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore
@@ -54,9 +55,6 @@ go get -u github.com/justjanne/powerline-go
 
 ## Added slack desktop client
 yay -S slack-desktop
-
-## Added rar compression utils
-yay -S rar
 
 ## Added dos to unix conversion tool
 yay -S dos2unix

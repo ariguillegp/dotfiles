@@ -33,15 +33,15 @@ done
 ## Install packages for setting personalized environment
 sudo pacman -S --needed --noconfirm python lua curl tmux git bash-completion shellcheck jq ncdu wget htop lsof \
                                     bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa \
-				                            pulseaudio-equalizer pulseaudio-jack alsa-utils playerctl
+				                            pulseaudio-equalizer pulseaudio-jack alsa-utils playerctl vlc \
+
+## Audio codecs
+sudo pacman -S --needed --noconfirm a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore
 
 ## Fix audio issues
 sudo pacman -S --needed --noconfirm sof-firmware
 echo "load-module module-alsa-sink device=hw:0,0 channels=4" >> /etc/pulse/default.pa
 echo "load-module module-alsa-source device=hw:0,6 channels=4" >> /etc/pulse/default.pa
-
-## Needed for vim8+ and deoplete
-pip3 install pynvim
 
 ## Install helper for dealing with AUR packages
 git clone https://aur.archlinux.org/yay.git

@@ -3,6 +3,9 @@
 # Install VIM and needed utils
 sudo pacman -S --needed --noconfirm vim python-pip ctags yamllint
 
+## Needed for vim8+ and deoplete
+pip3 install pynvim
+
 ## Copy yamllint config files
 mv ~/.config/yamllint ~/.dotfiles/original_backup/yamllint
 ln -s ~/.dotfiles/yamllint ~/.config/yamllint

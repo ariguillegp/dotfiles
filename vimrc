@@ -30,6 +30,7 @@ Plug 'andrewstuart/vim-kubernetes'
 Plug 'Yggdroot/indentLine'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'dense-analysis/ale'
+Plug 'tsandall/vim-rego'
 " Install deoplete
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -314,6 +315,14 @@ au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " 
 " invoke with '-'
 nmap  -  <Plug>(choosewin)
 
+"---------------------------------------------
+" vim-rego
+"---------------------------------------------
+let g:formatdef_rego = '"opa fmt"'
+let g:formatters_rego = ['rego']
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+au BufWritePre *.rego Autoformat
 
 "---------------------------------------------
 " save and reload a session

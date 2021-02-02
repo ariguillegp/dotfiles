@@ -2,4 +2,4 @@
 
 sudo ln -sfv /home/aristides/.dotfiles/bashrc /root/.bashrc
 sudo ln -sfv /home/aristides/.vim /root/.vim
-sudo ln -sfv /home/aristdes/.vimrc /root/.vimrc
+sudo ln -sfv /home/aristides/.vimrc /root/.vimrc

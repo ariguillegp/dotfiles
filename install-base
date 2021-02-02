@@ -33,8 +33,8 @@ done
 ## Install packages for setting personalized environment
 sudo pacman -S --needed --noconfirm python lua curl tmux git bash-completion shellcheck jq ncdu wget htop lsof \
                                     bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa \
-				                            pulseaudio-equalizer pulseaudio-jack alsa-utils playerctl vlc \
-                                    p7zip unrar tar rsync
+                        				    pulseaudio-equalizer pulseaudio-jack alsa-utils playerctl vlc \
+                                    unzip p7zip unrar tar rsync
 
 ## Audio codecs
 sudo pacman -S --needed --noconfirm a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore
@@ -50,9 +50,6 @@ cd yay
 makepkg -si
 cd .. && rm -rf yay
 
-## Installing powerline
-go get -u github.com/justjanne/powerline-go
-
 ## Added slack desktop client
 yay -S slack-desktop
 
@@ -63,6 +60,3 @@ yay -S dos2unix
 if [ ! -e "~/.ssh/id_rsa" ]; then
 	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -C "ariguille.gp@gmail.com" -q -f ~/.ssh/id_rsa -N "" > /dev/null
 fi
-
-# support for git commands completion on bash
-curl -o ~/.git-completion.bash  https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash

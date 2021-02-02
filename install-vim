@@ -7,8 +7,8 @@ sudo pacman -S --needed --noconfirm vim python-pip ctags yamllint
 pip3 install pynvim
 
 ## Copy yamllint config files
-mv ~/.config/yamllint ~/.dotfiles/original_backup/yamllint
+if [ -f "$HOME/.config/yamllint" ]; then
+  mv ~/.config/yamllint ~/.dotfiles/original_backup/yamllint
+fi
 ln -s ~/.dotfiles/yamllint ~/.config/yamllint
-
-# Install VIM Conque-Term
-vim 'https://conque.googlecode.com/files/conque_2.3.vmb' -c ':so % | q'
+exit 0

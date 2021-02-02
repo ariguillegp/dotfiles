@@ -14,7 +14,7 @@ function install_kubectl {
   ## Checking client vesion installed
   kubectl version --client
 
-  ## Enable kubectl auto-completion
+  ## Enable kubectl auto-completion -- I have a plugin for oh-my-zsh already
   echo 'source <(kubectl completion bash)' >> ~/.bashrc
 }
 

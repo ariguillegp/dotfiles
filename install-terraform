@@ -1,17 +1,13 @@
 #!/usr/bin/env bash
 
-## This scripts needs Golang installed beforehand
+## Download latest stable release
+export TER_VER="0.14.5"
+wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip
+unzip terraform_${TER_VER}_linux_amd64.zip
+rm terraform_${TER_VER}_linux_amd64.zip
 
-## Download source code
-git clone https://github.com/hashicorp/terraform.git
-
-## Compile source code and put the binary in the PATH
-cd terraform || exit 1
-go install
-
-## Clean source code
-cd ..
-rm -rf terraform
+## Copy binary to PATH
+sudo mv terraform /usr/local/bin/
 
 ## Enable terraform auto-completion
 terraform -install-autocomplete

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Install docker daemon
-sudo pacman -S docker
+sudo pacman -S --noconfirm docker
 
 # Add current user to docker group so he/she doesn't
 # need to be root to run docker

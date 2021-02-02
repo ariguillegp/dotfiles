@@ -1,4 +1,4 @@
-set shell=bash " plugins expect bash
+set shell=zsh " plugins expect zsh
 set nocompatible " not vi compatible
 
 "---------------------------------------------

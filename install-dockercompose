@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+## Download binary
+sudo curl -L "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+## Allow execution
+sudo chmod +x /usr/local/bin/docker-compose
+
+## Successful exit
+exit 0

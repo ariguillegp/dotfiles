@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## Do not make soft links out of these file system objects
-declare -a exclusion=(install-base install-bpf-tools install-docker install-golang install-k8s-tools install-terraform install-vim install-root original_backup README.md)
+declare -a exclusion=(install-base install-bpf-tools install-docker install-golang install-k8s-tools install-terraform install-vim install-root install-docker install-dockercompose install-gcloud original_backup README.md)
 
 in_array() {
     local haystack=${1}[@]

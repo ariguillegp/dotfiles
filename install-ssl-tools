@@ -14,5 +14,9 @@ chmod +x cfssl cfssljson cfssl-certinfo
 ## Add tools to the PATH
 sudo mv cfssl cfssljson cfssl-certinfo /usr/local/bin
 
+## Verifications
+cfssl version
+cfssljson --version
+
 ## Successful exit
 exit 0

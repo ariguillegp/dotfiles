@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 ## Do not make soft links out of these file system objects
-declare -a exclusion=(install-base install-bpf-tools install-docker install-dockercompose install-golang install-gcloud install-k8s-tools install-terraform install-vim install-root install-ssl-tools original_backup README.md)
+declare -a exclusion=(install-base install-bpf-tools install-docker install-dockercompose install-golang \
+                      install-gcloud install-k8s-tools install-terraform install-vim install-root \
+                      install-ssl-tools original_backup README.md)
 
 in_array() {
   local haystack=${1}[@]
@@ -31,13 +33,13 @@ for f in ~/.dotfiles/*; do
 done
 
 ## Install packages for setting personalized environment
-sudo pacman -S --needed --noconfirm python lua curl tmux git bash-completion shellcheck jq ncdu wget htop lsof \
-                                    bluez bluez-utils pulseaudio-bluetooth pulseaudio-alsa rofi scrot imagemagick \
-                        				    pulseaudio-equalizer pulseaudio-jack alsa-utils playerctl vlc feh arandr picom \
-                                    unzip p7zip unrar tar rsync pacman-contrib pulseaudio-equalizer pulseaudio-jack
+sudo pacman -S --needed --noconfirm curl tmux zsh bash-completion zsh shellcheck jq ncdu wget htop lsof \
+                                    rofi scrot imagemagick alsa-utils playerctl feh arandr picom \
+                                    unzip p7zip unrar tar rsync pacman-contrib curl firefox
 
-## Audio codecs
-sudo pacman -S --needed --noconfirm a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore
+## Audio codecs and tools
+sudo pacman -S --needed --noconfirm a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora \
+                                    libvorbis libxv wavpack x264 xvidcore vlc
 
 ## Fix audio issues
 sudo pacman -S --needed --noconfirm sof-firmware
@@ -48,7 +50,6 @@ echo "load-module module-alsa-source device=hw:0,6 channels=4" >> /etc/pulse/def
 ## is in the lp group and you load the bluetooth modules in your PulseAudio config:
 echo "load-module module-bluetooth-policy" >> /etc/pulse/system.pa
 echo "load-module module-bluetooth-discover" >> /etc/pulse/system.pa
-
 
 ## Install helper for dealing with AUR packages
 git clone https://aur.archlinux.org/yay.git

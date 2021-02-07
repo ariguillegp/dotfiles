@@ -1,33 +1,33 @@
 #!/usr/bin/env bash
 
 ## Do not make soft links out of these file system objects
-declare -a exclusion=(install-base install-bpf-tools install-docker install-golang install-k8s-tools install-terraform install-vim install-root install-docker install-dockercompose install-gcloud original_backup README.md)
+declare -a exclusion=(install-base install-bpf-tools install-docker install-dockercompose install-golang install-gcloud install-k8s-tools install-terraform install-vim install-root install-ssl-tools original_backup README.md)
 
 in_array() {
-    local haystack=${1}[@]
-    local needle=${2}
-    for i in ${!haystack}; do
-        if [[ ${i} == ${needle} ]]; then
-            return 0
-        fi
-    done
-    return 1
+  local haystack=${1}[@]
+  local needle=${2}
+  for i in ${!haystack}; do
+    if [[ ${i} == ${needle} ]]; then
+      return 0
+    fi
+  done
+  return 1
 }
 
 shopt -s nullglob
 
-for f in ~/.dotfiles/*
-do
+for f in ~/.dotfiles/*; do
 	filename=${f##*/}
-	if in_array exclusion $filename; then
+	if in_array exclusion "$filename"; then
 		continue
 	fi
-	if [ -e ~/.$filename ] && [ ! -L ~/.$filename ]; then
+
+	if [ -e ~/."$filename" ] && [ ! -L ~/."$filename" ]; then
 		mkdir -p ~/.dotfiles/original_backup
-		mv ~/.$filename ~/.dotfiles/original_backup/
+		mv ~/."$filename" ~/.dotfiles/original_backup/
 	fi
 
-	ln -fsv $f ~/.$filename
+	ln -fsv "$f" ~/."$filename"
 done
 
 ## Install packages for setting personalized environment
@@ -52,7 +52,7 @@ echo "load-module module-bluetooth-discover" >> /etc/pulse/system.pa
 
 ## Install helper for dealing with AUR packages
 git clone https://aur.archlinux.org/yay.git
-cd yay
+cd yay || exit 1
 makepkg -si
 cd .. && rm -rf yay
 
@@ -63,6 +63,6 @@ yay -S slack-desktop
 yay -S dos2unix
 
 # create an ssh key in case we don't have it yet
-if [ ! -e "~/.ssh/id_rsa" ]; then
+if [ ! -e "$HOME/.ssh/id_rsa" ]; then
 	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -C "ariguille.gp@gmail.com" -q -f ~/.ssh/id_rsa -N "" > /dev/null
 fi

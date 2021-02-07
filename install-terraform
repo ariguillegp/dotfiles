@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-## Download latest stable release
-export TER_VER="0.14.5"
-wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip
-unzip terraform_${TER_VER}_linux_amd64.zip
-rm terraform_${TER_VER}_linux_amd64.zip
+## Version to be used
+VER="0.14.6"
+
+## Get terraform bundle
+wget https://releases.hashicorp.com/terraform/"$VER"/terraform_"$VER"_linux_amd64.zip
+unzip terraform_"$VER"_linux_amd64.zip
+rm terraform_"$VER"_linux_amd64.zip
 
 ## Copy binary to PATH
 sudo mv terraform /usr/local/bin/

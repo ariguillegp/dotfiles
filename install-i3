@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+## install i3 wm and some other related tools
+sudo pacman -S i3 i3-gaps i3status i3lock dmenu xorg nitrogen picom lxappearance pcmanfm xfce4-terminal
+
+## install fonts and themes
+sudo pacman -S ttf-dejavu ttf-liberation noto-fonts lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings \
+               materia-gtk-theme papirus-icon-theme
+
+## Copy i3 config files
+mv ~/.config/i3 ~/.dotfiles/original_backup/i3
+ln -s ~/.dotfiles/i3 ~/.config/i3
+

@@ -34,7 +34,7 @@ done
 
 ## Install packages for setting personalized environment
 sudo pacman -S --needed --noconfirm curl tmux zsh bash-completion zsh shellcheck jq ncdu wget htop lsof \
-                                    rofi scrot imagemagick alsa-utils playerctl feh arandr picom \
+                                    rofi scrot imagemagick alsa-utils playerctl feh arandr \
                                     unzip p7zip unrar tar rsync pacman-contrib curl firefox
 
 ## Audio codecs and tools

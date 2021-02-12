@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 ## Do not make soft links out of these file system objects
-declare -a exclusion=(install-base install-bpf-tools install-docker install-dockercompose install-golang \
-                      install-gcloud install-k8s-tools install-terraform install-vim install-root \
-                      install-ssl-tools original_backup README.md)
+declare -a exclusion=(install-base install-bpf-tools install-docker install-dockercompose \
+                      install-gcloud install-golang install-k8s-tools install-terraform \
+                      install-vim install-root install-ssl-tools original_backup README.md)
 
 in_array() {
   local haystack=${1}[@]
@@ -33,13 +33,13 @@ for f in ~/.dotfiles/*; do
 done
 
 ## Install packages for setting personalized environment
-sudo pacman -S --needed --noconfirm curl tmux zsh bash-completion zsh shellcheck jq ncdu wget htop lsof \
-                                    rofi scrot imagemagick alsa-utils playerctl feh arandr \
-                                    unzip p7zip unrar tar rsync pacman-contrib curl firefox
+sudo pacman -S --needed --noconfirm arandr alsa-utils bash-completion curl feh firefox htop \
+                                    imagemagick jq lsof ncdu pacman-contrib playerctl p7zip \
+                                    rofi rsync shellcheck scrot tar tmux unzip unrar wget zsh
 
 ## Audio codecs and tools
-sudo pacman -S --needed --noconfirm a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora \
-                                    libvorbis libxv wavpack x264 xvidcore vlc
+sudo pacman -S --needed --noconfirm a52dec faac faad2 flac jasper lame libdca libdv libmad \
+                                    libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore vlc
 
 ## Fix audio issues
 sudo pacman -S --needed --noconfirm sof-firmware

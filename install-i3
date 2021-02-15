@@ -10,4 +10,3 @@ sudo pacman -S ttf-dejavu ttf-liberation noto-fonts lightdm lightdm-gtk-greeter 
 ## Copy i3 config files
 mv ~/.config/i3 ~/.dotfiles/original_backup/i3
 ln -s ~/.dotfiles/i3 ~/.config/i3
-

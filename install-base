@@ -33,9 +33,9 @@ for f in ~/.dotfiles/*; do
 done
 
 ## Install packages for setting personalized environment
-sudo pacman -S --needed --noconfirm arandr alsa-utils bash-completion curl feh firefox htop \
-                                    imagemagick jq lsof ncdu pacman-contrib playerctl p7zip \
-                                    rofi rsync shellcheck scrot tar thunar tmux unzip unrar \
+sudo pacman -S --needed --noconfirm alsa-utils bash-completion curl firefox htop \
+                                    jq lsof ncdu pacman-contrib playerctl p7zip \
+                                    rofi rsync shellcheck scrot tar tmux unzip unrar \
                                     wget zsh
 
 ## Audio codecs and tools

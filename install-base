@@ -34,9 +34,10 @@ done
 
 ## Install packages for setting personalized environment
 sudo pacman -S --needed --noconfirm alsa-utils bash-completion curl firefox htop \
-                                    jq lsof ncdu pacman-contrib playerctl p7zip \
-                                    rofi rsync shellcheck scrot tar tmux unzip unrar \
-                                    wget zsh
+                                    jq lsof ncdu playerctl p7zip pulseaudio-alsa \
+                                    pulseaudio-bluetooth pulseaudio-equalizer \
+                                    pulseaudio-jack rsync shellcheck scrot tar \
+                                    tmux unzip unrar wget zsh
 
 ## Audio codecs and tools
 sudo pacman -S --needed --noconfirm a52dec faac faad2 flac jasper lame libdca libdv libmad \

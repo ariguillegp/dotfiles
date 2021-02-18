@@ -376,6 +376,8 @@ endfunction
 au FileType json nmap <Leader>j :call JSONFormat()<cr>
 command! -range JSONFormat <line1>,<line2>call JSONFormat()
 
+" TODO add JSONRaw function***
+
 "---------------------------------------------
 " End config
 "

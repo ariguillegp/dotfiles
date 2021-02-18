@@ -2,8 +2,9 @@
 
 ## Do not make soft links out of these file system objects
 declare -a exclusion=(install-base install-bpf-tools install-docker install-dockercompose \
-                      install-gcloud install-golang install-k8s-tools install-terraform \
-                      install-vim install-root install-ssl-tools original_backup README.md)
+                      install-gcloud install-golang install-k8s-tools install-postman \
+                      install-terraform install-vim install-root install-ssl-tools \
+                      original_backup README.md)
 
 in_array() {
   local haystack=${1}[@]

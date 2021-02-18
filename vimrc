@@ -31,6 +31,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'dense-analysis/ale'
 Plug 'tsandall/vim-rego'
+Plug 'robbles/logstash.vim'
 " Install deoplete
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -368,15 +369,26 @@ au VimEnter * nested :call LoadSession()
 au VimLeave * :call UpdateSession()
 map <leader>y :call MakeSession()<CR>
 
-" JSON formatting
-function! JSONFormat()
+" JSON Pretty
+function! JSONPretty()
   :%!python3 -m json.tool
 endfunction
 
-au FileType json nmap <Leader>j :call JSONFormat()<cr>
-command! -range JSONFormat <line1>,<line2>call JSONFormat()
+" JSON Raw
+function! JSONRaw()
+  :%delete | 0put =json_encode(json_decode(@@))
+endfunction
 
-" TODO add JSONRaw function***
+augroup json_ft
+  autocmd BufNewFile,BufRead *.ndjson set filetype=json
+  autocmd FileType json nmap <Leader>jp :call JSONPretty()<cr>
+  autocmd FileType json nmap <Leader>jr :call JSONRaw()<cr>
+  autocmd FileType json setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+augroup END
+
+" JSON commands
+command! -range JSONPretty <line1>,<line2>call JSONPretty()
+command! -range JSONRaw <line1>,<line2>call JSONRaw()
 
 "---------------------------------------------
 " End config

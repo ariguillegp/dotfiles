@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
 # TODO -- save postman collections
+
+
 # TODO -- install postman
+yay -S postman-bin
+
 # TODO -- import collections
 
 exit 0

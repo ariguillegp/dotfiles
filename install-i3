@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## install i3 wm and some other related tools
-sudo pacman -S i3 i3-gaps i3status arandr xorg picom \
+sudo pacman -S i3 i3-gaps arandr xorg picom \
                lxappearance pcmanfm xfce4-terminal feh imagemagick \
                picom thunar pacman-contrib rofi scrot
 
@@ -22,6 +22,10 @@ ln -s ~/.dotfiles/fonts ~/.fonts
 ## Copy i3 config files
 mv ~/.config/i3 ~/.dotfiles/original_backup/i3
 ln -s ~/.dotfiles/i3 ~/.config/i3
+
+## Copy polybar config files
+mv ~/.config/polybar ~/.dotfiles/original_backup/polybar
+ln -s ~/.dotfiles/i3/polybar ~/.config/polybar
 
 ## Successful exit
 exit 0

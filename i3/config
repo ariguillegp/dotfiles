@@ -212,19 +212,18 @@ hide_edge_borders both
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-#       status_command i3status
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        position top
-        colors {
-              background  $barcolor
-              separator   #757575
-              #                        border                    background                text
-              focused_workspace        $fws                      $fws                      $textcolor
-              inactive_workspace       $ibgcolor                 $ibgcolor                 $itextcolor
-              urgent_workspace         $ubgcolor                 $ubgcolor                 $textcolor
-        }
-}
+#bar {
+#        status_command i3status
+#        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#        colors {
+#              background  $barcolor
+#              separator   #757575
+#              #                        border                    background                text
+#              focused_workspace        $fws                      $fws                      $textcolor
+#              inactive_workspace       $ibgcolor                 $ibgcolor                 $itextcolor
+#              urgent_workspace         $ubgcolor                 $ubgcolor                 $textcolor
+#        }
+#}
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id dmenu_run
@@ -244,3 +243,6 @@ exec_always picom -f
 
 # Set position and resolution of extra displays
 exec_always xrandr --no-startup-id --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --mode 1920x1080 --pos 1920x0 --rotate left --output DP2 --mode 3440x1440 --pos 3000x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off
+
+# Polybar launcher
+exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"

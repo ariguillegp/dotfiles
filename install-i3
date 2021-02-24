@@ -25,7 +25,11 @@ ln -s ~/.dotfiles/i3 ~/.config/i3
 
 ## Copy polybar config files
 mv ~/.config/polybar ~/.dotfiles/original_backup/polybar
-ln -s ~/.dotfiles/i3/polybar ~/.config/polybar
+ln -s ~/.dotfiles/polybar ~/.config/polybar
+
+## Copy rofi config files
+mv ~/.config/rofi ~/.dotfiles/original_backup/rofi
+ln -s ~/.dotfiles/rofi ~/.config/rofi
 
 ## Successful exit
 exit 0

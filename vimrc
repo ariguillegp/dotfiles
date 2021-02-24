@@ -1,6 +1,3 @@
-set shell=zsh " plugins expect zsh
-set nocompatible " not vi compatible
-
 "---------------------------------------------
 " VIM plugins management
 "---------------------------------------------
@@ -19,9 +16,9 @@ Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-fugitive'
 Plug 'sirver/ultisnips'
 Plug 't9md/vim-choosewin'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -32,6 +29,10 @@ Plug 'pedrohdz/vim-yaml-folds'
 Plug 'dense-analysis/ale'
 Plug 'tsandall/vim-rego'
 Plug 'robbles/logstash.vim'
+Plug 'gruvbox-community/gruvbox'
+Plug 'jremmen/vim-ripgrep'
+Plug 'vim-utils/vim-man'
+Plug 'mbbill/undotree'
 " Install deoplete
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -54,17 +55,19 @@ endif
 " Syntax and indent
 "---------------------------------------------
 
+set nocompatible " not vi compatible
 syntax on " turn on syntax highlighting
 set showmatch " show matching braces when text indicator is over them
 
 " highlight current line, but only in active window
 augroup CursorLineOnlyInActiveWindow
-    autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    autocmd WinLeave * setlocal nocursorline
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
 augroup END
 
-colorscheme wombat256 " color schemes
+" Awesome color scheme
+colorscheme gruvbox " color schemes
 set background=dark
 
 " set cursorline
@@ -78,8 +81,21 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE gui
 set encoding=utf-8
 set fileencoding=utf-8
 
+" airline configs
 let g:airline_powerline_fonts = 1 " correcting font issues
+let g:airline#extensions#tabline#buffer_nr_show = 1 " show buffer number
+ ""let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#enabled = 1 " Use the airline tabline (replacement for buftabline)
+ ""let g:airline#extensions#tabline#show_tab_nr = 1 " show tab number
+ ""let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#excludes = ['branches', 'index']
+let g:airline#extensions#tabline#ignore_bufadd_pat = 'defx|gundo|nerd_tree|startify|tagbar|undotree|vimfiler'
+
 filetype plugin indent on " enable file type detection
+
+if executable('rg')
+  let g:rg_derive_root='true'
+endif
 
 "---------------------------------------------
 " Basic Editing Configs
@@ -87,9 +103,28 @@ filetype plugin indent on " enable file type detection
 
 set shortmess+=I  " disable startup message
 set number " show line numbers
-set rnu " relative line numbering
+set relativenumber " relative line numbering
 set incsearch " incremental search (as string is being typed)
-set hls " highlight search
+set nohlsearch " no highlight search
+set guicursor=
+set hidden " keep my buffers around for fast editing
+set noerrorbells " disable audible bell
+
+set noswapfile " do not create swap files
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+
+set scrolloff=8 " start scrolling when I am 8 lines apart from the border
+set noshowmode
+set completeopt=menuone,noinsert,noselect
+
+" set column indicating max width
+set colorcolumn=100
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+
+set signcolumn=yes
+
 
 " backspace compatibility
 " " indent  allow backspacing over autoindent
@@ -98,13 +133,11 @@ set hls " highlight search
 "        stop once at the start of insert.
 set backspace=indent,eol,start
 
-" show existing tab with 2 spaces width
-set tabstop=2
-set softtabstop=2
-" when indenting with '>', use 2 spaces width
-set shiftwidth=2
-" On pressing tab, insert 2 spaces
-set expandtab
+" TAB options
+set tabstop=2 softtabstop=2 " show existing tab with 2 spaces width
+set shiftwidth=2 " when indenting with '>', use 2 spaces width
+set expandtab " On pressing tab, insert 2 spaces
+set smartindent " try to indent as good as possible
 
 " smart case-sensitive search
 set ignorecase
@@ -115,13 +148,31 @@ set mouse+=a
 
 set nofoldenable " disable folding by default
 
+" Give more space for displaying messages
+set cmdheight=2
+
+" Having longer update time (default is 4000 ms) leads to noticeable
+" delays and poor user experience
+set updatetime=50
+
+" move between windows
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <Leader>ps :Rg h<SPACE>
+nnoremap <silent> <Leader>+ :vertical resize +5<SPACE>
+nnoremap <silent> <Leader>- :vertical resize -5<SPACE>
+
 "---------------------------------------------
 " Misc Configs
 "---------------------------------------------
 
 " which key should be the <leader>
 " (\ is the default, but ',' is more common, and easier to reach)
-let mapleader=","
+let mapleader=" "
 
 " toggle the display of line numbers
 noremap <F10> :set invnumber<CR>
@@ -131,12 +182,6 @@ noremap <F9> :tabnew %<CR>
 
 " toggle relative numbering
 nnoremap <C-n> :set rnu!<CR>
-
-" save read-only files
-command -nargs=0 Sudow w !sudo tee % >/dev/null
-
-" pathogen will load the other modules
-" execute pathogen#infect()
 
 " we want to tell the syntastic module when to run
 " we want to see code highlighting and checks when  we open a file
@@ -151,12 +196,12 @@ autocmd BufWritePre * :%s/\s\+$//e
 " position and other little nice things like that
 set viminfo='100,\"2500,:200,%,n~/.viminfo
 
-" disable audible bell
-set noerrorbells visualbell t_vb=
-
 " open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_use_caching=0
 
 "---------------------------------------------
 " GO-VIM
@@ -270,6 +315,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " quit vim if the only buffer left is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+let g:netrw_browse_split=2
+let g:netrw_banner=0
+let g:netrw_winsize=25
+
 "---------------------------------------------
 " UltiSnips
 "---------------------------------------------
@@ -369,26 +418,43 @@ au VimEnter * nested :call LoadSession()
 au VimLeave * :call UpdateSession()
 map <leader>y :call MakeSession()<CR>
 
-" JSON Pretty
+"-----------------------------------------------
+" JSON formatting
+"-----------------------------------------------
+" Beautify JSON
 function! JSONPretty()
   :%!python3 -m json.tool
 endfunction
 
-" JSON Raw
+" Minify JSON
 function! JSONRaw()
   :%delete | 0put =json_encode(json_decode(@@))
 endfunction
 
 augroup json_ft
   autocmd BufNewFile,BufRead *.ndjson set filetype=json
-  autocmd FileType json nmap <Leader>jp :call JSONPretty()<cr>
-  autocmd FileType json nmap <Leader>jr :call JSONRaw()<cr>
-  autocmd FileType json setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  autocmd FileType json nmap <Leader>jsp :call JSONPretty()<cr>
+  autocmd FileType json nmap <Leader>jsr :call JSONRaw()<cr>
+  autocmd FileType json setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 augroup END
 
-" JSON commands
-command! -range JSONPretty <line1>,<line2>call JSONPretty()
 command! -range JSONRaw <line1>,<line2>call JSONRaw()
+command! -range JSONFormat <line1>,<line2>call JSONPretty()
+
+"-----------------------------------------------
+" Trim whitespaces
+"-----------------------------------------------
+
+function! TrimWhitespace()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
+endfunction
+
+augroup cleanthemallpls
+  autocmd!
+  autocmd BufWritePre * : call TrimWhitespace()
+augroup END
 
 "---------------------------------------------
 " End config
@@ -400,3 +466,6 @@ let $LOCALFILE=expand("~/.vimrc_local")
 if filereadable($LOCALFILE)
 	source $LOCALFILE
 endif
+
+" use local vimrc files to customize VIM experience per project
+set exrc

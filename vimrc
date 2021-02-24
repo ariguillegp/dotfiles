@@ -456,6 +456,13 @@ augroup cleanthemallpls
   autocmd BufWritePre * : call TrimWhitespace()
 augroup END
 
+"-----------------------------------------------
+" Fugitive remaps
+"-----------------------------------------------
+nmap <leader>gs :G<CR>
+nmap <leader>gf :diffget //2<CR>
+nmap <leader>gj :diffget //3<CR>
+
 "---------------------------------------------
 " End config
 "

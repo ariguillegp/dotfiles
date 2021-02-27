@@ -46,6 +46,7 @@ Plug 'tsandall/vim-rego'
 Plug 'robbles/logstash.vim'
 " Autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Requires gocode to be installed in the path (go get -u github.com/stamblerre/gocode)
 Plug 'deoplete-plugins/deoplete-go', {'do': 'make'}
 call plug#end()
 

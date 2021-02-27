@@ -4,25 +4,28 @@
 #sudo pacman -S --needed --noconfirm vim python-pip ctags yamllint
 
 # Some neovim plugins need the nightly version
-echo "[1/6] Installing neovim nightly"
+echo "[1/7] Installing neovim nightly"
 yay -S neovim-nightly-bin
 
 # Needed for telescope lua integration
-echo "[2/6] Installing telescope dependencies"
+echo "[2/7] Installing telescope dependencies"
 yay -S fd ripgrep
 
-echo "[3/6] Installing neovim symlinks"
+echo "[3/7] Installing neovim symlinks"
 yay -S neovim-symlinks
 
 # Link from init file from dotfiles
-echo "[4/6] Creating link from dotfiles to neovim init file"
+echo "[4/7] Creating link from dotfiles to neovim init file"
 ln -s ~/.dotfiles/init.vim ~/.config/nvim/init.vim
 
 # Link from plugins directory from dotfiles
-echo "[5/6] Creating link from dotfiles to neovim plugins directory"
+echo "[5/7] Creating link from dotfiles to neovim plugins directory"
 ln -s ~/.dotfiles/plugin ~/.config/nvim/plugin
 
-echo "[6/6] Adding YAML linter tool"
+echo "[6/7] Get binary for Go autocompletion"
+go get -u github.com/stamblerre/gocode
+
+echo "[7/7] Adding YAML linter tool"
 sudo pacman -S --needed --noconfirm yamllint
 
 # Copy yamllint config files

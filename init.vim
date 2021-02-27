@@ -46,6 +46,7 @@ Plug 'tsandall/vim-rego'
 Plug 'robbles/logstash.vim'
 " Autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-go', {'do': 'make'}
 call plug#end()
 
 " Run PlugInstall if there are missing plugins

@@ -15,20 +15,20 @@ download_url=$(curl -sfL https://api.github.com/repos/direnv/direnv/releases/lat
 sudo curl -sfL "$download_url" -o /usr/bin/direnv
 sudo chmod +x /usr/bin/direnv
 echo "*** Adding direnv hook into shell"
-echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
+echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc
 echo "*** direnv is ready"
 
 ## Create workspace/go if it doesn't exist
 echo "[3/4] Installing Go stable version"
 mkdir -p "${HOME}"/workspace/go
-gimme stable >> "${HOME}"/.bashrc
-sed -i '/go\ version/d' "${HOME}"/.bashrc
-echo "export GOPATH=${HOME}/workspace/go" >> "${HOME}"/.bashrc
-echo 'export PATH=${GOPATH}/bin:${PATH}'  >> "${HOME}"/.bashrc
+gimme stable >> "${HOME}"/.zshrc
+sed -i '/go\ version/d' "${HOME}"/.zshrc
+echo "export GOPATH=${HOME}/workspace/go" >> "${HOME}"/.zshrc
+echo 'export PATH=${GOPATH}/bin:${PATH}'  >> "${HOME}"/.zshrc
 
 ## Reload shell environment
 echo "[4/4] Reloading shell environment"
-exec "$BASH"
+source ${HOME}/.zshrc
 
 ## Successful exit code
 exit 0

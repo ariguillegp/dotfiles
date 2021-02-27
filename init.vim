@@ -32,6 +32,8 @@ Plug 'scrooloose/syntastic'
 Plug 't9md/vim-choosewin'
 " Comment with style
 Plug 'scrooloose/nerdcommenter'
+" File tree
+Plug 'scrooloose/nerdtree'
 " Snippets and integration with k8s
 Plug 'andrewstuart/vim-kubernetes'
 " Show me indentantion marks

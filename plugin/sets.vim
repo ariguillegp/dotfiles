@@ -1,3 +1,4 @@
+syntax on
 set nu
 set rnu
 set smartindent

@@ -28,6 +28,10 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'}
 Plug 'sirver/ultisnips'
 " Syntax checker
 Plug 'scrooloose/syntastic'
+" Treesitter for better code syntax highlighting
+" Language parsers need to be installed independently with TSInstall <lang>
+" We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Select your window nicely
 Plug 't9md/vim-choosewin'
 " Comment with style

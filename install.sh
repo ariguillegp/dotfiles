@@ -51,8 +51,9 @@ sudo pacman -S --needed --noconfirm sof-firmware
 echo "load-module module-alsa-sink device=hw:0,0 channels=4" >> /etc/pulse/default.pa
 echo "load-module module-alsa-source device=hw:0,6 channels=4" >> /etc/pulse/default.pa
 
-## If you have a system-wide PulseAudio setup make sure the user running the daemon (usually pulse)
-## is in the lp group and you load the bluetooth modules in your PulseAudio config:
+## If you have a system-wide PulseAudio setup make sure the user running the daemon
+## (usually pulse) is in the lp group and you load the bluetooth modules in your
+## PulseAudio config:
 echo "load-module module-bluetooth-policy" >> /etc/pulse/system.pa
 echo "load-module module-bluetooth-discover" >> /etc/pulse/system.pa
 

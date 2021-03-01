@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Install VIM and needed utils
-#sudo pacman -S --needed --noconfirm vim python-pip ctags yamllint
-
 # Some neovim plugins need the nightly version
 echo "[1/7] Installing neovim nightly"
 yay -S neovim-nightly-bin
@@ -16,6 +13,7 @@ yay -S neovim-symlinks
 
 # Link from init file from dotfiles
 echo "[4/7] Creating link from dotfiles to neovim init file"
+mkdir -p ~/.config/nvim/undodir
 ln -s ~/.dotfiles/init.vim ~/.config/nvim/init.vim
 
 # Link from plugins directory from dotfiles

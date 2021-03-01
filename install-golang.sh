@@ -20,15 +20,15 @@ echo "*** direnv is ready"
 
 ## Create workspace/go if it doesn't exist
 echo "[3/4] Installing Go stable version"
-mkdir -p "${HOME}"/workspace/go
-gimme stable >> "${HOME}"/.zshrc
-sed -i '/go\ version/d' "${HOME}"/.zshrc
-echo "export GOPATH=${HOME}/workspace/go" >> "${HOME}"/.zshrc
-echo 'export PATH=${GOPATH}/bin:${PATH}'  >> "${HOME}"/.zshrc
+mkdir -p "${HOME}/workspace/go"
+gimme stable >> "${HOME}/.zshrc"
+sed -i '/go\ version/d' "${HOME}/.zshrc"
+echo "export GOPATH=${HOME}/workspace/go" >> "${HOME}/.zshrc"
+echo 'export PATH=${GOPATH}/bin:${PATH}'  >> "${HOME}/.zshrc"
 
 ## Reload shell environment
 echo "[4/4] Reloading shell environment"
-source ${HOME}/.zshrc
+source "${HOME}/.zshrc"
 
 ## Successful exit code
 exit 0

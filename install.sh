@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
 ## Do not make soft links out of these file system objects
-declare -a exclusion=(install-base install-bpf-tools install-docker \
-                      install-dockercompose install-gcloud install-golang \
-                      install-i3 install-k8s-tools install-postman \
-                      install-terraform install-vim install-root \
-                      install-ssl-tools original_backup plugins init.vim README.md)
+declare -a exclusion=(install.sh install-bpf-tools.sh install-docker.sh \
+                      install-dockercompose.sh install-gcloud.sh install-golang.sh \
+                      install-i3.sh install-k8s-tools.sh install-postman.sh \
+                      install-terraform.sh install-vim.sh install-ssl-tools.sh \
+                      i3 init.vim original_backup polybar postman plugin README.md \
+                      rofi yamllint)
 
 in_array() {
   local haystack=${1}[@]
@@ -35,7 +36,7 @@ for f in ~/.dotfiles/*; do
 done
 
 ## Install packages for setting personalized environment
-sudo pacman -S --needed --noconfirm alsa-utils bash-completion curl firefox htop \
+sudo pacman -S --needed --noconfirm alsa-utils bash-completion firefox htop \
                                     jq lsof ncdu playerctl p7zip pulseaudio-alsa \
                                     pulseaudio-bluetooth pulseaudio-equalizer \
                                     pulseaudio-jack rsync shellcheck tar \
@@ -55,6 +56,9 @@ echo "load-module module-alsa-source device=hw:0,6 channels=4" >> /etc/pulse/def
 echo "load-module module-bluetooth-policy" >> /etc/pulse/system.pa
 echo "load-module module-bluetooth-discover" >> /etc/pulse/system.pa
 
+## Install Go
+source install-golang.sh
+
 ## Install helper for dealing with AUR packages
 git clone https://aur.archlinux.org/yay.git
 cd yay || exit 1
@@ -71,3 +75,23 @@ yay -S dos2unix
 if [ ! -e "$HOME/.ssh/id_rsa" ]; then
 	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -C "ariguille.gp@gmail.com" -q -f ~/.ssh/id_rsa -N "" > /dev/null
 fi
+
+## Install neovim
+source install.nvim.sh
+## Install docker and tools
+source install-docker.sh
+source install-dockercompose.sh
+## Install bpf libraries
+source install-bpf-tools.sh
+## Install i3 windows manager
+source install-i3.sh
+## Install gcloud client
+source install-gcloud.sh
+## Install k8s tools
+source install-k8s-tools.sh
+## Install postman
+source install-postman.sh
+## Install ssl tools
+source install-ssl-tools.sh
+## Install terraform tools
+source install-terraform.sh

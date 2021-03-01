@@ -19,7 +19,7 @@ Before executing any script in this folder you need to (default setting is for A
 > **NOTE:** When installing i3, do not select i3-wm since it has conflicts with i3-gaps, just select every option but i3-wm
 
 ```
-sudo pacman -S --needed --noconfirm python lua vim curl git
+sudo pacman -S --needed --noconfirm python lua curl git
 ```
 
 ## Installing
@@ -30,15 +30,7 @@ How to get a development env up and running
 cd
 git clone https://github.com/ariguillegp/dotfiles.git
 mv dotfiles .dotfiles && cd .dotfiles
-** Change needed script parameters **
-./install-base
-./install-vim
-./install-golang
-./install-bpf-tools
-./install-terraform
-./install-docker
-./install-k8s-tools
-./install-root
+./install.sh
 ```
 ## Authors
 

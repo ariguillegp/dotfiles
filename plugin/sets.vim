@@ -5,7 +5,10 @@ set rnu
 " try some indentation
 set smartindent
 set noswapfile
+" Some servers have issues with backup files, see #649.
 set nobackup
+set nowritebackup
+
 set undodir=~/.config/nvim/undodir
 set undofile
 " incremental search
@@ -24,8 +27,14 @@ set noshowmode
 set completeopt=menuone,noinsert,noselect
 " mark desirable width
 set colorcolumn=100
-" enable column to mark errors in file
-set signcolumn=yes
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 " Give more space for displaying messages
 set cmdheight=2
 " Having longer updatetime (default is 4000 ms) leads to noticeable

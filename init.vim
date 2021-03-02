@@ -23,7 +23,9 @@ Plug 'mbbill/undotree'
 " Some help
 Plug 'vim-utils/vim-man'
 " Go development
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Code completion with CoC LSP Client
+Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
 " Nice code snippets
 Plug 'sirver/ultisnips'
 " Syntax checker
@@ -32,8 +34,6 @@ Plug 'scrooloose/syntastic'
 " Language parsers need to be installed independently with TSInstall <lang>
 " We recommend updating the parsers on update
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Select your window nicely
-Plug 't9md/vim-choosewin'
 " Comment with style
 Plug 'scrooloose/nerdcommenter'
 " File tree
@@ -48,10 +48,6 @@ Plug 'dense-analysis/ale'
 Plug 'tsandall/vim-rego'
 " Logstash syntax support
 Plug 'robbles/logstash.vim'
-" Autocompletion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Requires gocode to be installed in the path (go get -u github.com/stamblerre/gocode)
-Plug 'deoplete-plugins/deoplete-go', {'do': 'make'}
 call plug#end()
 
 " Run PlugInstall if there are missing plugins

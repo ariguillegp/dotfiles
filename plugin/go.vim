@@ -53,6 +53,10 @@ let g:go_fmt_autosave = 1
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
+" disable vim-go :GoDef short cut (gd)
+" this is handled by LanguageClient [LC]
+let g:go_def_mapping_enabled = 0
+
 " :GoDef and GoInfo will use gopls
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'

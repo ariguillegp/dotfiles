@@ -123,12 +123,6 @@ alias vim='nvim'
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
-# start tmux immediatly with terminal
-#if command -v tmux >/dev/null 2>&1 && [ "${DISPLAY}" ]; then
-#    # if not inside a tmux session, and if no session is started, start a new session
-#    [ -z "${TMUX}" ] && (tmux attach >/dev/null 2>&1 || tmux new -s arch${RANDOM} -d)
-#fi
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/aristides/workspace/google-cloud-sdk/path.zsh.inc' ]; then . '/home/aristides/workspace/google-cloud-sdk/path.zsh.inc'; fi
 

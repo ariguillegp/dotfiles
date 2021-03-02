@@ -39,7 +39,7 @@ done
 sudo pacman -S --needed --noconfirm alsa-utils bash-completion firefox htop \
                                     jq lsof ncdu playerctl p7zip pulseaudio-alsa \
                                     pulseaudio-bluetooth pulseaudio-equalizer \
-                                    pulseaudio-jack rsync shellcheck tar \
+                                    pulseaudio-jack rsync shellcheck tar tree\
                                     tmux unzip unrar wget zsh
 
 ## Audio codecs and tools

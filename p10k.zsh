@@ -54,9 +54,6 @@
     command_execution_time    # previous command duration
     virtualenv                # python virtual environment
     prompt_char               # prompt symbol
-    goenv
-    terraform
-    nodenv
   )
 
   # Right prompt segments.

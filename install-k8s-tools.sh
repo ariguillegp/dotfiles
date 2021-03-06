@@ -26,7 +26,7 @@ function install_kind {
   ## the docs for the Linux alternative
 
   ## Install kind
-  GO111MODULE="on" go get sigs.k8s.io/kind@v0.9.0
+  GO111MODULE="on" go get sigs.k8s.io/kind
 
   ## Get version confirmation
   kind version

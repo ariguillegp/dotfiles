@@ -72,6 +72,9 @@ yay -S slack-desktop
 ## Added dos to unix conversion tool
 yay -S dos2unix
 
+## Added keybase
+yay -S keybase-bin
+
 # create an ssh key in case we don't have it yet
 if [ ! -e "$HOME/.ssh/id_rsa" ]; then
 	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -C "ariguille.gp@gmail.com" -q -f ~/.ssh/id_rsa -N "" > /dev/null

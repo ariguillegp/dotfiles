@@ -158,6 +158,7 @@ assign [class="Xfce4-terminal"] $ws1
 assign [class="firefox"] $ws2
 assign [class="Thunar"] $ws3
 assign [class="Postman"] $ws4
+assign [class="Keybase"] $ws5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

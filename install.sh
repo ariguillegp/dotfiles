@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 ## Do not make soft links out of these file system objects
-declare -a exclusion=(install.sh install-bpf-tools.sh install-docker.sh \
+declare -a exclusion=(install.sh install-ansible.sh install-bpf-tools.sh install-docker.sh \
                       install-dockercompose.sh install-gcloud.sh install-golang.sh \
                       install-i3.sh install-k8s-tools.sh install-postman.sh \
-                      install-terraform.sh install-vim.sh install-ssl-tools.sh \
-                      i3 init.vim original_backup polybar postman plugin README.md \
-                      rofi yamllint)
+                      install-terraform.sh install-vim.sh install-vm-tools.sh \
+                      install-ssl-tools.sh i3 init.vim original_backup polybar \
+                      postman plugin README.md rofi)
 
 in_array() {
   local haystack=${1}[@]
@@ -99,3 +99,7 @@ source install-postman.sh
 source install-ssl-tools.sh
 ## Install terraform tools
 source install-terraform.sh
+## Install VM tools
+source install-vm-tools.sh
+## Install Ansible
+source install-ansible.sh

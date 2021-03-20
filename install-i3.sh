@@ -2,7 +2,7 @@
 
 ## install i3 wm and some other related tools
 sudo pacman -S i3 i3-gaps arandr xorg picom \
-               lxappearance pcmanfm xfce4-terminal feh imagemagick \
+               lxappearance pcmanfm feh imagemagick \
                picom thunar pacman-contrib rofi scrot
 
 ## install fonts and themes

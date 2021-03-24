@@ -80,6 +80,8 @@ if [ ! -e "$HOME/.ssh/id_rsa" ]; then
 	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -C "ariguille.gp@gmail.com" -q -f ~/.ssh/id_rsa -N "" > /dev/null
 fi
 
+## Install alacritty terminal emulator
+source install-alacritty.sh
 ## Install neovim
 source install.nvim.sh
 ## Install docker and tools

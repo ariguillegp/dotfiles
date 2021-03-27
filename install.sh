@@ -75,6 +75,9 @@ yay -S dos2unix
 ## Added keybase
 yay -S keybase-bin
 
+## Added brave browser
+yay -S brave-nightly-bin
+
 # create an ssh key in case we don't have it yet
 if [ ! -e "$HOME/.ssh/id_rsa" ]; then
 	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -C "ariguille.gp@gmail.com" -q -f ~/.ssh/id_rsa -N "" > /dev/null

@@ -36,7 +36,7 @@ for f in ~/.dotfiles/*; do
 done
 
 ## Install packages for setting personalized environment
-sudo pacman -S --needed --noconfirm alsa-utils bash-completion firefox htop \
+sudo pacman -S --needed --noconfirm alsa-utils bash-completion firefox flameshot htop \
                                     jq lsof ncdu playerctl p7zip pulseaudio-alsa \
                                     pulseaudio-bluetooth pulseaudio-equalizer \
                                     pulseaudio-jack rsync shellcheck tar tree\

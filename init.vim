@@ -36,8 +36,6 @@ Plug 'scrooloose/syntastic'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Comment with style
 Plug 'scrooloose/nerdcommenter'
-" File tree
-Plug 'scrooloose/nerdtree'
 " Snippets and integration with k8s
 Plug 'andrewstuart/vim-kubernetes'
 " Show me indentantion marks

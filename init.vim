@@ -17,7 +17,7 @@ Plug 'gruvbox-community/gruvbox'
 " Git
 Plug 'tpope/vim-fugitive'
 " Status line
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 " Undotree
 Plug 'mbbill/undotree'
 " Some help
@@ -26,16 +26,10 @@ Plug 'vim-utils/vim-man'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Code completion with CoC LSP Client
 Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
-" Nice code snippets
-Plug 'sirver/ultisnips'
-" Syntax checker
-Plug 'scrooloose/syntastic'
 " Treesitter for better code syntax highlighting
 " Language parsers need to be installed independently with TSInstall <lang>
 " We recommend updating the parsers on update
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Comment with style
-Plug 'scrooloose/nerdcommenter'
 " Snippets and integration with k8s
 Plug 'andrewstuart/vim-kubernetes'
 " Show me indentantion marks

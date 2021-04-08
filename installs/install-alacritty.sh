@@ -7,8 +7,7 @@ pacman -S --needed --noconfirm cmake freetype2 fontconfig pkg-config make libxcb
 sudo pacman -S --needed --noconfirm alacritty
 
 ## Copy alacritty config files
-mkdir -p ~/.config/alacritty
-ln -s ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -s ~/.dotfiles/alacritty ~/.config/alacritty
 
 ## Successful exit
 exit 0

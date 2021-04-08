@@ -30,7 +30,7 @@ How to get a development env up and running
 cd
 git clone https://github.com/ariguillegp/dotfiles.git
 mv dotfiles .dotfiles && cd .dotfiles
-./install.sh
+./installs/install.sh
 ```
 ## Authors
 

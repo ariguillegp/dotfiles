@@ -1,3 +1,5 @@
+" search recursively inside path
+set path+=**
 " activate line numbers
 set nu
 " relative line numbers
@@ -8,11 +10,11 @@ set noswapfile
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
-
 set undodir=~/.config/nvim/undodir
 set undofile
 " incremental search
 set incsearch
+" hide buffers
 set hidden
 " remove highlighting after search
 set nohlsearch
@@ -26,15 +28,10 @@ set scrolloff=8
 set noshowmode
 set completeopt=menuone,noinsert,noselect
 " mark desirable width
-set colorcolumn=100
+set colorcolumn=80
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+set signcolumn=yes
 " Give more space for displaying messages
 set cmdheight=2
 " Having longer updatetime (default is 4000 ms) leads to noticeable
@@ -43,8 +40,8 @@ set updatetime=50
 " Don't pass messages to |ins-completion-menu|
 set shortmess+=c
 " tabs and spaces
-set tabstop=2 softtabstop=2
-set shiftwidth=2
+set tabstop=4 softtabstop=4
+set shiftwidth=4
 set expandtab
 " default file encoding
 set encoding=utf-8

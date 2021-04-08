@@ -134,4 +134,13 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-neofetch
+eval "$(direnv hook zsh)"
+
+unset GOOS;
+unset GOARCH;
+export GOROOT='/home/aristides/.gimme/versions/go1.16.linux.amd64';
+export PATH="/home/aristides/.gimme/versions/go1.16.linux.amd64/bin:${PATH}";
+
+export GIMME_ENV="/home/aristides/.gimme/envs/go1.16.env"
+export GOPATH=/home/aristides/workspace/go
+export PATH=${GOPATH}/bin:${PATH}

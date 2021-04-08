@@ -20,13 +20,3 @@
 
 [grep]
 	lineNumber = true
-
-[core]
-	excludesfile = ~/.gitignore_global
-	editor = vim
-
-# Allow local customizations in the .gitconfig_local file
-[include]
-	path = ~/.gitconfig_local
-[difftool]
-	prompt = false

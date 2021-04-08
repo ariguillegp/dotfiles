@@ -6,8 +6,9 @@ sudo pacman -S i3 i3-gaps arandr xorg picom \
                picom thunar pacman-contrib rofi scrot
 
 ## install fonts and themes
-sudo pacman -S ttf-dejavu ttf-liberation noto-fonts lightdm lightdm-gtk-greeter \
-               lightdm-gtk-greeter-settings materia-gtk-theme papirus-icon-theme
+sudo pacman -S ttf-dejavu ttf-liberation noto-fonts lightdm \
+               lightdm-gtk-greeter lightdm-gtk-greeter-settings \
+               materia-gtk-theme papirus-icon-theme
 
 ## fancier lock screen
 yay -S i3lock-color
@@ -21,15 +22,15 @@ ln -s ~/.dotfiles/fonts ~/.fonts
 
 ## Copy i3 config files
 mv ~/.config/i3 ~/.dotfiles/original_backup/i3
-ln -s ~/.dotfiles/i3 ~/.config/i3
+ln -s ~/.dotfiles/config/i3 ~/.config/i3
 
 ## Copy polybar config files
 mv ~/.config/polybar ~/.dotfiles/original_backup/polybar
-ln -s ~/.dotfiles/polybar ~/.config/polybar
+ln -s ~/.dotfiles/config/polybar ~/.config/polybar
 
 ## Copy rofi config files
 mv ~/.config/rofi ~/.dotfiles/original_backup/rofi
-ln -s ~/.dotfiles/rofi ~/.config/rofi
+ln -s ~/.dotfiles/config/rofi ~/.config/rofi
 
 ## Successful exit
 exit 0

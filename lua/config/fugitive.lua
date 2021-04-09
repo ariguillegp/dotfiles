@@ -1,0 +1,4 @@
+local utils = require('utils')
+utils.map('n', '<Leader>gs', '<cmd>Gstatus<CR>') 
+utils.map('n', '<Leader>gf', '<cmd>diffget //2<CR>')  
+utils.map('n', '<Leader>gj', '<cmd>diffget //3<CR>')  

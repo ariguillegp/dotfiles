@@ -1,5 +1,7 @@
+-- table to be exported
 local utils = { }
 
+-- scopes can be global, buffer or windows
 local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
 
 function utils.opt(scope, key, value)

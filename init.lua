@@ -1,6 +1,10 @@
+-- Bear in mind that the Lua API is still fairly beta,
+-- and many Vim things don’t have direct interfaces.
+
 -- Map leader to space
 vim.g.mapleader = ' '
 
+-- some local variables for better readability
 local fn = vim.fn
 local execute = vim.api.nvim_command
 

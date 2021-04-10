@@ -53,4 +53,7 @@ return require('packer').startup(function()
 
     -- Logstash syntax support
     use 'robbles/logstash.vim'
+
+    -- Ultisnips are awesome
+    use 'sirver/ultisnips'
 end)

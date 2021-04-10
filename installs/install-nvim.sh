@@ -11,14 +11,15 @@ yay -S fd ripgrep
 echo "[3/4] Installing neovim symlinks"
 yay -S neovim-symlinks
 
-# Link from init file from dotfiles
-echo "[4/4] Creating link from dotfiles to neovim init file"
-mkdir -p ~/.config/nvim/{plugin,lua,undodir}
-
-cd ~/.dotfiles || exit 1
-find . -regex ".*\.vim$\|.*\.lua$" | while read -r f; do
-    rm -rf ~/.config/nvim/"$f"
-    ln -s ~/.dotfiles/"$f" ~/.config/nvim/"$f"
+# Link nvim config directories
+echo "[4/4] Creating link from dotfiles to neovim config files"
+for f in plugin lua init.lua coc-settings.json; do
+    ## Check if the file (works for directories too) exists
+    ## (can be empty tho) and it is not a symlink
+    if [ -e ~/."$f" ] && [ ! -L ~/."$f" ]; then
+        mv ~/.config/nvim/"$f" ~/.dotfiles/original_backup/
+        ln -s ~/.dotfiles/"$f" ~/.config/nvim/"$f"
+    fi
 done
 
 exit 0

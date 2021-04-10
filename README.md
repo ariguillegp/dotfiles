@@ -19,7 +19,7 @@ Before executing any script in this folder you need to (default setting is for A
 > **NOTE:** When installing i3, do not select i3-wm since it has conflicts with i3-gaps, just select every option but i3-wm
 
 ```
-sudo pacman -S --needed --noconfirm python lua curl git
+sudo pacman -S --needed --noconfirm python lua curl git npm
 ```
 
 ## Installing

@@ -5,7 +5,6 @@ local indent = 4
 
 cmd 'syntax enable'
 cmd 'filetype plugin indent on'
-cmd [[set shortmess+=c]]
 cmd [[set path+=**]]
 
 utils.opt('w', 'number', true)
@@ -21,7 +20,6 @@ utils.opt('o', 'guicursor', '')
 utils.opt('o', 'errorbells', false)
 utils.opt('o', 'scrolloff', 8 )
 utils.opt('o', 'showmode', false)
-utils.opt('o', 'completeopt', 'menuone,noinsert,noselect')
 utils.opt('w', 'colorcolumn', '80')
 utils.opt('w', 'signcolumn', 'yes')
 utils.opt('o', 'cmdheight', 2)

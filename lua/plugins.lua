@@ -1,9 +1,9 @@
 return require('packer').startup(function()
-    
+
     -- Packer can manage itself as an optional plugin
     use 'wbthomason/packer.nvim'
 
-    -- Telescope 
+    -- Telescope
     use { 'nvim-telescope/telescope.nvim',
           requires = {
           { 'nvim-lua/popup.nvim' },
@@ -26,11 +26,10 @@ return require('packer').startup(function()
     -- Go development
     use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
 
-    -- Code completion with CoC LSP Client
-    use { 'neoclide/coc.nvim', 
-          branch =  'master', 
-          run = 'yarn install --frozen-lockfile' 
-    }
+    -- LSP and completion
+    use 'neovim/nvim-lspconfig'
+    use 'nvim-lua/completion-nvim'
+    use 'kabouzeid/nvim-lspinstall'
 
     -- Treesitter for better code syntax highlighting
     -- Language parsers need to be installed independently with TSInstall <lang>
@@ -50,5 +49,5 @@ return require('packer').startup(function()
     use 'tsandall/vim-rego'
 
     -- Logstash syntax support
-    use 'robbles/logstash.vim' 
+    use 'robbles/logstash.vim'
 end)

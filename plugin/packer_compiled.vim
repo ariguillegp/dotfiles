@@ -36,9 +36,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aristides/.local/share/nvim/site/pack/packer/start/ale"
   },
-  ["coc.nvim"] = {
+  ["completion-nvim"] = {
     loaded = true,
-    path = "/home/aristides/.local/share/nvim/site/pack/packer/start/coc.nvim"
+    path = "/home/aristides/.local/share/nvim/site/pack/packer/start/completion-nvim"
   },
   gruvbox = {
     loaded = true,
@@ -55,6 +55,14 @@ _G.packer_plugins = {
   ["logstash.vim"] = {
     loaded = true,
     path = "/home/aristides/.local/share/nvim/site/pack/packer/start/logstash.vim"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/home/aristides/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+  },
+  ["nvim-lspinstall"] = {
+    loaded = true,
+    path = "/home/aristides/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
   ["nvim-treesitter"] = {
     loaded = true,

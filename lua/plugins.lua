@@ -27,6 +27,9 @@ return require('packer').startup(function()
     use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
 
     -- LSP and completion
+    -- Language servers need to be installed
+    -- with :LspInstall <lang> and the client needs to be
+    -- attached to them, check :h lsp
     use 'neovim/nvim-lspconfig'
     use 'nvim-lua/completion-nvim'
     use 'kabouzeid/nvim-lspinstall'

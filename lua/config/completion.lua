@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = require('config.utils')
 utils.opt('o', 'completeopt', 'menuone,noinsert,noselect')
 vim.g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
 vim.o.shortmess = vim.o.shortmess .. 'c'

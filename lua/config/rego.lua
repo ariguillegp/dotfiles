@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = require('config.utils')
 local vg = vim.g
 
 vg.formatdef_rego = '"opa fmt"'

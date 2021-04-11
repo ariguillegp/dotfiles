@@ -17,14 +17,8 @@ vim.cmd [[packadd packer.nvim]]
 -- Auto compile when there are changes in plugins.lua
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 
--- Sensible defaults
-require('settings')
-
 -- Install plugins
 require('plugins')
 
 -- Plugin customizations
 require('config')
-
--- Key mappings
-require('keymappings')

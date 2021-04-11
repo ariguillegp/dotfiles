@@ -1,5 +1,4 @@
-local utils = require('utils')
-
+local utils = require('config.utils')
 local cmd = vim.cmd
 local indent = 4
 
@@ -22,7 +21,7 @@ utils.opt('o', 'scrolloff', 8 )
 utils.opt('o', 'showmode', false)
 utils.opt('w', 'colorcolumn', '80')
 utils.opt('w', 'signcolumn', 'yes')
-utils.opt('o', 'cmdheight', 2)
+utils.opt('o', 'cmdheight', 1)
 utils.opt('o', 'updatetime', 50)
 utils.opt('b', 'tabstop', indent)
 utils.opt('b', 'softtabstop', indent)

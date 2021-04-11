@@ -88,6 +88,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aristides/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ultisnips = {
+    loaded = true,
+    path = "/home/aristides/.local/share/nvim/site/pack/packer/start/ultisnips"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/aristides/.local/share/nvim/site/pack/packer/start/vim-fugitive"

@@ -50,6 +50,7 @@ return require('packer').startup(function()
 
     -- Rego syntax support
     use 'tsandall/vim-rego'
+    use 'Chiel92/vim-autoformat'
 
     -- Logstash syntax support
     use 'robbles/logstash.vim'

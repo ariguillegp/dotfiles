@@ -36,9 +36,17 @@ function install_kind {
   echo -e "Restart the computer to get iptables in shape\n"
 }
 
+## Installs OPA client
+function install_opa {
+    ## Get latest version of opa and put it in the PATH
+    sudo curl -L https://openpolicyagent.org/downloads/latest/opa_linux_amd64 \
+        -o /usr/local/bin/opa
+}
+
 function main {
   install_kubectl
   install_kind
+  install_opa
 }
 
 ## Main execution thread

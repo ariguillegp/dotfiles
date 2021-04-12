@@ -17,6 +17,9 @@ return require('packer').startup(function()
     -- Fugitive for Git
     use 'tpope/vim-fugitive'
 
+    -- Vim surround
+    use 'tpope/vim-surround'
+
     -- Status line
     use 'itchyny/lightline.vim'
 

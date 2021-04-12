@@ -92,6 +92,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aristides/.local/share/nvim/site/pack/packer/start/ultisnips"
   },
+  ["vim-autoformat"] = {
+    loaded = true,
+    path = "/home/aristides/.local/share/nvim/site/pack/packer/start/vim-autoformat"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/aristides/.local/share/nvim/site/pack/packer/start/vim-fugitive"

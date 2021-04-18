@@ -160,6 +160,7 @@ assign [class="firefox"] $ws3
 assign [class="Thunar"] $ws4
 assign [class="Postman"] $ws5
 assign [class="Keybase"] $ws6
+assign [class="Slack"] $ws7
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

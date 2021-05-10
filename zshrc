@@ -81,9 +81,9 @@ plugins=(
 	golang
 	ansible
 	direnv
-  docker
-  docker-compose
-  kubectl
+    docker
+    docker-compose
+    kubectl
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 )

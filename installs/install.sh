@@ -62,6 +62,9 @@ if [ ! -e "$HOME/.ssh/id_rsa" ]; then
 	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -C "ariguille.gp@gmail.com" -q -f ~/.ssh/id_rsa -N "" > /dev/null
 fi
 
+## Move tmux project selector to OS path
+sudo ln -s "$HOME/.dotfiles/btmux.sh" /usr/local/bin/btmux
+
 ## Install alacritty terminal emulator
 source install-alacritty.sh
 

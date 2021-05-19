@@ -103,6 +103,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aristides/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/aristides/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/aristides/.local/share/nvim/site/pack/packer/start/packer.nvim"
@@ -122,10 +126,6 @@ _G.packer_plugins = {
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/aristides/.local/share/nvim/site/pack/packer/start/telescope.nvim"
-  },
-  ultisnips = {
-    loaded = true,
-    path = "/home/aristides/.local/share/nvim/site/pack/packer/start/ultisnips"
   },
   ["vim-autoformat"] = {
     loaded = true,

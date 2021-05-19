@@ -13,7 +13,7 @@ yay -S neovim-symlinks
 
 # Link nvim config directories
 echo "[4/4] Creating link from dotfiles to neovim config files"
-for f in plugin lua init.lua coc-settings.json; do
+for f in plugin lua init.lua; do
     ## Check if the file (works for directories too) exists
     ## (can be empty tho) and it is not a symlink
     if [ -e ~/."$f" ] && [ ! -L ~/."$f" ]; then

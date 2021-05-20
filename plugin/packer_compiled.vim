@@ -95,6 +95,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aristides/.local/share/nvim/site/pack/packer/start/logstash.vim"
   },
+  neoformat = {
+    loaded = true,
+    path = "/home/aristides/.local/share/nvim/site/pack/packer/start/neoformat"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/aristides/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
@@ -126,10 +130,6 @@ _G.packer_plugins = {
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/aristides/.local/share/nvim/site/pack/packer/start/telescope.nvim"
-  },
-  ["vim-autoformat"] = {
-    loaded = true,
-    path = "/home/aristides/.local/share/nvim/site/pack/packer/start/vim-autoformat"
   },
   ["vim-fugitive"] = {
     loaded = true,

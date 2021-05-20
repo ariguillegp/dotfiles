@@ -6,6 +6,7 @@ if [[ $# -eq 1 ]]; then
     selected=$1
 else
     projects=$(find ~/workspace/devsecops -maxdepth 1 -mindepth 1 -type d)
+    projects+=$(find ~/workspace/k8s -maxdepth 1 -mindepth 1 -type d)
     selected=$(echo "$projects" | fzf)
 fi
 

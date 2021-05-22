@@ -63,7 +63,7 @@ if [ ! -e "$HOME/.ssh/id_rsa" ]; then
 fi
 
 ## Move tmux project selector to OS path
-sudo ln -s "$HOME/.dotfiles/btmux.sh" /usr/local/bin/btmux
+sudo ln -s "$HOME/.dotfiles/bmux.sh" /usr/local/bin/bmux
 
 ## Install alacritty terminal emulator
 source install-alacritty.sh

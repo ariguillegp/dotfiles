@@ -1,8 +1,8 @@
-# Colors (Gruvbox Material Dark Medium)
 ---
+# Colors (Gruvbox Material Dark Medium)
 colors:
   primary:
-    background: '0x1d2021' # hard contrast
+    background: '0x1d2021'
     foreground: '0xdfbf8e'
 
   normal:
@@ -53,13 +53,13 @@ scrolling:
   multiplier: 10
 
 ## If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: true
-#
-#selection:
-#  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
-#  save_to_clipboard: true
-#
+draw_bold_text_with_bright_colors: true
+
+selection:
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+  save_to_clipboard: true
+
 live_config_reload: true
-#
+
 debug:
   print_events: true

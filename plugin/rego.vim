@@ -8,5 +8,5 @@ let g:neoformat_enabled_rego = ['opa']
 
 augroup fmt
   autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
+  autocmd BufWritePre *.rego undojoin | Neoformat
 augroup END

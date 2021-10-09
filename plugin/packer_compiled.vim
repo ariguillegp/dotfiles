@@ -79,6 +79,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aristides/.local/share/nvim/site/pack/packer/start/completion-nvim"
   },
+  ["git-worktree.nvim"] = {
+    loaded = true,
+    path = "/home/aristides/.local/share/nvim/site/pack/packer/start/git-worktree.nvim"
+  },
   gruvbox = {
     loaded = true,
     path = "/home/aristides/.local/share/nvim/site/pack/packer/start/gruvbox"

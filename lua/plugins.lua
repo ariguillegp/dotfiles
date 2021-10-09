@@ -17,6 +17,9 @@ return require('packer').startup(function()
     -- Fugitive for Git
     use 'tpope/vim-fugitive'
 
+    -- Git Worktrees
+    use 'ThePrimeagen/git-worktree.nvim'
+
     -- Vim surround
     use 'tpope/vim-surround'
 

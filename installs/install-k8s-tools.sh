@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## Installs kubectl
-function install_kubectl {
+function kubectl {
   ## Download source code
   curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
 
@@ -19,7 +19,7 @@ function install_kubectl {
 }
 
 ## Installs kind
-function install_kind {
+function kind {
   ## KIND
   ## Go is a pre-requisite to install kind
   ## using this method. You can always consult
@@ -37,16 +37,26 @@ function install_kind {
 }
 
 ## Installs OPA client
-function install_opa {
+function opa {
     ## Get latest version of opa and put it in the PATH
     sudo curl -L https://openpolicyagent.org/downloads/latest/opa_linux_amd64 \
         -o /usr/local/bin/opa
 }
 
+function operator-sdk {
+   ## Get latest code from master branch
+   git clone https://github.com/operator-framework/operator-sdk /tmp/operator-sdk
+   cd /tmp/operator-sdk || exit 1
+   git checkout master
+   ## Install from makefile
+   make install
+}
+
 function main {
-  install_kubectl
-  install_kind
-  install_opa
+  kubectl
+  kind
+  opa
+  operator-sdk
 }
 
 ## Main execution thread

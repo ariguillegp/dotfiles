@@ -25,11 +25,11 @@ colors:
     cyan: '0x89b482'
     white: '0xdfbf8e'
 
-background_opacity: 0.95
+background_opacity: 0.97
 
 font:
   # Point size
-  size: 7.0
+  size: 8.0
 
   offset:
     x: 0

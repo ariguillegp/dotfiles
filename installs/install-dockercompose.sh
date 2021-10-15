@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## Version to be used
-VER=1.28.2
+VER=v2.0.1
 
 ## Download binary
 curl -L "https://github.com/docker/compose/releases/download/$VER/docker-compose-$(uname -s)-$(uname -m)" -o docker-compose

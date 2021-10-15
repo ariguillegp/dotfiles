@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## Version to be used
-VER="0.14.6"
+VER="1.0.9"
 
 ## Get terraform bundle
 wget https://releases.hashicorp.com/terraform/"$VER"/terraform_"$VER"_linux_amd64.zip

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## Version to be used
-VER=1.5.0
+VER=1.6.1
 
 ## Get cfssl tools
 curl -L https://github.com/cloudflare/cfssl/releases/download/v"$VER"/cfssl_"$VER"_linux_amd64 -o cfssl

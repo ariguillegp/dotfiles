@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 ## Install gimme
 echo "[1/4] Installing gimme (github.com/travis-ci/gimme)"

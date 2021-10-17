@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 ## Install virtualbox, kernel modules and guest additions
 sudo pacman -S --noconfirm --needed virtualbox virtualbox-host-modules-arch virtualbox-guest-iso

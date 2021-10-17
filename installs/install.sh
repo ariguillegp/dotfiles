@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 ## Install packages for setting personalized environment
 sudo pacman -S --needed --noconfirm alsa-utils bash-completion flameshot htop \
@@ -10,10 +10,9 @@ sudo pacman -S --needed --noconfirm alsa-utils bash-completion flameshot htop \
 ## Audio codecs and tools
 sudo pacman -S --needed --noconfirm a52dec faac faad2 flac jasper lame libdca \
                                     libdv libmad libmpeg2 libtheora libvorbis \
-                                    libxv wavpack x264 xvidcore vlc
+                                    libxv sof-formware wavpack x264 xvidcore vlc
 
 ## Fix audio issues
-sudo pacman -S --needed --noconfirm sof-firmware
 echo "load-module module-alsa-sink device=hw:0,0 channels=4" >> /etc/pulse/default.pa
 echo "load-module module-alsa-source device=hw:0,6 channels=4" >> /etc/pulse/default.pa
 
@@ -34,15 +33,6 @@ if [ ! -e "$HOME/.ssh/id_rsa" ]; then
 	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -C "ariguille.gp@gmail.com" -q -f ~/.ssh/id_rsa -N "" > /dev/null
 fi
 
-## Move tmux project selector to OS path
-sudo ln -s "$HOME/.dotfiles/tmux.conf/bmux.sh" /usr/local/bin/bmux
-
-## Install alacritty terminal emulator
-source install-alacritty.sh
-
-## Install i3 windows manager
-source install-i3.sh
-
 ## Added brave browser
 yay -S brave-nightly-bin
 
@@ -55,36 +45,9 @@ yay -S dos2unix
 ## Added keybase
 yay -S keybase-bin
 
-## Install neovim
-source install-nvim.sh
-
-## Install docker and tools
-source install-docker.sh
-source install-dockercompose.sh
-
-## Install bpf libraries
-source install-bpf-tools.sh
-
-## Install gcloud client
-source install-gcloud.sh
-
-## Install k8s tools
-source install-k8s-tools.sh
-
-## Install postman
-source install-postman.sh
-
-## Install ssl tools
-source install-ssl-tools.sh
-
-## Install terraform tools
-source install-terraform.sh
-
-## Install VM tools
-source install-vm-tools.sh
-
-## Install Ansible
-source install-ansible.sh
+for i in install-*.sh; do
+  ./"$i"
+done
 
 ## Successful exit
 exit 0

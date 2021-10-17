@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 ## sshpass is a requirement to authenticate with regular passwords
 ## vim-ansible improves vim support

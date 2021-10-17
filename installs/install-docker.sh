@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 ## Install docker daemon
 echo "[1/3] Installing docker"

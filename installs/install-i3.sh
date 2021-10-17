@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # install i3 wm and some other related tools
 sudo pacman -S i3 arandr xorg picom \
@@ -12,10 +12,6 @@ sudo pacman -S ttf-dejavu ttf-liberation noto-fonts lightdm \
 
 ## fancier lock screen
 yay -S i3lock-color
-
-# backing up config files and linking dotfiles
-mv ~/.config/i3 ~/.dotfiles/original_backup/i3
-ln -s ~/.dotfiles/config/i3 ~/.config/i3
 
 ## Successful exit
 exit 0

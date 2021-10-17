@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 ## Installs BCC frontend
 sudo pacman -S --noconfirm bcc bcc-tools python-bcc

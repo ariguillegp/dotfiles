@@ -6,7 +6,7 @@ cd installs || exit 1
 
 # 2. Write something to delete the initial files not owned by stow
 cd .. || exit 1
-find configs/* -type f | cut -d"/" -f3- | while read -r f; do rm "$HOME/$f"; done
+find configs/* ! -path "*bin*" -type f | cut -d"/" -f3- | while read -r f; do rm "$HOME/$f"; done
 
 # 3. Stow your dotfiles
 cd configs || exit 1

@@ -14,11 +14,11 @@ return require('packer').startup(function()
     -- Color scheme
     use 'gruvbox-community/gruvbox'
 
-    -- Fugitive for Git
-    use 'tpope/vim-fugitive'
-
     -- Git Worktrees
     use 'ThePrimeagen/git-worktree.nvim'
+
+    -- Fugitive for Git
+    use 'tpope/vim-fugitive'
 
     -- Vim surround
     use 'tpope/vim-surround'
@@ -37,8 +37,13 @@ return require('packer').startup(function()
     -- with :LspInstall <lang> and the client needs to be
     -- attached to them, check :h lsp
     use 'neovim/nvim-lspconfig'
-    use 'nvim-lua/completion-nvim'
-    use 'kabouzeid/nvim-lspinstall'
+    use 'williamboman/nvim-lsp-installer'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/nvim-cmp'
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
+    use 'onsails/lspkind-nvim'
 
     -- Treesitter for better code syntax highlighting
     -- Language parsers need to be installed independently with TSInstall <lang>

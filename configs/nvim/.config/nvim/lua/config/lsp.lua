@@ -1,19 +1,15 @@
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 
+-- Needed for formatting
+local lspkind = require "lspkind"
+lspkind.init()
+
 cmp.setup({
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
     end,
-  },
-  formatting = {
-    format = require("lspkind").cmp_format({with_text = true, menu = ({
-        buffer = "[Buffer]",
-        nvim_lsp = "[LSP]",
-        luasnip = "[LuaSnip]",
-        nvim_lua = "[Lua]",
-      })}),
   },
   mapping = {
     ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -33,7 +29,28 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'buffer' },
-  }
+  },
+  snippet = {
+    expand = function(args)
+      require("luasnip").lsp_expand(args.body)
+    end,
+  },
+  formatting = {
+    format = lspkind.cmp_format {
+      with_text = true,
+      menu = {
+        buffer   = "[buf]",
+        nvim_lsp = "[lsp]",
+        nvim_lua = "[lua]",
+        path     = "[path]",
+        luasnip  = "[snip]",
+      },
+    },
+  },
+  experimental = {
+    native_menu = false,
+    ghost_text = true,
+  },
 })
 
 local nvim_lsp = require('lspconfig')

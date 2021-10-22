@@ -8,7 +8,8 @@ return require('packer').startup(function()
           requires = {
           { 'nvim-lua/popup.nvim' },
           { 'nvim-lua/plenary.nvim' },
-          { 'nvim-telescope/telescope-fzy-native.nvim' }
+          { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+          { 'kyazdani42/nvim-web-devicons' }
     }}
 
     -- Color scheme
@@ -38,12 +39,15 @@ return require('packer').startup(function()
     -- attached to them, check :h lsp
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/nvim-cmp'
-    use 'L3MON4D3/LuaSnip'
-    use 'saadparwaiz1/cmp_luasnip'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-nvim-lua'
+    use 'hrsh7th/cmp-nvim-lsp'
     use 'onsails/lspkind-nvim'
+
+    -- snippets
+    use 'saadparwaiz1/cmp_luasnip'
 
     -- Treesitter for better code syntax highlighting
     -- Language parsers need to be installed independently with TSInstall <lang>

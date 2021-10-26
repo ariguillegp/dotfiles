@@ -8,6 +8,7 @@ else
     projects=$(find ~/workspace/devsecops -maxdepth 1 -mindepth 1 -type d)
     projects+=$'\n'
     projects+=$(find ~/workspace/k8s -maxdepth 1 -mindepth 1 -type d)
+    projects+=$(find ~/exercism/go maxdepth 1 -mindepth 1 -type d)
     selected=$(echo "$projects" | fzf)
 fi
 

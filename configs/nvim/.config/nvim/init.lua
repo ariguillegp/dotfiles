@@ -22,6 +22,3 @@ require('plugins')
 
 -- Plugin customizations
 require('config')
-
--- Telescope integration for git worktrees
-require("telescope").load_extension("git_worktree")

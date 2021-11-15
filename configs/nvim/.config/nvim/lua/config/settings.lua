@@ -1,6 +1,6 @@
 local utils = require('config.utils')
 local cmd = vim.cmd
-local indent = 4
+local indent = 2
 
 cmd 'syntax enable'
 cmd 'filetype plugin indent on'
@@ -8,6 +8,7 @@ cmd [[set path+=**]]
 
 utils.opt('w', 'number', true)
 utils.opt('w', 'relativenumber', true)
+utils.opt('o', 'autoindent', true)
 utils.opt('b', 'smartindent', true)
 utils.opt('o', 'swapfile', false)
 utils.opt('o', 'backup', false)

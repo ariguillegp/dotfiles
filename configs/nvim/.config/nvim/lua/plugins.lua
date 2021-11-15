@@ -5,11 +5,11 @@ return require('packer').startup(function()
 
     -- Telescope
     use { 'nvim-telescope/telescope.nvim',
-          requires = {
-          { 'nvim-lua/popup.nvim' },
-          { 'nvim-lua/plenary.nvim' },
-          { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-          { 'kyazdani42/nvim-web-devicons' }
+      requires = {
+        { 'nvim-lua/popup.nvim' },
+        { 'nvim-lua/plenary.nvim' },
+        { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+        { 'kyazdani42/nvim-web-devicons' }
     }}
 
     -- Color scheme
@@ -39,15 +39,15 @@ return require('packer').startup(function()
     -- attached to them, check :h lsp
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-nvim-lua'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'onsails/lspkind-nvim'
-
-    -- snippets
-    use 'saadparwaiz1/cmp_luasnip'
+    use { 'hrsh7th/nvim-cmp',
+      requires = {
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-nvim-lua',
+        'hrsh7th/cmp-nvim-lsp',
+        'onsails/lspkind-nvim',
+        'saadparwaiz1/cmp_luasnip'
+    }}
 
     -- Treesitter for better code syntax highlighting
     -- Language parsers need to be installed independently with TSInstall <lang>

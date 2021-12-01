@@ -1,7 +1,14 @@
 - name: Setup local environment
   hosts: localhost
   roles:
-  - nvim
+  - base
+  - media
+  - compression
+  - shell
   - alacritty
+  - tmux
+  - nvim
+  - docker
   - ebpf
   - vm
+    #- desktop

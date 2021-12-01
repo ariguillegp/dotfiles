@@ -1,0 +1,12 @@
+- name: Install Alacritty on Linux
+  become: yes
+  package:
+    name:
+    - cmake
+    - freetype2
+    - fontconfig
+    - pkg-config
+    - make
+    - libxcb
+    - alacritty
+    state: present

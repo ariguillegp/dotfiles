@@ -25,11 +25,11 @@
     - papirus-icon-theme
     state: present
 
-    #- name: set up xinitrc
-    #  lineinfile:
-    #    dest: ~/.xinitrc
-    #    state: present
-    #    create: yes
-    #    insertafter: EOF
-    #    regexp: "^exec .*"
-    #    line: "exec i3"
+- name: set up xinitrc
+  lineinfile:
+    dest: ~/.xinitrc
+    state: present
+    create: yes
+    insertafter: EOF
+    regexp: "^exec .*"
+    line: "exec i3"

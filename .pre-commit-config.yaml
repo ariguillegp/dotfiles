@@ -1,7 +1,23 @@
 ---
 repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.0.1
+  hooks:
+  - id: check-added-large-files
+  - id: check-shebang-scripts-are-executable
+  - id: pretty-format-json
+  - id: check-merge-conflict
+  - id: check-symlinks
+  - id: destroyed-symlinks
+  - id: check-yaml
+  - id: detect-aws-credentials
+    args:
+    - --allow-missing-credentials
+  - id: detect-private-key
+  - id: trailing-whitespace
+  - id: end-of-file-fixer
 - repo: https://github.com/ansible/ansible-lint.git
   rev: v4.2.0
   hooks:
-    - id: ansible-lint
-      files: \.(yaml|yml)$
+  - id: ansible-lint
+    files: \.(yaml|yml)$

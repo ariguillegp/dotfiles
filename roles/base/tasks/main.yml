@@ -1,0 +1,14 @@
+- name: Install base linux requirements
+  become: yes
+  package:
+    name:
+    - flameshot
+    - htop
+    - jq
+    - lsof
+    - ncdu
+    - rsync
+    - stow
+    - tree
+    - wget
+    state: present

@@ -1,0 +1,9 @@
+- name: Install base compression tools
+  become: yes
+  package:
+    name:
+    - p7zip
+    - tar
+    - unzip
+    - unrar
+    state: present

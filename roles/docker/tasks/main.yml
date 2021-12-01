@@ -1,0 +1,17 @@
+- name: Install docker tooling on Linux
+  become: yes
+  package:
+    name:
+    - docker
+    state: present
+
+- name: Add user to the group docker
+  user:
+    name: aristides
+    groups: docker
+    append: yes
+
+- name: Make sure a docker service unit is running
+  systemd:
+    state: started
+    name: docker

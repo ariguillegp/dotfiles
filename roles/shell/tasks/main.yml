@@ -1,0 +1,8 @@
+- name: Install shell requirements for Linux
+  become: yes
+  package:
+    name:
+    - bash-completion
+    - shellcheck
+    - zsh
+    state: present

@@ -1,0 +1,10 @@
+- name: Install VM tooling on Linux
+  become: yes
+  package:
+    name:
+    - virtualbox
+    - virtualbox-host-modules-arch
+    - virtualbox-guest-iso
+    - virtualbox-ext-oracle
+    - vagrant
+    state: present

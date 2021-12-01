@@ -1,0 +1,28 @@
+- name: Install media tooling on Linux
+  become: yes
+  package:
+    name:
+    - playerctl
+    - pulseaudio-alsa
+    - pulseaudio-bluetooth
+    - pulseaudio-equalizer
+    - pulseaudio-jack
+    - a52dec
+    - faac
+    - faad2
+    - flac
+    - jasper
+    - lame
+    - libdca
+    - libdv
+    - libmad
+    - libmpeg2
+    - libtheora
+    - libvorbis
+    - libxv
+    - sof-firmware
+    - wavpack
+    - x264
+    - xvidcore
+    - vlc
+    state: present

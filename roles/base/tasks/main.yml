@@ -1,3 +1,9 @@
+- name: Full system upgrade
+  become: yes
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
 - name: Install base linux requirements
   become: yes
   package:

@@ -1,0 +1,25 @@
+- name: Install desktop management tools
+  become: yes
+  package:
+    name:
+    - i3
+    - arandr
+    - xorg
+    - picom
+    - lxappearance
+    - pcmanfm
+    - feh
+    - imagemagick
+    - thunar
+    - pacman-contrib
+    - scrot
+    - ttf-dejavu
+    - ttf-liberation
+    - noto-fonts
+    - lightdm
+    - lightdm-gtk-greeter
+    - lightdm-gtk-greeter-settings
+    - materia-gtk-theme
+    - papirus-icon-theme
+    - i3lock-color
+    state: present

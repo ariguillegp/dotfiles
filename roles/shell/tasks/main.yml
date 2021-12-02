@@ -5,4 +5,5 @@
     - bash-completion
     - shellcheck
     - zsh
+    - zsh-completions
     state: present

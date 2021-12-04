@@ -8,6 +8,7 @@
   become: yes
   package:
     name:
+    - curl
     - flameshot
     - git
     - htop

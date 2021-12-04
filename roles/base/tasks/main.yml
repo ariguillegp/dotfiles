@@ -9,6 +9,7 @@
   package:
     name:
     - flameshot
+    - git
     - htop
     - jq
     - lsof

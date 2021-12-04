@@ -25,7 +25,7 @@
     - papirus-icon-theme
     state: present
 
-- name: set up xinitrc
+- name: Set up xinitrc
   lineinfile:
     dest: ~/.xinitrc
     state: present

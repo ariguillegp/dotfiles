@@ -1,0 +1,16 @@
+- name: Creates opt directory
+  file:
+    path: /home/aristides/opt
+    state: directory
+
+- name: Clone brave nightly package
+  git:
+    repo: https://aur.archlinux.org/brave-nightly-bin.git
+    dest: /home/aristides/opt
+    clone: yes
+    update: yes
+
+- name: Build brave from source
+  command: "makepkg -csi --noconfirm"
+  args:
+    chdir: /home/aristides/opt

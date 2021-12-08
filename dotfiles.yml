@@ -2,6 +2,7 @@
   hosts: localhost
   roles:
   - base
+  - brave
   - media
   - compression
   - shell

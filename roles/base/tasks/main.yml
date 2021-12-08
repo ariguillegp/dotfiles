@@ -8,7 +8,9 @@
   become: yes
   package:
     name:
+    - base-devel
     - curl
+    - dos2unix
     - flameshot
     - git
     - htop

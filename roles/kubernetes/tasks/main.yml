@@ -1,0 +1,17 @@
+- name: Install kubectl
+  become: yes
+  get_url:
+    url :  https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_version }}/bin/linux/amd64/kubectl
+    dest: /usr/local/bin/kubectl
+    mode: 'u+x,g+x'
+
+# TODO: Don't append always
+- name: Enable kubectl auto-completion
+  shell: echo 'source <(kubectl completion bash)' >> ~/.bashrc
+
+- name: Install OPA client
+  become: yes
+  get_url:
+    url :  https://openpolicyagent.org/downloads/{{ opa_version }}/opa_linux_amd64
+    dest: /usr/local/bin/opa
+    mode: 'u+x,g+x'

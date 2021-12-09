@@ -18,5 +18,6 @@
              dest=/usr/local/bin
              copy=no
 
+# TODO: Don't fail if auto-completion snippet exists in the rc files
 - name: Enable terraform auto-completion
   shell: terraform -install-autocomplete

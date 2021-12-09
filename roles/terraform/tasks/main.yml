@@ -1,9 +1,3 @@
-- name: Check Terraform version
-  shell: "terraform --version | head -n1 | grep {{ terraform_version }}"
-  failed_when: False
-  changed_when: False
-  register: current_terraform_version
-
 - name: Determine Terraform checksums
   uri: url="https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_SHA256SUMS"
        method="GET"
@@ -23,7 +17,6 @@
   unarchive: src="/usr/local/src/terraform_{{ terraform_version }}_linux_amd64.zip"
              dest=/usr/local/bin
              copy=no
-  when: current_terraform_version.rc != 0 or terraform_downloaded | changed
 
 - name: Enable terraform auto-completion
   shell: terraform -install-autocomplete

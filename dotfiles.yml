@@ -13,4 +13,6 @@
   - ebpf
   - vm
   - desktop
+  - ssl
+  - kubernetes
   - terraform

@@ -15,3 +15,10 @@
   systemd:
     state: started
     name: docker
+
+- name: Install docker-compose
+  become: yes
+  get_url:
+    url : https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-Linux-x86_64
+    dest: /usr/local/bin/docker-compose
+    mode: 'u+x,g+x'

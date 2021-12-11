@@ -3,6 +3,7 @@
   roles:
   - base
   - brave
+  - bluetooth
   - media
   - compression
   - shell

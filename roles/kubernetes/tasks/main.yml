@@ -5,9 +5,15 @@
     dest: /usr/local/bin/kubectl
     mode: 'u+x,g+x'
 
-# TODO: Don't append always
 - name: Enable kubectl auto-completion
-  shell: echo 'source <(kubectl completion bash)' >> ~/.bashrc
+  become: yes
+  lineinfile:
+    dest: "~aristides/.bashrc"
+    state: present
+    create: yes
+    insertafter: EOF
+    regexp: "kubectl"
+    line: "source <(kubectl completion bash)"
 
 - name: Install OPA client
   become: yes

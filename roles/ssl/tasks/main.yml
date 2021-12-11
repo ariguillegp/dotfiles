@@ -1,3 +1,10 @@
+- name: Generate an OpenSSH RSA keypair
+  community.crypto.openssh_keypair:
+    path: ~aristides/.ssh/id_rsa
+    size: 4096
+    type: rsa
+    comment: ariguille.gp@gmail.com
+
 - name: Install cfssl
   become: yes
   get_url:

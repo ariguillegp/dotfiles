@@ -53,3 +53,23 @@
     insertafter: EOF
     regexp: "^load-module modulese-alsa.*"
     line: "load-module module-alsa-source device=hw:0,6 channels=4"
+
+- name: Fix bluetooth issues policy
+  become: yes
+  lineinfile:
+    dest: /etc/pulse/system.pa
+    state: present
+    create: yes
+    insertafter: EOF
+    regexp: "^load-module modules-bluetooth-policy$"
+    line: "load-module module-bluetooth-policy"
+
+- name: Fix bluetooth issues discover
+  become: yes
+  lineinfile:
+    dest: /etc/pulse/system.pa
+    state: present
+    create: yes
+    insertafter: EOF
+    regexp: "^load-module modules-bluetooth-discover$"
+    line: "load-module module-bluetooth-discover"

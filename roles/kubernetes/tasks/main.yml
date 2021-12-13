@@ -4,6 +4,7 @@
     url :  https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_version }}/bin/linux/amd64/kubectl
     dest: /usr/local/bin/kubectl
     mode: 'u+x,g+x'
+    group: users
 
 - name: Enable kubectl auto-completion
   become: yes
@@ -21,3 +22,15 @@
     url :  https://openpolicyagent.org/downloads/{{ opa_version }}/opa_linux_amd64
     dest: /usr/local/bin/opa
     mode: 'u+x,g+x'
+    group: users
+
+- name: Install kind
+  become: yes
+  get_url:
+    url :  https://kind.sigs.k8s.io/dl/{{ kind_version }}/kind-linux-amd64
+    dest: /usr/local/bin/kind
+    mode: 'u+x,g+x'
+    group: users
+
+- name: Install operator-sdk
+  shell: echo "Install operator-sdk"

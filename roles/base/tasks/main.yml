@@ -1,24 +1,24 @@
 - name: Full system upgrade
-  become: yes
+  become: true
   pacman:
-    update_cache: yes
-    upgrade: yes
+    update_cache: true
+    upgrade: true
 
 - name: Install base linux requirements
-  become: yes
+  become: true
   package:
     name:
-    - base-devel
-    - curl
-    - dos2unix
-    - flameshot
-    - git
-    - htop
-    - jq
-    - lsof
-    - ncdu
-    - rsync
-    - stow
-    - tree
-    - wget
+      - base-devel
+      - curl
+      - dos2unix
+      - flameshot
+      - git
+      - htop
+      - jq
+      - lsof
+      - ncdu
+      - rsync
+      - stow
+      - tree
+      - wget
     state: present

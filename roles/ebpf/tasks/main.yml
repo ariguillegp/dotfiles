@@ -1,8 +1,8 @@
 - name: Install eBPF tooling on Linux
-  become: yes
+  become: true
   package:
     name:
-    - bcc
-    - bcc-tools
-    - python-bcc
+      - bcc
+      - bcc-tools
+      - python-bcc
     state: present

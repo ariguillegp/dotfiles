@@ -28,7 +28,7 @@ lua << END
   else
     time = function(chunk, start) end
   end
-  
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do

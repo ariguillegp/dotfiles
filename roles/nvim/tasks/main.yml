@@ -1,14 +1,14 @@
 - name: Install Neovim on Linux
-  become: yes
+  become: true
   package:
     name:
-    - neovim-nightly-bin
-    - neovim-symlinks
-    - python-pynvim
-    - fd
-    - ripgrep
-    - fzf
-    - python-pip
+      - neovim-nightly-bin
+      - neovim-symlinks
+      - python-pynvim
+      - fd
+      - ripgrep
+      - fzf
+      - python-pip
     state: present
 
 - name: Install python-pynvim

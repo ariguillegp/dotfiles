@@ -1,48 +1,48 @@
 - name: Install media tooling on Linux
-  become: yes
+  become: true
   package:
     name:
-    - playerctl
-    - pulseaudio-alsa
-    - pulseaudio-bluetooth
-    - pulseaudio-equalizer
-    - pulseaudio-jack
-    - a52dec
-    - faac
-    - faad2
-    - flac
-    - jasper
-    - lame
-    - libdca
-    - libdv
-    - libmad
-    - libmpeg2
-    - libtheora
-    - libvorbis
-    - libxv
-    - sof-firmware
-    - wavpack
-    - x264
-    - xvidcore
-    - vlc
+      - playerctl
+      - pulseaudio-alsa
+      - pulseaudio-bluetooth
+      - pulseaudio-equalizer
+      - pulseaudio-jack
+      - a52dec
+      - faac
+      - faad2
+      - flac
+      - jasper
+      - lame
+      - libdca
+      - libdv
+      - libmad
+      - libmpeg2
+      - libtheora
+      - libvorbis
+      - libxv
+      - sof-firmware
+      - wavpack
+      - x264
+      - xvidcore
+      - vlc
     state: present
 
 - name: Fix audio issues sink
-  become: yes
+  become: true
   lineinfile:
     dest: /etc/pulse/system.pa
     state: present
-    create: yes
+    create: true
     insertafter: EOF
     regexp: "^load-module modulese-alsa.*"
     line: "load-module module-alsa-sink device=hw:0,0 channels=4"
 
 - name: Fix audio issues  source
-  become: yes
+  become: true
   lineinfile:
     dest: /etc/pulse/system.pa
     state: present
-    create: yes
+    create: true
     insertafter: EOF
     regexp: "^load-module modulese-alsa.*"
     line: "load-module module-alsa-source device=hw:0,6 channels=4"

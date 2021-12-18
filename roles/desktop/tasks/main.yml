@@ -1,35 +1,35 @@
 - name: Install desktop management tools
-  become: yes
+  become: true
   package:
     name:
-    - i3-wm
-    - i3status
-    - i3lock-color
-    - scrot
-    - xorg-server
-    - arandr
-    - picom
-    - lxappearance
-    - pcmanfm
-    - feh
-    - imagemagick
-    - thunar
-    - pacman-contrib
-    - ttf-dejavu
-    - ttf-liberation
-    - noto-fonts
-    - lightdm
-    - lightdm-gtk-greeter
-    - lightdm-gtk-greeter-settings
-    - materia-gtk-theme
-    - papirus-icon-theme
+      - i3-wm
+      - i3status
+      - i3lock-color
+      - scrot
+      - xorg-server
+      - arandr
+      - picom
+      - lxappearance
+      - pcmanfm
+      - feh
+      - imagemagick
+      - thunar
+      - pacman-contrib
+      - ttf-dejavu
+      - ttf-liberation
+      - noto-fonts
+      - lightdm
+      - lightdm-gtk-greeter
+      - lightdm-gtk-greeter-settings
+      - materia-gtk-theme
+      - papirus-icon-theme
     state: present
 
 - name: Set up xinitrc
   lineinfile:
     dest: ~/.xinitrc
     state: present
-    create: yes
+    create: true
     insertafter: EOF
     regexp: "^exec .*"
     line: "exec i3"

@@ -1,36 +1,36 @@
 - name: Install kubectl
-  become: yes
+  become: true
   get_url:
-    url :  https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_version }}/bin/linux/amd64/kubectl
+    url: https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_version }}/bin/linux/amd64/kubectl
     dest: /usr/local/bin/kubectl
     mode: 'u+x,g+x'
     group: users
 
 - name: Enable kubectl auto-completion
-  become: yes
+  become: true
   lineinfile:
     dest: "~aristides/.bashrc"
     state: present
-    create: yes
+    create: true
     insertafter: EOF
     regexp: "kubectl"
     line: "source <(kubectl completion bash)"
 
 - name: Install OPA client
-  become: yes
+  become: true
   get_url:
-    url :  https://openpolicyagent.org/downloads/{{ opa_version }}/opa_linux_amd64
+    url: https://openpolicyagent.org/downloads/{{ opa_version }}/opa_linux_amd64
     dest: /usr/local/bin/opa
     mode: 'u+x,g+x'
     group: users
 
 - name: Install kind
-  become: yes
+  become: true
   get_url:
-    url :  https://kind.sigs.k8s.io/dl/{{ kind_version }}/kind-linux-amd64
+    url: https://kind.sigs.k8s.io/dl/{{ kind_version }}/kind-linux-amd64
     dest: /usr/local/bin/kind
     mode: 'u+x,g+x'
     group: users
 
-- name: Install operator-sdk
-  shell: echo "Install operator-sdk"
+# - name: Install operator-sdk
+#   shell: echo "Install operator-sdk"

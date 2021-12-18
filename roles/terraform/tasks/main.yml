@@ -5,7 +5,7 @@
   register: terraform_checksums
 
 - name: Download Terraform
-  become: yes
+  become: true
   get_url: url="https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip"
            dest="/usr/local/src/terraform_{{ terraform_version }}_linux_amd64.zip"
            checksum="sha256:{{ item.split(' ') | first }}"
@@ -13,11 +13,13 @@
   register: terraform_downloaded
 
 - name: Extract and install Terraform
-  become: yes
+  become: true
   unarchive: src="/usr/local/src/terraform_{{ terraform_version }}_linux_amd64.zip"
              dest=/usr/local/bin
              copy=no
 
 # TODO: Don't fail if auto-completion snippet exists in the rc files
 - name: Enable terraform auto-completion
-  shell: terraform -install-autocomplete
+  command: terraform -install-autocomplete
+  register: myoutput
+  changed_when: myoutput.rc != 0

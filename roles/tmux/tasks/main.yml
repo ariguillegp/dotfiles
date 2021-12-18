@@ -1,6 +1,6 @@
 - name: Install tmux tooling
-  become: yes
+  become: true
   package:
     name:
-    - tmux
+      - tmux
     state: present

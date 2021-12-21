@@ -10,7 +10,8 @@ return require('packer').startup(function()
         { 'nvim-lua/plenary.nvim' },
         { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
         { 'kyazdani42/nvim-web-devicons' }
-    }}
+      }
+    }
 
     -- Color scheme
     use 'gruvbox-community/gruvbox'
@@ -20,6 +21,10 @@ return require('packer').startup(function()
 
     -- Fugitive for Git
     use 'tpope/vim-fugitive'
+    -- Add git related info in the signs columns and popups
+    use { 'lewis6991/gitsigns.nvim',
+      requires = { 'nvim-lua/plenary.nvim' }
+    }
 
     -- Vim surround
     use 'tpope/vim-surround'
@@ -31,7 +36,7 @@ return require('packer').startup(function()
     use 'vim-utils/vim-man'
 
     -- Go development
-    use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
+    -- use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
 
     -- LSP and completion
     -- Language servers need to be installed
@@ -46,13 +51,17 @@ return require('packer').startup(function()
         'hrsh7th/cmp-nvim-lua',
         'hrsh7th/cmp-nvim-lsp',
         'onsails/lspkind-nvim',
-        'saadparwaiz1/cmp_luasnip'
-    }}
+        'saadparwaiz1/cmp_luasnip',
+        'L3MON4D3/LuaSnip'
+      }
+    }
 
     -- Treesitter for better code syntax highlighting
     -- Language parsers need to be installed independently with TSInstall <lang>
     -- We recommend updating the parsers on update
     use { 'nvim-treesitter/nvim-treesitter', run= ':TSUpdate'}
+    -- Additional textobjects for treesitter
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
 
     -- Snippets and integration with k8s
     use 'andrewstuart/vim-kubernetes'

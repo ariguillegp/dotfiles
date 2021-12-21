@@ -35,9 +35,6 @@ return require('packer').startup(function()
     -- Some help
     use 'vim-utils/vim-man'
 
-    -- Go development
-    -- use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
-
     -- LSP and completion
     -- Language servers need to be installed
     -- with :LspInstall <lang> and the client needs to be

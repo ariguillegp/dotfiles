@@ -2,15 +2,15 @@
   file:
     path: /home/aristides/opt
     state: directory
-    mode: '0644'
+    mode: '0755'
 
 - name: Clone brave nightly package
+  become: true
   git:
     repo: https://aur.archlinux.org/brave-nightly-bin.git
     dest: /home/aristides/opt
     clone: true
     update: true
-    version: 1.35.44-1
 
 - name: Build brave from source
   command: "makepkg -csi --noconfirm"

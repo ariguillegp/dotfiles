@@ -12,6 +12,7 @@
     dest: "~aristides/.bashrc"
     state: present
     create: true
+    mode: '0644'
     insertafter: EOF
     regexp: "kubectl"
     line: "source <(kubectl completion bash)"

@@ -33,3 +33,4 @@
     insertafter: EOF
     regexp: "^exec .*"
     line: "exec i3"
+    mode: '0644'

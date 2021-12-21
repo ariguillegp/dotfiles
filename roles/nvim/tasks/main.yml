@@ -1,17 +1,48 @@
-- name: Install Neovim on Linux
+- name: Install Neovim requirements
   become: true
   package:
     name:
-      - neovim-nightly-bin
-      - neovim-symlinks
       - python-pynvim
       - fd
       - ripgrep
       - fzf
       - python-pip
     state: present
+  tags:
+    - nvim
+
+- name: Remove Neovim
+  file:
+    state: absent
+    path: "{{ lookup('env', 'HOME') }}/opt/neovim"
+  tags:
+    - nvim
+
+- name: Clone Neovim
+  git:
+    repo: 'https://github.com/neovim/neovim.git'
+    dest: "{{ lookup('env', 'HOME') }}/opt/neovim"
+  tags:
+    - nvim
+
+- name: Build Neovim
+  shell: "cd {{ lookup('env', 'HOME') }}/opt/neovim && make -j 20"
+  register: build_output
+  changed_when: build_output.rc != 0
+  tags:
+    - nvim
+
+- name: Install Neovim
+  become: true
+  shell: "cd {{ lookup('env', 'HOME') }}/opt/neovim && make install"
+  register: install_output
+  changed_when: install_output.rc != 0
+  tags:
+    - nvim
 
 - name: Install python-pynvim
   pip:
     name: neovim
     extra_args: --user --upgrade
+  tags:
+    - nvim

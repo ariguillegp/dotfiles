@@ -110,8 +110,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias v="vim"
-alias V="sudo vim"
+alias v="nvim"
+alias V="sudo nvim"
 alias tp="terraform plan -out myplan"
 alias ta="terraform apply myplan"
 

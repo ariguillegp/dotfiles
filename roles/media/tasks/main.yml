@@ -33,6 +33,7 @@
     dest: /etc/pulse/system.pa
     state: present
     create: true
+    mode: '0644'
     insertafter: EOF
     regexp: "^load-module modulese-alsa.*"
     line: "load-module module-alsa-sink device=hw:0,0 channels=4"
@@ -43,6 +44,7 @@
     dest: /etc/pulse/system.pa
     state: present
     create: true
+    mode: '0644'
     insertafter: EOF
     regexp: "^load-module modulese-alsa.*"
     line: "load-module module-alsa-source device=hw:0,6 channels=4"

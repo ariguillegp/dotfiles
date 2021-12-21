@@ -20,5 +20,6 @@
       - rsync
       - stow
       - tree
+      - vim-ansible
       - wget
     state: present

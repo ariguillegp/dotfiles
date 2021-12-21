@@ -1,9 +1,12 @@
--- Setup nvim-cmp.
-local cmp = require'cmp'
-
 -- Needed for formatting
-local lspkind = require "lspkind"
+local lspkind = require('lspkind')
 lspkind.init()
+
+-- Setup nvim-cmp.
+local cmp = require('cmp')
+
+-- luasnip setup
+local luasnip = require('luasnip')
 
 cmp.setup({
   snippet = {
@@ -44,22 +47,19 @@ cmp.setup({
     end,
   },
   sources = {
+    { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
+    { name = 'path' },
     { name = 'luasnip' },
-    { name = 'buffer' },
-  },
-  snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
-    end,
+    { name = 'buffer', keyword_length = 5 },
   },
   formatting = {
     format = lspkind.cmp_format {
       with_text = true,
       menu = {
         buffer   = "[buf]",
-        nvim_lsp = "[lsp]",
-        nvim_lua = "[lua]",
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[api]",
         path     = "[path]",
         luasnip  = "[snip]",
       },
@@ -72,6 +72,24 @@ cmp.setup({
 })
 
 local nvim_lsp = require('lspconfig')
+
+local function config(_config)
+  return vim.tbl_deep_extend("force", {
+  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  }, _config or {})
+end
+
+nvim_lsp.gopls.setup(config({
+  cmd = {"gopls", "serve"},
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+}))
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -120,16 +138,3 @@ lsp_installer.on_server_ready(function(server)
     server:setup(opts)
     vim.cmd [[ do User LspAttachBuffers ]]
 end)
-
--- nvim-cmp supports additional completion capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
--- Enable the following language servers
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end

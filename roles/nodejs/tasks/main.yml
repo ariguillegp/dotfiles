@@ -1,0 +1,7 @@
+- name: Install nodeJS tooling
+  become: true
+  package:
+    name:
+      - nodejs
+      - npm
+    state: present

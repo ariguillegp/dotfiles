@@ -1,6 +1,7 @@
 require('config.colorscheme')
 require('config.completion')
-require('config.fugitive')
+require('config.git')
+require('config.lightline')
 require('config.lsp')
 require('config.mappings')
 require('config.netrw')

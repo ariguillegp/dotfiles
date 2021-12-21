@@ -2,8 +2,7 @@
   become: true
   package:
     name:
-      - bash-completion
-      - shellcheck
-      - zsh
-      - zsh-completions
+      - "{{ item }}"
     state: present
+  with_items: "{{ shell_packages }}"
+  tags: shell

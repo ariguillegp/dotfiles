@@ -1,0 +1,5 @@
+shell_packages:
+  - bash-completion
+  - shellcheck
+  - zsh
+  - zsh-completions

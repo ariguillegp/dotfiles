@@ -5,3 +5,5 @@
       - "{{ item }}"
     state: present
   with_items: "{{ vm_packages }}"
+  tags:
+    - vm

@@ -1,20 +1,32 @@
 - name: Setup local environment
   hosts: localhost
+  pre_tasks:
+    - name: "pre_tasks : Full system upgrade"
+      become: true
+      pacman:
+        update_cache: true
+        upgrade: true
+      tags:
+        - base
+        - nvim
   roles:
-  - base
-  - brave
-  - bluetooth
-  - media
-  - compression
-  - shell
-  - alacritty
-  - tmux
-  - nvim
-  - docker
-  - ebpf
-  - vm
-  - desktop
-  - kubernetes
-  - nodejs
-  - ssl
-  - terraform
+    - base
+    - brave
+    - bluetooth
+    - media
+    - compression
+    - shell
+    - alacritty
+    - tmux
+    - nvim
+    - docker
+    - ebpf
+    - vm
+    - desktop
+    - kubernetes
+    - nodejs
+    - ssl
+    - terraform
+  post_tasks:
+    - name: " post_tasks : Task finalizers"
+      shell: "echo DONE"

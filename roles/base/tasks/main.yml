@@ -1,4 +1,4 @@
-- name: Install base linux requirements
+- name: Install base arch requirements
   become: true
   package:
     name:

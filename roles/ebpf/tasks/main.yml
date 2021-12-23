@@ -2,7 +2,8 @@
   become: true
   package:
     name:
-      - bcc
-      - bcc-tools
-      - python-bcc
+      - "{{ item }}"
     state: present
+  with_items: "{{ ebpf_packages }}"
+  tags:
+    - ebpf

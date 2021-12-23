@@ -1,0 +1,6 @@
+nvim_packages:
+  - python-pynvim
+  - fd
+  - ripgrep
+  - fzf
+  - python-pip

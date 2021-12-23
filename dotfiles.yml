@@ -9,6 +9,9 @@
       tags:
         - base
         - nvim
+        - vm
+        - ebpf
+        - shell
   roles:
     - base
     - brave

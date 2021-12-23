@@ -2,12 +2,9 @@
   become: true
   package:
     name:
-      - python-pynvim
-      - fd
-      - ripgrep
-      - fzf
-      - python-pip
+      - "{{ item }}"
     state: present
+  with_items: "{{ nvim_packages }}"
   tags:
     - nvim
 

@@ -2,9 +2,6 @@
   become: true
   package:
     name:
-      - virtualbox
-      - virtualbox-host-modules-arch
-      - virtualbox-guest-iso
-      - virtualbox-ext-oracle
-      - vagrant
+      - "{{ item }}"
     state: present
+  with_items: "{{ vm_packages }}"

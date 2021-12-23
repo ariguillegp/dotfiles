@@ -1,0 +1,14 @@
+base_packages:
+  - base-devel
+  - curl
+  - dos2unix
+  - flameshot
+  - git
+  - htop
+  - jq
+  - lsof
+  - ncdu
+  - rsync
+  - stow
+  - tree
+  - wget

@@ -8,6 +8,7 @@
         upgrade: true
       tags:
         - base
+        - media
         - nvim
         - vm
         - ebpf

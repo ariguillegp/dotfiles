@@ -2,30 +2,11 @@
   become: true
   package:
     name:
-      - playerctl
-      - pulseaudio-alsa
-      - pulseaudio-bluetooth
-      - pulseaudio-equalizer
-      - pulseaudio-jack
-      - a52dec
-      - faac
-      - faad2
-      - flac
-      - jasper
-      - lame
-      - libdca
-      - libdv
-      - libmad
-      - libmpeg2
-      - libtheora
-      - libvorbis
-      - libxv
-      - sof-firmware
-      - wavpack
-      - x264
-      - xvidcore
-      - vlc
+      - "{{ item }}"
     state: present
+  with_items: "{{ media_packages }}"
+  tags:
+    - media
 
 - name: Fix audio issues sink
   become: true
@@ -37,6 +18,8 @@
     insertafter: EOF
     regexp: "^load-module modulese-alsa.*"
     line: "load-module module-alsa-sink device=hw:0,0 channels=4"
+  tags:
+    - media
 
 - name: Fix audio issues  source
   become: true
@@ -48,3 +31,5 @@
     insertafter: EOF
     regexp: "^load-module modulese-alsa.*"
     line: "load-module module-alsa-source device=hw:0,6 channels=4"
+  tags:
+    - media

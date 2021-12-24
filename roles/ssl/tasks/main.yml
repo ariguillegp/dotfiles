@@ -1,20 +1,10 @@
 - name: Install cfssl
   become: true
   get_url:
-    url: https://github.com/cloudflare/cfssl/releases/download/v{{ cfssl_version }}/cfssl_{{ cfssl_version }}_linux_amd64
-    dest: /usr/local/bin/cfssl
+    url: https://github.com/cloudflare/cfssl/releases/download/v{{ cfssl_version }}/{{ item }}_{{ cfssl_version }}_linux_amd64
+    dest: /usr/local/bin/{{ item }}
     mode: 'u+x,g+x'
-
-- name: Install cfssljson
-  become: true
-  get_url:
-    url: https://github.com/cloudflare/cfssl/releases/download/v{{ cfssl_version }}/cfssljson_{{ cfssl_version }}_linux_amd64
-    dest: /usr/local/bin/cfssljson
-    mode: 'u+x,g+x'
-
-- name: Install cfssl-certinfo
-  become: true
-  get_url:
-    url: https://github.com/cloudflare/cfssl/releases/download/v{{ cfssl_version }}/cfssl-certinfo_{{ cfssl_version }}_linux_amd64
-    dest: /usr/local/bin/cfssl-certinfo
-    mode: 'u+x,g+x'
+  with_items:
+    - '{{ cfssl_packages }}'
+  tags:
+    - ssl

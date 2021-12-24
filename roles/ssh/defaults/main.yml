@@ -1,0 +1,2 @@
+dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+src_key: "{{ lookup('env', 'HOME') }}/.dotfiles/secrets/ssh/id_rsa"

@@ -6,7 +6,7 @@
   tags:
     - ssh
 
-- name: Install ssh private key
+- name: Install ssh private/public keys
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -21,6 +21,6 @@
   authorized_key:
     user: "{{ lookup('env', 'USER') }}"
     state: present
-    key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa.pub"
-  with_fileglob:
-    - "{{ lookup('env', 'HOME') }}/.ssh/*.pub"
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+  tags:
+    - ssh

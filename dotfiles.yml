@@ -8,8 +8,11 @@
         upgrade: true
       tags:
         - base
+        - brave
+        - desktop
         - media
         - nvim
+        - nodejs
         - vm
         - ebpf
         - shell
@@ -22,7 +25,6 @@
     - compression
     - shell
     - alacritty
-    - tmux
     - nvim
     - docker
     - ebpf

@@ -1,0 +1,22 @@
+desktop_packages:
+  - i3-wm
+  - i3status
+  - i3lock-color
+  - scrot
+  - xorg-server
+  - arandr
+  - picom
+  - lxappearance
+  - pcmanfm
+  - feh
+  - imagemagick
+  - thunar
+  - pacman-contrib
+  - ttf-dejavu
+  - ttf-liberation
+  - noto-fonts
+  - lightdm
+  - lightdm-gtk-greeter
+  - lightdm-gtk-greeter-settings
+  - materia-gtk-theme
+  - papirus-icon-theme

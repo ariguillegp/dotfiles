@@ -1,0 +1,43 @@
+- name: Setup local environment
+  hosts: localhost
+  pre_tasks:
+    - name: "pre_tasks : Full system upgrade"
+      become: true
+      pacman:
+        update_cache: true
+        upgrade: true
+      tags:
+        - base
+        - brave
+        - compression
+        - desktop
+        - dotfiles
+        - media
+        - nvim
+        - nodejs
+        - vm
+        - ebpf
+        - shell
+        - alacritty
+  roles:
+    - base
+    - ssh
+    - brave
+    - bluetooth
+    - media
+    - compression
+    - dotfiles
+    - shell
+    - alacritty
+    - nvim
+    - docker
+    - ebpf
+    - vm
+    - desktop
+    - kubernetes
+    - nodejs
+    - ssl
+    - terraform
+  post_tasks:
+    - name: " post_tasks : Task finalizers"
+      shell: "echo DONE"

@@ -4,17 +4,24 @@
     name:
       - docker
     state: present
+  tags:
+    - docker
 
 - name: Add user to the group docker
   user:
     name: aristides
-    groups: docker
+    groups:
+      - docker
     append: true
+  tags:
+    - docker
 
 - name: Make sure a docker service unit is running
   systemd:
     state: started
     name: docker
+  tags:
+    - docker
 
 - name: Install docker-compose
   become: true
@@ -22,3 +29,5 @@
     url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64
     dest: /usr/local/bin/docker-compose
     mode: 'u+x,g+x'
+  tags:
+    - docker

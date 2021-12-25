@@ -2,11 +2,8 @@
   become: true
   package:
     name:
-      - cmake
-      - freetype2
-      - fontconfig
-      - pkg-config
-      - make
-      - libxcb
-      - alacritty
+      - "{{ item }}"
     state: present
+  with_items: "{{ alacritty_packages }}"
+  tags:
+    - alacritty

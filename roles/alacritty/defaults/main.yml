@@ -1,0 +1,8 @@
+alacritty_packages:
+  - cmake
+  - freetype2
+  - fontconfig
+  - pkg-config
+  - make
+  - libxcb
+  - alacritty

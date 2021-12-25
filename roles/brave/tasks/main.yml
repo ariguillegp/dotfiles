@@ -3,6 +3,8 @@
     path: /home/aristides/opt
     state: directory
     mode: '0755'
+  tags:
+    - brave
 
 - name: Clone brave nightly package
   become: true
@@ -11,6 +13,8 @@
     dest: /home/aristides/opt
     clone: true
     update: true
+  tags:
+    - brave
 
 - name: Build brave from source
   command: "makepkg -csi --noconfirm"
@@ -18,3 +22,5 @@
   changed_when: myoutput.rc != 0
   args:
     chdir: /home/aristides/opt
+  tags:
+    - brave

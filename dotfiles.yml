@@ -16,6 +16,7 @@
         - vm
         - ebpf
         - shell
+        - alacritty
   roles:
     - base
     - ssh

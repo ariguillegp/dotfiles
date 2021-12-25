@@ -9,6 +9,7 @@
       tags:
         - base
         - brave
+        - compression
         - desktop
         - media
         - nvim

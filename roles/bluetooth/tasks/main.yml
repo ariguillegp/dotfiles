@@ -8,6 +8,8 @@
     insertafter: EOF
     regexp: "^load-module modules-bluetooth-policy$"
     line: "load-module module-bluetooth-policy"
+  tags:
+    - bluetooth
 
 - name: Fix bluetooth issues discover
   become: true
@@ -19,3 +21,5 @@
     regexp: "^load-module modules-bluetooth-discover$"
     line: "load-module module-bluetooth-discover"
     mode: '0644'
+  tags:
+    - bluetooth

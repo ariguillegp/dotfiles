@@ -26,8 +26,6 @@ require('telescope').load_extension('fzf')
 -- Telescope integration for git worktrees
 require("telescope").load_extension("git_worktree")
 
-local utils = require('config.utils')
-
 --Add leader shortcuts
 vim.api.nvim_set_keymap('n', '<leader><space>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], { noremap = true, silent = true })

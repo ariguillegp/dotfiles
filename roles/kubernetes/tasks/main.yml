@@ -5,8 +5,10 @@
     dest: /usr/local/bin/kubectl
     mode: 'u+x,g+x'
     group: users
+  tags:
+    - kubectl
 
-- name: Enable kubectl auto-completion
+- name: Enable kubectl auto-completion bash
   become: true
   lineinfile:
     dest: "~aristides/.bashrc"
@@ -16,6 +18,8 @@
     insertafter: EOF
     regexp: "kubectl"
     line: "source <(kubectl completion bash)"
+  tags:
+    - kubectl
 
 - name: Install OPA client
   become: true
@@ -24,6 +28,8 @@
     dest: /usr/local/bin/opa
     mode: 'u+x,g+x'
     group: users
+  tags:
+    - opa
 
 - name: Install kind
   become: true
@@ -32,6 +38,8 @@
     dest: /usr/local/bin/kind
     mode: 'u+x,g+x'
     group: users
+  tags:
+    - kind
 
 # - name: Install operator-sdk
 #   shell: echo "Install operator-sdk"

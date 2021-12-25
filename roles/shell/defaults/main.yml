@@ -3,3 +3,4 @@ shell_packages:
   - shellcheck
   - zsh
   - zsh-completions
+  - tmux

@@ -9,6 +9,5 @@ base_packages:
   - lsof
   - ncdu
   - rsync
-  - stow
   - tree
   - wget

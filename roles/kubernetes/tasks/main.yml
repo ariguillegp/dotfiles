@@ -41,5 +41,19 @@
   tags:
     - kind
 
-# - name: Install operator-sdk
-#   shell: echo "Install operator-sdk"
+- name: Clone Operator-SDK
+  git:
+    repo: 'https://github.com/operator-framework/operator-sdk'
+    dest: "{{ lookup('env', 'HOME') }}/opt/operator-sdk"
+  tags:
+    - operator-sdk
+
+- name: Build Operator-SDK
+  shell: |
+    cd {{ lookup('env', 'HOME') }}/opt/operator-sdk
+    git checkout master
+    make install
+  register: build_output
+  changed_when: build_output.rc != 0
+  tags:
+    - operator-sdk

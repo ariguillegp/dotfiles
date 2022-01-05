@@ -8,6 +8,16 @@
   tags:
     - nodejs
 
+- name: Install Go tooling
+  become: true
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ go_packages }}"
+  tags:
+    - go
+
 - name: Install gimme
   become: true
   get_url:

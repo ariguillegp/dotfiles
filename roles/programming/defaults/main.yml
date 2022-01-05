@@ -2,4 +2,7 @@ nodejs_packages:
   - nodejs
   - npm
 
+go_packages:
+  - go
+
 direnv_version: v2.30.2

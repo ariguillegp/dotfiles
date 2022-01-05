@@ -74,7 +74,7 @@ plugins=(
   git
   golang
   ansible
-  direnv
+eval "$(direnv hook zsh)"
   docker
   docker-compose
   kubectl

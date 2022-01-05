@@ -6,7 +6,6 @@
   tags:
     - terraform
 
-
 - name: Download Terraform
   become: true
   get_url: url="https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip"
@@ -22,13 +21,5 @@
   unarchive: src="/usr/local/src/terraform_{{ terraform_version }}_linux_amd64.zip"
              dest=/usr/local/bin
              copy=no
-  tags:
-    - terraform
-
-# TODO: Don't fail if auto-completion snippet exists in the rc files
-- name: Enable terraform auto-completion
-  command: terraform -install-autocomplete
-  register: myoutput
-  changed_when: myoutput.rc != 0
   tags:
     - terraform

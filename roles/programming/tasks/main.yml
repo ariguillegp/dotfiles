@@ -27,7 +27,3 @@
     group: users
   tags:
     - go
-
-# echo "*** Adding direnv hook into shell"
-# echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc
-# echo "*** direnv is ready"

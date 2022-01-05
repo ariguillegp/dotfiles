@@ -74,7 +74,6 @@ plugins=(
   git
   golang
   ansible
-eval "$(direnv hook zsh)"
   docker
   docker-compose
   kubectl
@@ -123,12 +122,6 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
-unset GOOS;
-unset GOARCH;
-export GOROOT='/home/aristides/.gimme/versions/go1.17.2.linux.amd64';
-export PATH="/home/aristides/.gimme/versions/go1.17.2.linux.amd64/bin:${PATH}";
-
-export GIMME_ENV="/home/aristides/.gimme/envs/go1.17.2.env"
 export GOPATH=/home/aristides/workspace/go
 export PATH=${GOPATH}/bin:${PATH}
 eval "$(direnv hook zsh)"

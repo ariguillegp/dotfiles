@@ -122,7 +122,6 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
-eval "$(direnv hook zsh)"
 
 unset GOOS;
 unset GOARCH;

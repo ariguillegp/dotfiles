@@ -35,7 +35,7 @@
     - vm
     - desktop
     - kubernetes
-    - nodejs
+    - programming
     - ssl
     - terraform
   post_tasks:

@@ -1,9 +1,0 @@
-- name: Install nodeJS tooling
-  become: true
-  package:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - "{{ nodejs_packages }}"
-  tags:
-    - nodejs

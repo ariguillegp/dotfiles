@@ -1,0 +1,19 @@
+- name: Install nodeJS tooling
+  become: true
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ nodejs_packages }}"
+  tags:
+    - nodejs
+
+- name: Install gimme
+  become: true
+  get_url:
+    url: https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
+    dest: /usr/local/bin/gimme
+    mode: 'u+x,g+x'
+    group: users
+  tags:
+    - go

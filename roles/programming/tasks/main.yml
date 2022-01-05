@@ -1,4 +1,4 @@
-- name: Install nodeJS tooling
+- name: Install nodejs tooling
   become: true
   package:
     name: "{{ item }}"
@@ -17,3 +17,17 @@
     group: users
   tags:
     - go
+
+- name: Install direnv
+  become: true
+  get_url:
+    url: https://github.com/direnv/direnv/releases/download/{{ direnv_version }}/direnv.linux-amd64
+    dest: /usr/local/bin/direnv
+    mode: 'u+x,g+x'
+    group: users
+  tags:
+    - go
+
+# echo "*** Adding direnv hook into shell"
+# echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc
+# echo "*** direnv is ready"

@@ -1,3 +1,5 @@
 nodejs_packages:
   - nodejs
   - npm
+
+direnv_version: v2.30.2

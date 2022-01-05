@@ -1,4 +1,8 @@
 nvim_packages:
+  - base-devel
+  - cmake
+  - ninja
+  - tree-sitter
   - python-pynvim
   - fd
   - ripgrep

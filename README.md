@@ -15,5 +15,5 @@ If you want to test the environment just follow these instructions:
 cd
 git clone https://github.com/ariguillegp/dotfiles.git
 mv dotfiles .dotfiles && cd .dotfiles
-./run.sh
+./setup.sh
 ```

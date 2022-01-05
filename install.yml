@@ -12,6 +12,7 @@
         - compression
         - desktop
         - dotfiles
+        - go
         - media
         - nvim
         - nodejs

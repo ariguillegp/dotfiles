@@ -7,7 +7,7 @@ If you want to test the environment just follow these instructions:
 * Clone the repository inside your home directory.
 * Change the name of the dotfiles directory to .dotfiles.
 * Go into the directory.
-* Execute the run script.
+* Execute the setup script.
 
 ## Installing
 

@@ -78,7 +78,6 @@ plugins=(
   docker-compose
   kubectl
   zsh-autosuggestions
-  zsh-completions
   zsh-syntax-highlighting
 )
 

@@ -15,3 +15,39 @@
   changed_when: build_output.rc != 0
   tags:
     - shell
+
+- name: Check existence of oh-my-zsh directory
+  stat:
+    path: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
+  register: oh_my_stats
+  tags:
+    - shell
+
+- name: Fetch oh-my-zsh
+  get_url:
+    url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+    dest: /tmp/install-oh-my-zsh.sh
+    mode: 0755
+  when: not oh_my_stats.stat.exists
+  tags:
+    - shell
+
+- name: Install oh-my-zsh
+  command: zsh /tmp/install-oh-my-zsh.sh
+  when: not oh_my_stats.stat.exists
+  tags:
+    - shell
+
+- name: Install zsh-autosuggestions
+  git:
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/plugins/zsh-autosuggestions"
+  tags:
+    - shell
+
+- name: Install zsh-syntax-highlighting
+  git:
+    repo: 'https://github.com/zsh-users/zsh-syntax-highlighting'
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/plugins/zsh-syntax-highlighting"
+  tags:
+    - shell

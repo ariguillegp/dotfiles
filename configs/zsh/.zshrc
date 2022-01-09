@@ -113,6 +113,8 @@ alias V="sudo nvim"
 alias tp="terraform plan -out myplan"
 alias ta="terraform apply myplan"
 
+bindkey -s ^f "bmux\n"
+
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

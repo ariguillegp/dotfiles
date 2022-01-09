@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # i3lock blurred screen inspired by /u/patopop007 and the blog post
 # http://plankenau.com/blog/post-10/gaussianlock

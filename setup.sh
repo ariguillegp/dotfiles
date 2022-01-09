@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Requirements
 sudo pacman -S --noconfirm --needed ansible sshpass

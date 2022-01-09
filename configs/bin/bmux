@@ -5,14 +5,10 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    projects=$(find ~/workspace/devsecops -maxdepth 1 -mindepth 1 -type d)
-    projects+=$'\n'
-    projects+=$(find ~/workspace/k8s -maxdepth 1 -mindepth 1 -type d)
-    projects+=$(find ~/exercism/go maxdepth 1 -mindepth 1 -type d)
-    selected=$(echo "$projects" | fzf)
+    selected=$(find ~ ~/workspace/devsecops ~/workspace/k8s ~/exercism/go -maxdepth 1 -mindepth 1 -type d | fzf)
 fi
 
-dirname=$(basename "$selected")
+dirname=$(basename "$selected" | tr . _)
 
 # create new tmux session (not nested) only if session
 # dosn't exist

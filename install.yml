@@ -20,6 +20,7 @@
         - ebpf
         - shell
         - alacritty
+        - upgrade
   roles:
     - base
     - ssh

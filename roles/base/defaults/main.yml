@@ -9,5 +9,7 @@ base_packages:
   - lsof
   - ncdu
   - rsync
+  - tldr
   - tree
+  - xclip
   - wget

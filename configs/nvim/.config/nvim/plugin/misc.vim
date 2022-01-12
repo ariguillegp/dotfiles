@@ -22,3 +22,4 @@ augroup highlight_yank
 augroup END
 
 nnoremap <silent> <C-f> :silent !tmux neww bmux<CR>
+nnoremap <leader>x :silent !chmod +x %<CR>

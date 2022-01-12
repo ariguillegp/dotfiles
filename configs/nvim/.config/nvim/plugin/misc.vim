@@ -21,5 +21,5 @@ augroup highlight_yank
     au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=100}
 augroup END
 
-nnoremap <silent> <C-f> :silent !tmux neww bmux<CR>
+nnoremap <silent> <C-f> :silent !tmux neww smux<CR>
 nnoremap <leader>x :silent !chmod +x %<CR>

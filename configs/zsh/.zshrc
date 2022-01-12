@@ -113,7 +113,7 @@ alias V="sudo nvim"
 alias tp="terraform plan -out myplan"
 alias ta="terraform apply myplan"
 
-bindkey -s ^f "bmux\n"
+bindkey -s ^f "smux\n"
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 

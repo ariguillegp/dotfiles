@@ -29,6 +29,7 @@
     - media
     - compression
     - dotfiles
+    - git
     - shell
     - alacritty
     - nvim

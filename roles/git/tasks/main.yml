@@ -1,0 +1,7 @@
+- name: Install netrc file
+  copy:
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/secrets/git/.netrc"
+    dest: "{{ lookup('env', 'HOME') }}/.netrc"
+    mode: 0600
+  tags:
+    - git

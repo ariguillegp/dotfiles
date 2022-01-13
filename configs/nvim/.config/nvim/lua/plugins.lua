@@ -17,6 +17,13 @@ return require('packer').startup(function()
     -- Color scheme
     use 'gruvbox-community/gruvbox'
 
+    -- Comments++
+    use { 'numToStr/Comment.nvim',
+      config = function()
+        require('Comment').setup()
+      end
+    }
+
     -- Git Worktrees
     use 'ThePrimeagen/git-worktree.nvim'
 

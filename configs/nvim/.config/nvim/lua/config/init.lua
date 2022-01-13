@@ -1,4 +1,5 @@
 require('config.colorscheme')
+require('config.comments')
 require('config.completion')
 require('config.git')
 require('config.lightline')

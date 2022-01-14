@@ -8,3 +8,4 @@ nvim_packages:
   - ripgrep
   - fzf
   - python-pip
+  - xsel

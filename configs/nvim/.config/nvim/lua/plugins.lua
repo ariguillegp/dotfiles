@@ -47,19 +47,18 @@ return require('packer').startup(function()
     -- Language servers need to be installed
     -- with :LspInstall <lang> and the client needs to be
     -- attached to them, check :h lsp
-    use 'neovim/nvim-lspconfig'
-    use 'williamboman/nvim-lsp-installer'
-    use { 'hrsh7th/nvim-cmp',
-      requires = {
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-path',
-        'hrsh7th/cmp-nvim-lua',
-        'hrsh7th/cmp-nvim-lsp',
-        'onsails/lspkind-nvim',
-        'saadparwaiz1/cmp_luasnip',
-        'L3MON4D3/LuaSnip'
-      }
-    }
+    -- use 'williamboman/nvim-lsp-installer' -- setup plugin ???
+    use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+    use 'hrsh7th/nvim-cmp' -- Auto-completion plugin
+    use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+    use 'hrsh7th/cmp-buffer' -- Buffer source for nvim-cmp
+    use 'hrsh7th/cmp-path' -- Path source for nvim-cmp
+    use 'hrsh7th/cmp-cmdline' -- Cmdline source for nvim-cmp
+    use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+    use 'L3MON4D3/LuaSnip' -- Snippet plugin
+    use 'hrsh7th/cmp-nvim-lua'
+    use 'onsails/lspkind-nvim'
+    -- use 'rafamadriz/friendly-snippets' -- Useful community snippets
 
     -- Treesitter for better code syntax highlighting
     -- Language parsers need to be installed independently with TSInstall <lang>

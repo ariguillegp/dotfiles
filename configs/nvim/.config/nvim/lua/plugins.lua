@@ -58,7 +58,6 @@ return require('packer').startup(function()
     use 'L3MON4D3/LuaSnip' -- Snippet plugin
     use 'hrsh7th/cmp-nvim-lua'
     use 'onsails/lspkind-nvim'
-    -- use 'rafamadriz/friendly-snippets' -- Useful community snippets
 
     -- Treesitter for better code syntax highlighting
     -- Language parsers need to be installed independently with TSInstall <lang>

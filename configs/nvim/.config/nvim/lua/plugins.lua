@@ -49,6 +49,7 @@ return require('packer').startup(function()
     -- attached to them, check :h lsp
     -- use 'williamboman/nvim-lsp-installer' -- setup plugin ???
     use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+    use 'williamboman/nvim-lsp-installer'
     use 'hrsh7th/nvim-cmp' -- Auto-completion plugin
     use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
     use 'hrsh7th/cmp-buffer' -- Buffer source for nvim-cmp
@@ -58,6 +59,7 @@ return require('packer').startup(function()
     use 'L3MON4D3/LuaSnip' -- Snippet plugin
     use 'hrsh7th/cmp-nvim-lua'
     use 'onsails/lspkind-nvim'
+ 	  use {'tzachar/cmp-tabnine', run='./install.sh'} -- tabnine source for nvim-cmp
 
     -- Treesitter for better code syntax highlighting
     -- Language parsers need to be installed independently with TSInstall <lang>

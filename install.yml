@@ -1,11 +1,10 @@
 - name: Setup local environment
   hosts: localhost
   pre_tasks:
-    - name: "pre_tasks : Full system upgrade"
+    - name: "pre_tasks : Update local pkg cache"
       become: true
       pacman:
         update_cache: true
-        upgrade: true
       tags:
         - base
         - brave

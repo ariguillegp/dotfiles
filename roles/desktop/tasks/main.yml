@@ -8,6 +8,25 @@
   tags:
     - desktop
 
+- name: Clone i3lock-color from AUR repo
+  become: true
+  git:
+    repo: https://aur.archlinux.org/i3lock-color.git
+    dest: /home/aristides/opt
+    clone: true
+    update: true
+  tags:
+    - desktop
+
+- name: Build i3lock-color from source
+  command: "makepkg -csi --noconfirm"
+  register: myoutput
+  changed_when: myoutput.rc != 0
+  args:
+    chdir: /home/aristides/opt
+  tags:
+    - desktop
+
 - name: Set up xinitrc
   lineinfile:
     dest: ~/.xinitrc

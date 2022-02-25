@@ -1,7 +1,6 @@
 desktop_packages:
   - i3-wm
   - i3status
-  - i3lock-color
   - scrot
   - xorg-server
   - arandr

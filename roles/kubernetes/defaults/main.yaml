@@ -1,3 +1,3 @@
-kubectl_version: v1.23.0
+kubectl_version: v1.23.5
 kind_version: v0.11.1
 opa_version: v0.35.0

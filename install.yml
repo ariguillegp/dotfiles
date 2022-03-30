@@ -29,6 +29,7 @@
     - compression
     - dotfiles
     - git
+    - kics
     - shell
     - alacritty
     - nvim

@@ -18,16 +18,6 @@
   tags:
     - go
 
-- name: Install gimme
-  become: true
-  get_url:
-    url: https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
-    dest: /usr/local/bin/gimme
-    mode: 'u+x,g+x'
-    group: users
-  tags:
-    - go
-
 - name: Install direnv
   become: true
   get_url:

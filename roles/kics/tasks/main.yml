@@ -28,3 +28,11 @@
     group: users
   tags:
     - kics
+
+- name: Configure KICS queries source
+  lineinfile:
+    path: "{{ lookup('env', 'HOME') }}/.zshrc"
+    state: present
+    line: export KICS_QUERIES_PATH="{{ lookup('env', 'HOME') }}/opt/kics/assets/queries"
+  tags:
+    - kics

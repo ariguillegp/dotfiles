@@ -1,0 +1,11 @@
+- name: Install pre-commit framework
+  pip:
+    name: pre-commit
+  tags:
+    - pre-commit
+
+- name: Install checkov
+  pip:
+    name: checkov
+  tags:
+    - pre-commit

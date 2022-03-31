@@ -125,6 +125,7 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 export GOPATH=/home/aristides/workspace/go
 export PATH=${GOPATH}/bin:${PATH}
+export PATH=$HOME/.local/bin:${PATH}
 eval "$(direnv hook zsh)"
 export KICS_QUERIES_PATH="/home/aristides/opt/kics/assets/queries"
 . $HOME/.asdf/asdf.sh

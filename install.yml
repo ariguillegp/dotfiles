@@ -24,6 +24,7 @@
   roles:
     - base
     - asdf
+    - pre_commit
     - ssh
     - brave
     - bluetooth

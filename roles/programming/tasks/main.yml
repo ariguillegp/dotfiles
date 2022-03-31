@@ -27,9 +27,3 @@
     group: users
   tags:
     - go
-
-- name: Install pre-commit framework
-  pip:
-    name: pre-commit
-  tags:
-    - pre-commit

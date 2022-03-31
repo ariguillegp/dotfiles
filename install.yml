@@ -15,6 +15,7 @@
         - media
         - nvim
         - nodejs
+        - pre-commit
         - vm
         - ebpf
         - shell

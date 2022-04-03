@@ -1,6 +1,7 @@
 base_packages:
   - base-devel
   - curl
+  - dnsutils
   - dos2unix
   - flameshot
   - git

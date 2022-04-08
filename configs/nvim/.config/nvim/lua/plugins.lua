@@ -59,7 +59,7 @@ return require('packer').startup(function()
     use 'L3MON4D3/LuaSnip' -- Snippet plugin
     use 'hrsh7th/cmp-nvim-lua'
     use 'onsails/lspkind-nvim'
- 	  use {'tzachar/cmp-tabnine', run='./install.sh'} -- tabnine source for nvim-cmp
+    use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
     -- Treesitter for better code syntax highlighting
     -- Language parsers need to be installed independently with TSInstall <lang>

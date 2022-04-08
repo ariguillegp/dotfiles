@@ -20,3 +20,9 @@
 
 [grep]
   lineNumber = true
+
+[core]
+  editor = vi
+
+[init]
+  defaultBranch = main

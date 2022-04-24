@@ -1,5 +1,6 @@
 base_packages:
   - base-devel
+  - bat
   - curl
   - dnsutils
   - dos2unix

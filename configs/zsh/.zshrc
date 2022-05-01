@@ -129,3 +129,5 @@ export PATH=$HOME/.local/bin:${PATH}
 eval "$(direnv hook zsh)"
 export KICS_QUERIES_PATH="/home/aristides/opt/kics/assets/queries"
 . $HOME/.asdf/asdf.sh
+
+export PATH=${HOME}/.local/share/nvim/lsp_servers/terraform/terraform-ls:${HOME}/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin:${PATH}

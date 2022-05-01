@@ -8,6 +8,16 @@
   tags:
     - nodejs
 
+- name: Install Rust tooling
+  become: true
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ rust_packages }}"
+  tags:
+    - rust
+
 - name: Install Go tooling
   become: true
   package:

@@ -12,6 +12,7 @@
         - desktop
         - dotfiles
         - go
+        - rust
         - media
         - nvim
         - nodejs

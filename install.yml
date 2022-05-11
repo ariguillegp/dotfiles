@@ -35,6 +35,7 @@
     - git
     - kics
     - shell
+    - sigstore
     - alacritty
     - nvim
     - docker

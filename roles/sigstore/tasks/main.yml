@@ -1,0 +1,8 @@
+- name: Install cosign
+  become: true
+  package:
+    name:
+      - "cosign"
+    state: present
+  tags:
+    - sigstore

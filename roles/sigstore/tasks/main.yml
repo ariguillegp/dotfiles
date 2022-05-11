@@ -6,3 +6,10 @@
     state: present
   tags:
     - sigstore
+
+- name: Install crane
+  command: "go install github.com/google/go-containerregistry/cmd/crane@{{ crane_version }}"
+  register: install_output
+  changed_when: install_output.rc != 0
+  tags:
+    - sigstore

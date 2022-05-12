@@ -37,3 +37,42 @@
     group: users
   tags:
     - go
+
+- name: Remove dagger
+  file:
+    state: absent
+    path: "{{ lookup('env', 'HOME') }}/opt/dagger"
+  tags:
+    - dagger
+
+- name: Clone dagger
+  git:
+    repo: 'https://github.com/dagger/dagger.git'
+    dest: "{{ lookup('env', 'HOME') }}/opt/dagger"
+  tags:
+    - dagger
+
+- name: Build dagger
+  shell: "cd {{ lookup('env', 'HOME') }}/opt/dagger && make dagger"
+  register: build_output
+  changed_when: build_output.rc != 0
+  tags:
+    - dagger
+
+- name: Install dagger
+  become: true
+  copy:
+    src: "{{ lookup('env', 'HOME') }}/opt/dagger/cmd/dagger/dagger"
+    dest: /usr/local/bin/dagger
+    mode: 'u+x,g+x'
+    group: users
+  tags:
+    - dagger
+
+- name: Enable dagger autocompletion for zsh
+  become: true
+  shell: 'dagger completion zsh > "${fpath[1]}/_dagger"'
+  register: build_output
+  changed_when: build_output.rc != 0
+  tags:
+    - dagger

@@ -1,4 +1,5 @@
 desktop_packages:
+  - discord
   - i3-wm
   - i3status
   - scrot

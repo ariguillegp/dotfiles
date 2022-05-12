@@ -161,6 +161,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 assign [class="Alacritty"] $ws1
 assign [class="Brave-browser-nightly"] $ws2
 assign [class="Thunar"] $ws3
+assign [class="discord"] $ws4
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -210,6 +211,6 @@ exec_always feh --no-startup-id --bg-scale "$HOME/Pictures/wallpapers/wall.jpg"
 
 # Display distribution
 # Just laptop
-# exec --no-startup-id --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI1 --off --output VIRTUAL1 --off
+exec --no-startup-id --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI1 --off --output VIRTUAL1 --off
 # Extra display
-exec --no-startup-id --output eDP1 --off --output DP1 --primary --mode 3440x1440 --pos 0x0 --rotate normal --output DP2 --off --output HDMI1 --off --output VIRTUAL1 --off
+# exec --no-startup-id --output eDP1 --off --output DP1 --primary --mode 3440x1440 --pos 0x0 --rotate normal --output DP2 --off --output HDMI1 --off --output VIRTUAL1 --off

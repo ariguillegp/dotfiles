@@ -3,6 +3,7 @@ desktop_packages:
   - i3-wm
   - i3status
   - scrot
+  - signal-desktop
   - xorg-server
   - arandr
   - picom

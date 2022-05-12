@@ -38,3 +38,22 @@
     mode: '0644'
   tags:
     - desktop
+
+- name: Clone slack from AUR repo
+  become: true
+  git:
+    repo: https://aur.archlinux.org/slack-desktop
+    dest: /home/aristides/opt
+    clone: true
+    update: true
+  tags:
+    - desktop
+
+- name: Build slack from source
+  command: "makepkg -csi --noconfirm"
+  register: myoutput
+  changed_when: myoutput.rc != 0
+  args:
+    chdir: /home/aristides/opt
+  tags:
+    - desktop

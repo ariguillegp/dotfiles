@@ -1,11 +1,27 @@
-- name: Install cosign
-  become: true
-  package:
-    name:
-      - "cosign"
-    state: present
+# Build fom source to add support for hardware tokens
+- name: Remove cosign
+  file:
+    state: absent
+    path: "{{ lookup('env', 'HOME') }}/opt/cosign"
   tags:
     - sigstore
+
+- name: Clone cosign
+  git:
+    repo: 'https://github.com/sigstore/cosign.git'
+    dest: "{{ lookup('env', 'HOME') }}/opt/cosign"
+  tags:
+    - sigstore
+
+- name: Install cosign
+  shell: "cd {{ lookup('env', 'HOME') }}/opt/cosign && go install ./cmd/cosign"
+  register: build_output
+  changed_when: build_output.rc != 0
+  tags:
+    - sigstore
+
+# TODO
+# Build cosign to support harware tokens
 
 - name: Install crane
   command: "go install github.com/google/go-containerregistry/cmd/crane@{{ crane_version }}"

@@ -31,3 +31,22 @@
     mode: 'u+x,g+x'
   tags:
     - docker
+
+- name: Clone dive package
+  become: true
+  git:
+    repo: https://aur.archlinux.org/dive.git
+    dest: /home/aristides/opt
+    clone: true
+    update: true
+  tags:
+    - docker
+
+- name: Build dive from source
+  command: "makepkg -csi --noconfirm"
+  register: myoutput
+  changed_when: myoutput.rc != 0
+  args:
+    chdir: /home/aristides/opt
+  tags:
+    - docker

@@ -144,5 +144,9 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
   system.autoUpgrade.channel = https://nixos.org/channels/nixos-21.11;
+
+  # Nix garbage automatic garbage collection
+  nix.gc.automatic = true;
+  nix.gc.dates = "03:15";
 }
 

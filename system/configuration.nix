@@ -79,6 +79,7 @@
     enable = true;
     enableCompletion = true;
     autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
     # Enable ohMyZsh framework
     ohMyZsh = {
       enable = true;

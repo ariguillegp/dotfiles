@@ -1,9 +1,0 @@
-- name: Install VM tooling on Linux
-  become: true
-  package:
-    name:
-      - "{{ item }}"
-    state: present
-  with_items: "{{ vm_packages }}"
-  tags:
-    - vm

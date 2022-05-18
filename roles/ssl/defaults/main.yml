@@ -1,5 +1,0 @@
-cfssl_version: "1.6.1"
-cfssl_packages:
-  - cfssl
-  - cfssljson
-  - cfssl-certinfo

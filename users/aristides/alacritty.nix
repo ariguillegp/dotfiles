@@ -1,0 +1,75 @@
+{ config, pkgs, ... }:
+
+{
+  home.packages = with pkgs; [
+    alacritty
+  ];
+
+  home.file = {
+    ".config/alacritty/alacritty.yml".text = ''
+      # Colors (Gruvbox Material Dark Medium)
+      colors:
+        primary:
+          background: '0x1d2021'
+          foreground: '0xdfbf8e'
+      
+        normal:
+          black: '0x665c54'
+          red: '0xea6962'
+          green: '0xa9b665'
+          yellow: '0xe78a4e'
+          blue: '0x7daea3'
+          magenta: '0xd3869b'
+          cyan: '0x89b482'
+          white: '0xdfbf8e'
+      
+        bright:
+          black: '0x928374'
+          red: '0xea6962'
+          green: '0xa9b665'
+          yellow: '0xe3a84e'
+          blue: '0x7daea3'
+          magenta: '0xd3869b'
+          cyan: '0x89b482'
+          white: '0xdfbf8e'
+      
+      window.opacity: 0.97
+      
+      font:
+        # Point size
+        size: 7.0
+      
+        offset:
+          x: 0
+          y: 0
+        glyph_offset:
+          x: 0
+          y: 0
+      
+      window:
+        padding:
+          x: 2
+          y: 2
+      
+      scrolling:
+        # Maximum number of lines in the scrollback buffer.
+        # Specifying '0' will disable scrolling.
+        history: 10000
+      
+        # Number of lines the viewport will move for every line scrolled when
+        # scrollback is enabled (history > 0).
+        multiplier: 10
+      
+      ## If `true`, bold text is drawn using the bright color variants.
+      draw_bold_text_with_bright_colors: true
+      
+      selection:
+        save_to_clipboard: true
+      
+      live_config_reload: true
+      
+      debug:
+        print_events: true
+    '';
+  };
+}

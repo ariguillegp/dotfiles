@@ -1,4 +1,0 @@
-kubectl_version: v1.23.5
-kind_version: v0.12.0
-opa_version: v0.35.0
-crictl_version: v1.23.0

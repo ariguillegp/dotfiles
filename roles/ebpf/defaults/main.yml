@@ -1,4 +1,0 @@
-ebpf_packages:
-  - bcc
-  - bcc-tools
-  - python-bcc

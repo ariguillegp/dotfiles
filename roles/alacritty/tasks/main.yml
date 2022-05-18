@@ -1,9 +1,0 @@
-- name: Install Alacritty on Linux
-  become: true
-  package:
-    name:
-      - "{{ item }}"
-    state: present
-  with_items: "{{ alacritty_packages }}"
-  tags:
-    - alacritty

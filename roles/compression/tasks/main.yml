@@ -1,9 +1,0 @@
-- name: Install base compression tools
-  become: true
-  package:
-    name:
-      - "{{ item }}"
-    state: present
-  with_items: "{{ compression_packages }}"
-  tags:
-    - compression

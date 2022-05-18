@@ -1,6 +1,0 @@
-vm_packages:
-  - virtualbox
-  - virtualbox-host-modules-arch
-  - virtualbox-guest-iso
-  - virtualbox-guest-utils
-  - vagrant

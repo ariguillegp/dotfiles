@@ -1,5 +1,0 @@
-compression_packages:
-  - p7zip
-  - tar
-  - unzip
-  - unrar

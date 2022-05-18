@@ -75,10 +75,13 @@
   services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.aristides = {
-    isNormalUser = true;
-    initialPassword = "secret";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  users = {
+    defaultUserShell = pkgs.zsh; # Make zsh default shell
+    users.aristides = {
+      isNormalUser = true;
+      initialPassword = "secret";
+      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    };
   };
 
   # List packages installed in system profile. To search, run:
@@ -96,6 +99,19 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  # Enable zsh
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    # Enable ohMyZsh framework
+    ohMyZsh = {
+      enable = true;
+      theme = "robbyrussell";
+      plugins = [ "git" "python" "man" "kubectl" "docker" ];
+    };
+  };
 
   # List services that you want to enable:
 

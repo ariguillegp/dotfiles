@@ -11,8 +11,13 @@
     ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 3;
+    };
+  };
 
   # Setup your LUKS devices
   boot.initrd.luks.devices = {
@@ -109,7 +114,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    brave
     git
   ];
 
@@ -135,17 +139,16 @@
   networking.enableIPv6 = false;
 
   # Enable Flakes
-  #nix = {
-  #  package = pkgs.nixFlakes;
-  #  extraOptions = "extra-experimental-features = nix-command flakes";
-  #};
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = "extra-experimental-features = nix-command flakes";
+  };
 
   # Automatic upgrades
   system.autoUpgrade = {
     enable = true;
     allowReboot = false;
-    channel = https://nixos.org/channels/nixos-21.11;
-
+    channel = https://nixos.org/channels/nixos-unstable;
   };
 
   # Automatic garbage collection

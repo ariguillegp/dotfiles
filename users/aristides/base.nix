@@ -6,6 +6,7 @@
     brave
     curl
     dig
+    discord
     dos2unix
     flameshot
     gnupg
@@ -15,6 +16,7 @@
     ncdu
     ripgrep
     rsync
+    slack
     tldr
     tmux
     tree

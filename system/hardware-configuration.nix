@@ -9,27 +9,27 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/a6fcca6d-0062-443a-8070-064559d941fe";
+    { device = "/dev/disk/by-uuid/b0de6a1c-9662-4d49-a9c8-6ebcd535c389";
+      fsType = "ext4";
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/5c9966a4-f0f8-4388-9bca-67b4c7d4fcde";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/3555-5991";
+    { device = "/dev/disk/by-uuid/C537-EE4C";
       fsType = "vfat";
     };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/5866599d-cf33-4809-9bed-a897ad2448db";
-      fsType = "ext4";
-    };
-
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/3287f9c7-cd73-4a7f-a544-ecc6409b3118"; }
+    [ { device = "/dev/disk/by-uuid/b65a36a4-372f-430b-b157-3c2df60e8f55"; }
     ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

@@ -14,7 +14,14 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "falcon"; # Define your hostname.
+  # Setup your LUKS devices
+  boot.initrd.luks.devices = {
+    crypted = {
+      device = "/dev/disk/by-partuuid/eb607ee5-1dc4-d444-bc74-88218670674e";
+    };
+  };
+
+  networking.hostName = "nixdso"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
@@ -27,16 +34,28 @@
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
 
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  # Select internationalisation properties.
+  # i18n.defaultLocale = "en_US.UTF-8";
+  # console = {
+  #   font = "Lat2-Terminus16";
+  #   keyMap = "us";
+  # };
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-
+    
     desktopManager = {
       xterm.enable = false;
     };
-
+   
     displayManager = {
-      defaultSession = "none+i3";
+      # No desktop environment and i3 as the window manager
+      defaultSession = "none+i3"; 
     };
 
     windowManager.i3 = {
@@ -44,10 +63,17 @@
       extraPackages = with pkgs; [
         dmenu
         i3status
-        i3lock
+        i3lock-fancy-rapid
       ];
     };
   };
+
+  # Configure keymap in X11
+  # services.xserver.layout = "us";
+  # services.xserver.xkbOptions = "eurosign:e";
+
+  # Enable CUPS to print documents.
+  # services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
@@ -55,10 +81,11 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
+  services.xserver.libinput.touchpad.tapping = false;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
-    defaultUserShell = pkgs.zsh; # Make zsh default shell
+    defaultUserShell = pkgs.zsh;
     users.aristides = {
       isNormalUser = true;
       initialPassword = "secret";
@@ -66,35 +93,64 @@
     };
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    firefox
-  ];
-
-  # Enable zsh
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
-    # Enable ohMyZsh framework
     ohMyZsh = {
       enable = true;
       theme = "robbyrussell";
-      plugins = [ "git" "python" "man" "kubectl" "docker" ];
+      plugins = [ "git" "man" "python" ];
     };
   };
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    brave
+    git
+  ];
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
   # Disable IPv6
   networking.enableIPv6 = false;
+
+  # Enable Flakes
+  #nix = {
+  #  package = pkgs.nixFlakes;
+  #  extraOptions = "extra-experimental-features = nix-command flakes";
+  #};
+
+  # Automatic upgrades
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = false;
+    channel = https://nixos.org/channels/nixos-21.11;
+
+  };
+
+  # Automatic garbage collection
+  nix.gc.automatic = true;
+  nix.gc.dates = "03:15";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -104,19 +160,4 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.11"; # Did you read the comment?
 
-  # Enables Nix Flakes
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = "experimental-features = nix-command flakes";
-  };
-  
-  # Automatic upgrades
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = false;
-  system.autoUpgrade.channel = https://nixos.org/channels/nixos-21.11;
-
-  # Nix garbage automatic garbage collection
-  nix.gc.automatic = true;
-  nix.gc.dates = "03:15";
 }
-

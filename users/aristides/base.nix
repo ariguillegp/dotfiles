@@ -17,6 +17,7 @@
     ripgrep
     rsync
     slack
+    terraform
     tldr
     tmux
     tree

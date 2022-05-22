@@ -88,13 +88,16 @@
   services.xserver.libinput.enable = true;
   services.xserver.libinput.touchpad.tapping = false;
 
+  # Add/Enable docker daemon
+  virtualisation.docker.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     defaultUserShell = pkgs.zsh;
     users.aristides = {
       isNormalUser = true;
       initialPassword = "secret";
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
     };
   };
 

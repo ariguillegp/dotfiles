@@ -162,7 +162,7 @@ in
   system.autoUpgrade = {
     enable = true;
     allowReboot = false;
-    channel = https://nixos.org/channels/nixos-unstable;
+    channel = "https://nixos.org/channels/nixos-unstable";
   };
 
   # Automatic garbage collection

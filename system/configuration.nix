@@ -88,8 +88,10 @@
   hardware.bluetooth.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
-  services.xserver.libinput.touchpad.tapping = false;
+  services.xserver.libinput = {
+    enable = true;
+    touchpad.tapping = false; # don't like tapping in the touchpad
+  };
 
   # Add/Enable docker daemon
   virtualisation.docker.enable = true;

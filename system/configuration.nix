@@ -167,7 +167,7 @@ in
 
   # Automatic garbage collection
   nix.gc.automatic = true;
-  nix.gc.dates = "03:15";
+  nix.gc.dates = "weekly";
   nix.autoOptimiseStore = true;
 
   # This value determines the NixOS release from which the default

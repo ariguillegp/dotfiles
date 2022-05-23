@@ -4,6 +4,9 @@
 
 { config, pkgs, ... }:
 
+let
+  user = "aristides";
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -99,7 +102,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     defaultUserShell = pkgs.zsh;
-    users.aristides = {
+    users.${user} = {
       isNormalUser = true;
       initialPassword = "secret";
       extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.

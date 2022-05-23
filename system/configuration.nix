@@ -29,9 +29,6 @@ in
     };
   };
 
-  networking.hostName = "nixdso"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   # Set your time zone.
   time.timeZone = "America/New_York";
 
@@ -41,6 +38,9 @@ in
   networking.useDHCP = false;
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
+
+  networking.hostName = "nixdso"; # Define your hostname.
+  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

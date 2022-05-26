@@ -12,11 +12,11 @@
   outputs = { self, nixpkgs, home-manager }: 
     let
       system = "x86_64-linux";
+      user = "aristides";
       pkgs = import nixpkgs {
         inherit system;
 	config.allowUnfree = true;
       };
-      user = "aristides";
     in {
       nixosConfigurations = {
         nixdso = nixpkgs.lib.nixosSystem {
@@ -24,7 +24,8 @@
 	  modules = [ 
 	    ./system/configuration.nix 
 	    home-manager.nixosModules.home-manager {
-	      home-manager.useGlobalPkgs = true;
+	      nixpkgs.config.allowUnfree = true;
+              home-manager.useGlobalPkgs = true;
 	      home-manager.useUserPackages = true;
 	      home-manager.users.aristides = {
 	        imports = [ ./users/aristides/home.nix ];

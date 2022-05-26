@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+
+  # Allow unfree pkgs to be installed
+  nixpkgs.config.allowUnfree = true;
+
   home.packages = with pkgs; [
     bat
     brave

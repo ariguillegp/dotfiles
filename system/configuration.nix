@@ -18,7 +18,7 @@ in
     efi.canTouchEfiVariables = true;
     systemd-boot = {
       enable = true;
-      configurationLimit = 3;
+      configurationLimit = 5;
     };
   };
 
@@ -40,7 +40,8 @@ in
   networking.interfaces.wlp0s20f3.useDHCP = true;
 
   networking.hostName = "nixdso"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true;  # Enables network manager
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -73,6 +74,7 @@ in
         i3status
         i3lock-fancy-rapid
       ];
+      # configFile = "path to i3 config file"
     };
   };
 
@@ -105,12 +107,18 @@ in
     users.${user} = {
       isNormalUser = true;
       initialPassword = "secret";
-      extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" "docker" "networkmanager"]; # Enable ‘sudo’ for the user.
     };
   };
 
   programs.zsh = {
     enable = true;
+     # Set some aliases
+    shellAliases = {
+      v = "nvim";
+      V = "sudo nvim";
+      cat = "bat --paging=never --style=plain";
+    };
     enableCompletion = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
@@ -123,13 +131,10 @@ in
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    git
-  ];
-
-  # Allow unfree pkgs to be installed
-  nixpkgs.config.allowUnfree = true;
+  # environment.systemPackages = with pkgs; [
+  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #   git
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -155,19 +160,20 @@ in
   # Enable Flakes
   nix = {
     package = pkgs.nixFlakes;
-    extraOptions = "extra-experimental-features = nix-command flakes";
+    extraOptions = "experimental-features = nix-command flakes";
   };
 
   # Automatic upgrades
   system.autoUpgrade = {
     enable = true;
-    allowReboot = false;
+    allowReboot = true;
     channel = "https://nixos.org/channels/nixos-unstable";
   };
 
   # Automatic garbage collection
   nix.gc.automatic = true;
   nix.gc.dates = "weekly";
+  nix.gc.options = "--delete-older-than 7d";
   nix.autoOptimiseStore = true;
 
   # This value determines the NixOS release from which the default

@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 
 {
-
   imports = [ 
     ./base.nix  
     ./git.nix  
     ./alacritty.nix 
+#    ./neovim.nix
   ];
 
   # Home Manager needs a bit of information about you and the

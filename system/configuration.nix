@@ -117,6 +117,7 @@ in
     shellAliases = {
       v = "nvim";
       V = "sudo nvim";
+      vim = "nvim";
       cat = "bat --paging=never --style=plain";
     };
     enableCompletion = true;
@@ -170,10 +171,9 @@ in
     enable = true;
     allowReboot = true;
     rebootWindow = {
-    {
       lower = "01:00";
       upper = "04:00";
-    }
+    };
     channel = "https://nixos.org/channels/nixos-unstable";
   };
 

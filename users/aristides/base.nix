@@ -15,6 +15,7 @@
     jq
     lsof
     ncdu
+    ranger
     ripgrep
     rsync
     slack

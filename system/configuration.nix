@@ -160,13 +160,20 @@ in
   # Enable Flakes
   nix = {
     package = pkgs.nixFlakes;
-    extraOptions = "experimental-features = nix-command flakes";
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
 
   # Automatic upgrades
   system.autoUpgrade = {
     enable = true;
     allowReboot = true;
+    rebootWindow = {
+    {
+      lower = "01:00";
+      upper = "04:00";
+    }
     channel = "https://nixos.org/channels/nixos-unstable";
   };
 

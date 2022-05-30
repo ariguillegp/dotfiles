@@ -2,7 +2,6 @@
   description = "Dotfiles with Nix Flakes";
 
   inputs = {
-    # Like Nix channels
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -21,6 +20,7 @@
       };
     in {
       nixosConfigurations = {
+        # Individual configs for all my hosts
         #macos = nixpkgs.lib.nixosSystem {
 	#};
         nixos = nixpkgs.lib.nixosSystem {

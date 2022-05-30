@@ -2,6 +2,7 @@
   description = "Dotfiles with Nix Flakes";
 
   inputs = {
+    # Like Nix channels
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -9,7 +10,8 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager }: 
+  outputs = inputs @ { self, nixpkgs, home-manager }: 
+    # Variables
     let
       system = "x86_64-linux";
       user = "aristides";
@@ -19,10 +21,14 @@
       };
     in {
       nixosConfigurations = {
-        nixdso = nixpkgs.lib.nixosSystem {
+        #macos = nixpkgs.lib.nixosSystem {
+	#};
+        nixos = nixpkgs.lib.nixosSystem {
 	  inherit system;
 	  modules = [ 
+	    # Global configuration
 	    ./system/configuration.nix 
+	    # Personal configuration
 	    home-manager.nixosModules.home-manager {
 	      nixpkgs.config.allowUnfree = true;
               home-manager.useGlobalPkgs = true;

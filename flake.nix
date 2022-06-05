@@ -23,7 +23,7 @@
         # Individual configs for all my hosts
         #macos = nixpkgs.lib.nixosSystem {
 	#};
-        nixos = nixpkgs.lib.nixosSystem {
+        nixdso = nixpkgs.lib.nixosSystem {
 	  inherit system;
 	  modules = [ 
 	    # Global configuration

@@ -23,6 +23,7 @@
     tldr
     tmux
     tree
+    unzip
     xclip
     zsh
   ];

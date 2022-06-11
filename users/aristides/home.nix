@@ -6,6 +6,7 @@
     ./git.nix  
     ./alacritty.nix 
     ./neovim.nix
+    ./aws.nix
   ];
 
   # Home Manager needs a bit of information about you and the

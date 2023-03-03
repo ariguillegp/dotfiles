@@ -85,25 +85,6 @@
     };
   };
 
-  programs.zsh = {
-    enable = true;
-     # Set some aliases
-    shellAliases = {
-      v = "nvim";
-      V = "sudo nvim";
-      vim = "nvim";
-      cat = "bat --paging=never --style=plain";
-    };
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "robbyrussell";
-      plugins = [ "git" "man" ];
-    };
-  };
-
   programs.fish = {
     enable = true;
     shellAliases = {

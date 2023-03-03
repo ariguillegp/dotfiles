@@ -1,11 +1,4 @@
-{ config, pkgs, ... }:
-
 {
-  home.packages = with pkgs; [
-    git
-    git-crypt
-  ];
-
   programs.git = {
     enable = true;
     userName  = "Aristides Gonzalez";
@@ -15,6 +8,7 @@
       init = { defaultBranch = "main"; };
       core.editor = "nvim";
       pull.rebase = "true";
+      push.default = "upstream";
     };
 
     delta = {

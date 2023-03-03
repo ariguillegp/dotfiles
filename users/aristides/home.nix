@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     ./alacritty.nix
-    ./aws.nix
+    ./bat.nix
+    ./direnv.nix
+    ./exa.nix
     ./git.nix
     ./neovim.nix
   ];
@@ -15,19 +17,23 @@
     homeDirectory = "/home/aristides";
 
     packages = with pkgs; [
-      qbittorrent
-      protonvpn-gui
+      alacritty
+      awscli2
       bat
       brave
       cargo
       codespell
       curl
+      deadnix
       dig
       discord
       dos2unix
       fish
       flameshot
       gcc12
+      git
+      gitlint
+      git-crypt
       google-chrome
       go
       gnumake
@@ -37,8 +43,10 @@
       lsof
       ncdu
       nodejs-19_x
+      protonvpn-gui
       pfetch
       python311
+      qbittorrent
       ranger
       ripgrep
       rsync
@@ -61,28 +69,6 @@
     # the Home Manager release notes for a list of state version
     # changes in each release.
     stateVersion = "22.05";
-  };
-
-  programs = {
-    bat = {
-      enable = true;
-      config = {
-        theme = "ansi";
-        italic-text = "always";
-      };
-    };
-
-    direnv = {
-      enable = true;
-      nix-direnv = {
-        enable = true;
-      };
-    };
-
-    exa = {
-      enable = true;
-      enableAliases = true;
-    };
   };
 
   # Let Home Manager install and manage itself.

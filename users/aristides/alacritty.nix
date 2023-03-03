@@ -1,23 +1,26 @@
-{ config, pkgs, ... }:
-
 {
-  home.packages = with pkgs; [
-    alacritty
-  ];
-
   programs.alacritty = {
     enable = true;
     settings = {
       window = {
-        opacity= 0.95;
+        opacity = 0.95;
         padding = {
-          x= 2;
-          y= 2;
-	};
+          x = 2;
+          y = 2;
+	      };
       };
 
       font = {
-        size= 7.0;
+        size = 7.0;
+
+        offset = {
+          x = 0;
+          y = 0;
+        };
+        glyph_offset = {
+          x = 0;
+          y = 0;
+        };
 
         normal.family = "GoMono";
         bold.family = "GoMono";
@@ -29,7 +32,7 @@
         primary = {
           background = "#1a1b26";
           foreground = "#a9b1d6";
-	};
+	      };
 
         # Normal colors
         normal = {
@@ -41,7 +44,7 @@
           magenta= "#ad8ee6";
           cyan=    "#449dab";
           white=   "#787c99";
-	};
+	      };
 
         # Bright colors
         bright = {
@@ -53,7 +56,7 @@
           magenta= "#bb9af7";
           cyan=    "#0db9d7";
           white=   "#acb0d0";
-	};
+	      };
 
         scrolling = {
           # Maximum number of lines in the scrollback buffer.

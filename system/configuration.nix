@@ -10,11 +10,18 @@
       ./hardware-configuration.nix
     ];
 
+  fonts.fonts = with pkgs; [
+    go-font
+  ];
+
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader = {
+    timeout = 1;
+    systemd-boot.enable = true;
+    systemd-boot.configurationLimit = 3;
+    efi.canTouchEfiVariables = true;
+    efi.efiSysMountPoint = "/boot/efi";
+  };
 
   # Setup keyfile
   boot.initrd.secrets = {
@@ -53,7 +60,9 @@
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
- 
+  nixpkgs.config.pulseaudio = true;
+  hardware.enableAllFirmware  = true;
+
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
 
@@ -68,7 +77,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.fish;
     users.aristides= {
       isNormalUser = true;
       initialPassword = "secret";
@@ -95,11 +104,26 @@
     };
   };
 
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      v = "nvim";
+      V = "sudo nvim";
+      cat = "bat --paging=never --style=plain";
+      ls = "exa"; # ls
+      ll = "exa -lbF --git"; # list, size, type, git
+      llm = "exa -lbGd --git --sort=modified"; # long list, modified date sort
+      la = "exa -lbhHigUmuSa --time-style=long-iso --git --color-scale"; # all list
+      lx = "exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale"; # all + extended list
+      lS = "exa -1"; # one column, just names
+      lt = "exa --tree --level=2"; # tree
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
   ];
 
@@ -115,14 +139,14 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    
+
     desktopManager = {
       xterm.enable = false;
     };
-   
+
     displayManager = {
       # No desktop environment and i3 as the window manager
-      defaultSession = "none+i3"; 
+      defaultSession = "none+i3";
     };
 
     windowManager.i3 = {
@@ -162,7 +186,7 @@
   nix.gc.automatic = true;
   nix.gc.dates = "weekly";
   nix.gc.options = "--delete-older-than 7d";
-  nix.autoOptimiseStore = true;
+  nix.settings.auto-optimise-store = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -177,5 +201,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
-
 }

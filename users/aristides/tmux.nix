@@ -1,34 +1,68 @@
 { pkgs, ... }:
 
 {
+  # Options are listed here: https://search.nixos.org/options?channel=22.11&from=0&size=50&sort=relevance&type=packages&query=tmux
   programs.tmux = {
+    # Whenever to configure tmux system-wide.
     enable = true;
-    shortcut = "a";
-    # aggressiveResize = true; -- Disabled to be iTerm-friendly
-    baseIndex = 1;
-    newSession = true;
-    # Stop tmux+escape craziness.
+    # Set the $TERM variable.
+    terminal = "screen-256color";
+    # Time in milliseconds for which tmux waits after an escape is input.
     escapeTime = 0;
-    # Force tmux to use /tmp for sockets (WSL2 compat)
-    secureSocket = false;
+    # Store tmux socket under /run, which is more secure than /tmp, but as a downside it doesn't survive user logout.
+    secureSocket = true;
+    # Ctrl following by this key is used as the main shortcut.
+    shortcut = "Space";
+    # Automatically spawn a session if trying to attach and none are running.
+    newSession = true;
+    # VI or Emacs style shortcuts.
+    keyMode = "vi";
+    # Maximum number of lines held in window history.
+    historyLimit = 100000;
+    # Use 24 hour clock.
+    clock24 = true;
+    # Base index for windows and panes.
+    baseIndex = 1;
+    # Resize the window to the size of the smallest session for which it is the current window.
+    aggressiveResize = true;
 
     plugins = with pkgs; [
       tmuxPlugins.better-mouse-mode
     ];
 
+    # Additional contents of /etc/tmux.conf
     extraConfig = ''
-      # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
-      set -g default-terminal "xterm-256color"
-      set -ga terminal-overrides ",*256col*:Tc"
-      set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-      set-environment -g COLORTERM "truecolor"
+      # Re-number windows when one is closed
+      set -g renumber-windows on
 
-      # Mouse works as expected
-      set-option -g mouse on
-      # easy-to-remember split pane commands
-      bind | split-window -h -c "#{pane_current_path}"
-      bind - split-window -v -c "#{pane_current_path}"
+      # Adjust timeout for the messages on the status bar
+      set-option -g display-time 5000
+
+      # Show times longer than supposed
+      set -g display-panes-time 2000
+
+      # Highlight window when it has new activity
+      setw -g monitor-activity on
+      set -g visual-activity on
+
+      # Easy-to-remember split pane commands
+      bind v split-window -h -c "#{pane_current_path}"
+      bind s split-window -v -c "#{pane_current_path}"
       bind c new-window -c "#{pane_current_path}"
+
+      # Vim-like pane navigation
+      bind h select-pane -L
+      bind j select-pane -D
+      bind k select-pane -U
+      bind l select-pane -R
+
+      # Set titles
+      set -g set-titles on
+      set -g set-titles-string "#I:#P - #W - #T"
+
+      # Mouse mode on -- copy text by dragging mouse
+      set -g terminal-overrides 'xterm*:smcup@:rmcup@'
+      set-option -g mouse on
     '';
   };
 }

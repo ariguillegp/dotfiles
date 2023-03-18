@@ -47,7 +47,6 @@
       protonvpn-gui
       pfetch
       python311
-      qbittorrent
       ranger
       ripgrep
       rsync

@@ -11,6 +11,7 @@
     ];
 
   fonts.fonts = with pkgs; [
+    # The Go font family: https://go.dev/blog/go-fonts
     go-font
   ];
 
@@ -108,14 +109,6 @@
     wget
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   # List services that you want to enable:
   # Enable the X11 windowing system.
   services.xserver = {
@@ -130,19 +123,22 @@
       defaultSession = "none+i3";
     };
 
+    # Config options available here: https://search.nixos.org/options?channel=22.11&size=50&sort=relevance&type=packages&query=i3
     windowManager.i3 = {
+      # Whether to enable i3 window manager.
       enable = true;
+      # i3 package to use.
+      package = pkgs.i3;
+      # Extra packages to be installed system wide.
       extraPackages = with pkgs; [
         dmenu
         i3status
         i3lock-fancy-rapid
       ];
-      # configFile = "path to i3 config file"
+      # Path to the i3 configuration file. If left at the default value, $HOME/.i3/config will be used.
+      configFile = "/home/aristides/.dotfiles/users/aristides/config/i3/config";
     };
   };
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Enable Flakes
   nix = {

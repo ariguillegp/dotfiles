@@ -51,6 +51,7 @@
       ripgrep
       rsync
       slack
+      signal-desktop
       terraform
       tldr
       tmux

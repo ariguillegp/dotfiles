@@ -44,7 +44,6 @@
       lsof
       ncdu
       nodejs-19_x
-      protonvpn-gui
       pfetch
       python311
       ranger

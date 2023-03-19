@@ -22,9 +22,9 @@
           y = 0;
         };
 
-        normal.family = "GoMono";
-        bold.family = "GoMono";
-        italic.family = "GoMono";
+        normal.family = "GoMono Nerd Font";
+        bold.family = "GoMono Nerd Font";
+        italic.family = "GoMono Nerd Font";
       };
 
       colors = {

@@ -10,10 +10,8 @@
       ./hardware-configuration.nix
     ];
 
-  fonts.fonts = with pkgs; [
-    # The Go font family: https://go.dev/blog/go-fonts
-    go-font
-  ];
+  fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "Go-Mono" ]; })
+];
 
   # Bootloader.
   boot.loader = {

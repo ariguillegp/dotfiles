@@ -20,7 +20,10 @@ require('packer').startup(function(use)
             'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim',
 
             -- Useful status updates for LSP
-            'j-hui/fidget.nvim'
+            'j-hui/fidget.nvim',
+
+            -- Additional lua configuration, makes nvim stuff amazing
+            'folke/neodev.nvim'
         }
     }
 
@@ -33,7 +36,17 @@ require('packer').startup(function(use)
             'saadparwaiz1/cmp_luasnip'
         }
     }
+    -- Tabnine ( smart autocompletion)
     use {'tzachar/cmp-tabnine', run = './install.sh'}
+    --- Shows possible keymap completions
+    use {
+      'folke/which-key.nvim',
+      config = function()
+        vim.o.timeout = true
+        vim.o.timeoutlen = 300
+        require('which-key').setup { }
+      end
+    }
 
     use { -- Highlight, edit, and navigate code
         'nvim-treesitter/nvim-treesitter',
@@ -50,15 +63,8 @@ require('packer').startup(function(use)
     -- Git related plugins
     use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
-    use 'lewis6991/gitsigns.nvim'
+    use 'lewis6991/gitsigns.nvim' -- Adds git related signs to the gutter, as well as utilities for managing changes
     use 'theprimeagen/git-worktree.nvim'
-    use {
-        'pwntester/octo.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim',
-            'kyazdani42/nvim-web-devicons'
-        }
-    }
 
     -- Undotree
     use 'mbbill/undotree'
@@ -96,6 +102,9 @@ require('packer').startup(function(use)
 
     -- Extended LSP like features
     use 'jose-elias-alvarez/null-ls.nvim'
+
+    -- Floating terminal
+    use 'voldikss/vim-floaterm'
 
     -- If we are bootstrapping these configs, run PackerSync to install all the plugins
     if is_bootstrap then require('packer').sync() end

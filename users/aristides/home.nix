@@ -28,6 +28,7 @@
       deadnix
       dig
       discord
+      docker-compose
       dos2unix
       fish
       flameshot

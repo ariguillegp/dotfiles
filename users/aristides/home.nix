@@ -32,6 +32,7 @@
       dos2unix
       fish
       flameshot
+      flyctl
       gcc12
       git
       gitlint

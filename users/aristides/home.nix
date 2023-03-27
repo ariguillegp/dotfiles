@@ -19,6 +19,7 @@
 
     packages = with pkgs; [
       alacritty
+      arandr
       awscli2
       bat
       brave

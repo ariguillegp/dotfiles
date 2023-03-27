@@ -213,7 +213,4 @@ bar {
 # exec_always feh --no-startup-id --bg-scale "$HOME/Pictures/wallpapers/wall.jpg"
 
 # Display distribution
-# Just laptop
-# exec --no-startup-id --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI1 --off --output VIRTUAL1 --off
-# Extra display
-# exec --no-startup-id --output eDP1 --off --output DP1 --primary --mode 3440x1440 --pos 0x0 --rotate normal --output DP2 --off --output HDMI1 --off --output VIRTUAL1 --off
+exec --no-startup-id --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --mode 3440x1440 --pos 1920x0 --rotate normal --output HDMI-1 --off --output DP-2 --off

@@ -161,7 +161,6 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # open apps in specific workspaces
 assign [class="Alacritty"] $ws1
 assign [class="Brave"] $ws2
-# assign [class="Thunar"] $ws3
 assign [class="discord"] $ws4
 assign [class="Slack"] $ws4
 assign [class="Signal"] $ws4
@@ -213,4 +212,4 @@ bar {
 # exec_always feh --no-startup-id --bg-scale "$HOME/Pictures/wallpapers/wall.jpg"
 
 # Display distribution
-exec --no-startup-id --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --mode 3440x1440 --pos 1920x0 --rotate normal --output HDMI-1 --off --output DP-2 --off
+exec --output eDP-1 --primary --mode 1920x1080 --pos 3440x0 --rotate normal --output DP-1 --mode 3440x1440 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off

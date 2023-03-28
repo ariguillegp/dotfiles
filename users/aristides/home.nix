@@ -45,6 +45,7 @@
       htop
       jq
       lsof
+      mage
       ncdu
       nodejs-19_x
       pfetch

@@ -29,7 +29,7 @@ require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
   -- Git related plugins
-  'tpope/vim-fugitive',
+  'kdheepak/lazygit.nvim',
   'tpope/vim-rhubarb',
   'ThePrimeagen/git-worktree.nvim',
 

@@ -7,7 +7,7 @@ return {
     -- Needs to be set before enabling the color plugin
     require("tokyonight").setup({
       style = "night",
-      transparent = false,
+      transparent = true,
     })
   end,
 }

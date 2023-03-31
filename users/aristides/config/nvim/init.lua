@@ -36,6 +36,9 @@ require('lazy').setup({
   -- Undotree
   'mbbill/undotree',
 
+   -- Fancy color scheme
+  'folke/tokyonight.nvim',
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   { -- LSP Configuration & Plugins

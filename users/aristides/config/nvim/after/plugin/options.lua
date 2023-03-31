@@ -1,6 +1,9 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
+-- [[ Setting options ]]
+-- See `:help vim.o`
+
 local indent = 2
 
 -- navigation settings

@@ -1,5 +1,0 @@
-require("aristides.packer")
-require("aristides.bootstrap")
-require("aristides.worktree")
-require("aristides.colors")
-require("aristides.lualine")

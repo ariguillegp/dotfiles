@@ -31,6 +31,7 @@
       discord
       docker-compose
       dos2unix
+      fd
       fish
       flameshot
       flyctl
@@ -44,6 +45,7 @@
       gnupg
       htop
       jq
+      lazygit
       lsof
       mage
       ncdu

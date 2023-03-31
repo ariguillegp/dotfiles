@@ -35,7 +35,7 @@ bindsym $mod+x exec --no-startup-id i3lock-fancy-rapid 3 3
 exec --no-startup-id nm-applet
 
 # Add keystroke to open file manager -- thunar
-# bindsym $mod+t exec --no-startup-id thunar
+bindsym $mod+t exec --no-startup-id thunar
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -212,4 +212,4 @@ bar {
 # exec_always feh --no-startup-id --bg-scale "$HOME/Pictures/wallpapers/wall.jpg"
 
 # Display distribution
-exec --output eDP-1 --primary --mode 1920x1080 --pos 3440x0 --rotate normal --output DP-1 --mode 3440x1440 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off
+# exec --output eDP-1 --primary --mode 1920x1080 --pos 3440x0 --rotate normal --output DP-1 --mode 3440x1440 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-2 --off

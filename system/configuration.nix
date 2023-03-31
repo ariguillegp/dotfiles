@@ -6,12 +6,14 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
-  fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "Go-Mono" ]; })
-];
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "Go-Mono" ]; })
+  ];
 
   # Bootloader.
   boot.loader = {
@@ -60,7 +62,7 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   nixpkgs.config.pulseaudio = true;
-  hardware.enableAllFirmware  = true;
+  hardware.enableAllFirmware = true;
 
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
@@ -77,10 +79,10 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     defaultUserShell = pkgs.fish;
-    users.aristides= {
+    users.aristides = {
       isNormalUser = true;
       initialPassword = "secret";
-      extraGroups = [ "wheel" "docker" "networkmanager"]; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" "docker" "networkmanager" ]; # Enable ‘sudo’ for the user.
     };
   };
 
@@ -99,6 +101,8 @@
       lt = "exa --tree --level=2"; # tree
     };
   };
+
+  programs.thunar.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

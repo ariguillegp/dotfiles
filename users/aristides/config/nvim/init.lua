@@ -92,8 +92,12 @@ require('lazy').setup({
   'tsandall/vim-rego',
   'sbdchd/neoformat',
 
-  -- Floating terminal
-  'voldikss/vim-floaterm',
+  -- Interesting terminal integration
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    opts = {direction = 'float'}
+  },
 
   -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping

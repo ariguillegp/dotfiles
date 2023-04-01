@@ -49,7 +49,7 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww smux<CR>")
 -- makes your current file executable
 vim.keymap.set("n", "<C-x>", "<cmd>silent !chmod +x %<CR>")
 
-vim.keymap.set("n", "<leader>f", vim.cmd.Format)
+vim.keymap.set("n", "<leader>f", vim.cmd.Format, { desc ="Apply LSP builtin format" })
 
 -- quickfix list navigation
 -- vim.keymap.set("n", "<S-C-j>", "<cmd>cnext<CR>zz")

@@ -165,6 +165,7 @@ assign [class="Thunar"] $ws3
 assign [class="discord"] $ws4
 assign [class="Slack"] $ws4
 assign [class="Signal"] $ws4
+assign [class="Spotify"] $ws5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

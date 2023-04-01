@@ -55,8 +55,9 @@
       ranger
       ripgrep
       rsync
-      slack
       signal-desktop
+      slack
+      spotify
       terraform
       tldr
       tmux

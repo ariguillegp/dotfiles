@@ -100,6 +100,7 @@
       lS = "exa -1"; # one column, just names
       lt = "exa --tree --level=2"; # tree
     };
+    shellInit = "flyctl completion fish > ~/.config/fish/completions/flyctl.fish";
   };
 
   programs.thunar.enable = true;

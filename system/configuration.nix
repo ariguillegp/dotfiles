@@ -99,6 +99,7 @@
       lx = "exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale"; # all + extended list
       lS = "exa -1"; # one column, just names
       lt = "exa --tree --level=2"; # tree
+      k = "kubectl";
     };
     shellInit = "flyctl completion fish > ~/.config/fish/completions/flyctl.fish";
   };

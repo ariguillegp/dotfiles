@@ -43,8 +43,11 @@
       go
       gnumake
       gnupg
+      kubernetes-helm
       htop
       jq
+      kind
+      kubectl
       lazygit
       lsof
       mage

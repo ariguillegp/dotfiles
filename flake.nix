@@ -3,42 +3,45 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    rust-overlay.url = "github:oxalica/rust-overlay";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager }: 
+  outputs = inputs @ { self, rust-overlay, nixpkgs, home-manager }:
     # Variables
     let
       system = "x86_64-linux";
       user = "aristides";
       pkgs = import nixpkgs {
         inherit system;
-	config.allowUnfree = true;
+	      config.allowUnfree = true;
       };
     in {
       nixosConfigurations = {
         # Individual configs for all my hosts
-        #macos = nixpkgs.lib.nixosSystem {
-	#};
         nixdso = nixpkgs.lib.nixosSystem {
-	  inherit system;
-	  modules = [ 
-	    # Global configuration
-	    ./system/configuration.nix 
-	    # Personal configuration
-	    home-manager.nixosModules.home-manager {
-	      nixpkgs.config.allowUnfree = true;
+	        inherit system;
+	        modules = [
+	          # Global configuration
+	          ./system/configuration.nix
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+          })
+	          # Personal configuration
+	          home-manager.nixosModules.home-manager {
+	            nixpkgs.config.allowUnfree = true;
               home-manager.useGlobalPkgs = true;
-	      home-manager.useUserPackages = true;
-	      home-manager.users.aristides = {
-	        imports = [ ./users/aristides/home.nix ];
+	            home-manager.useUserPackages = true;
+	            home-manager.users.aristides = {
+	              imports = [ ./users/aristides/home.nix ];
+	            };
+	          }
+	        ];
 	      };
-	    }
-	  ];
-	};
       };
     };
 }

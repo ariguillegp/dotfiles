@@ -24,6 +24,7 @@
       bat
       brave
       cargo
+      cargo-watch
       codespell
       curl
       deadnix
@@ -58,6 +59,7 @@
       ranger
       ripgrep
       rsync
+      rust-analyzer
       signal-desktop
       slack
       spotify

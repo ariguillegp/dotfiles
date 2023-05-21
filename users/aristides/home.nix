@@ -29,7 +29,6 @@
       curl
       deadnix
       dig
-      discord
       docker-compose
       dos2unix
       fd
@@ -40,7 +39,6 @@
       git
       gitlint
       git-crypt
-      google-chrome
       go
       gnumake
       gnupg
@@ -53,7 +51,7 @@
       lsof
       mage
       ncdu
-      nodejs-19_x
+      nodejs_20
       pfetch
       python311
       ranger
@@ -61,15 +59,12 @@
       rsync
       rust-analyzer
       signal-desktop
-      slack
-      spotify
       terraform
       tldr
       tmux
       tree
       unzip
       xclip
-      zsh
     ];
 
     # This value determines the Home Manager release that your

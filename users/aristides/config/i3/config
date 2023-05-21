@@ -162,10 +162,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 assign [class="Alacritty"] $ws1
 assign [class="Brave"] $ws2
 assign [class="Thunar"] $ws3
-assign [class="discord"] $ws4
-assign [class="Slack"] $ws4
 assign [class="Signal"] $ws4
-for_window [class="Spotify"] move to workspace $ws5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

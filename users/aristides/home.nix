@@ -48,10 +48,12 @@
       kind
       kubectl
       lazygit
+      libreoffice
       lsof
       mage
       ncdu
       nodejs_20
+      okular
       pfetch
       python311
       ranger

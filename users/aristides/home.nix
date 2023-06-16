@@ -27,6 +27,7 @@
       cargo-watch
       codespell
       curl
+      dagger
       deadnix
       dig
       docker-compose

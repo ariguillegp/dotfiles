@@ -1,47 +1,31 @@
 {
-  description = "Dotfiles with Nix Flakes";
+  description = "Flaky Dotfiles";
 
   inputs = {
+    # Unstable nix packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    rust-overlay.url = "github:oxalica/rust-overlay";
+
+    # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs @ { self, rust-overlay, nixpkgs, home-manager }:
-    # Variables
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     let
-      system = "x86_64-linux";
+      arch = "x86_64-linux";
       user = "aristides";
-      pkgs = import nixpkgs {
-        inherit system;
-	      config.allowUnfree = true;
-      };
+      host = "flash";
     in {
-      nixosConfigurations = {
-        # Individual configs for all my hosts
-        nixdso = nixpkgs.lib.nixosSystem {
-	        inherit system;
-	        modules = [
-	          # Global configuration
-	          ./system/configuration.nix
-          ({ pkgs, ... }: {
-            nixpkgs.overlays = [ rust-overlay.overlays.default ];
-            environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
-          })
-	          # Personal configuration
-	          home-manager.nixosModules.home-manager {
-	            nixpkgs.config.allowUnfree = true;
-              home-manager.useGlobalPkgs = true;
-	            home-manager.useUserPackages = true;
-	            home-manager.users.aristides = {
-	              imports = [ ./users/aristides/home.nix ];
-	            };
-	          }
-	        ];
-	      };
+      defaultPackage.${arch} = home-manager.defaultPackage.${arch};
+      # Standalone home-manager configuration entrypoint
+      homeConfigurations = {
+        "${user}@${host}" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${arch};
+          extraSpecialArgs = { inherit inputs; };
+          modules = [./home-manager ];
+        };
       };
     };
 }

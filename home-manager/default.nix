@@ -2,13 +2,14 @@
 
 {
   imports = [
-    ./alacritty.nix
-    ./bat.nix
-    ./direnv.nix
-    ./exa.nix
-    ./git.nix
+    #./alacritty.nix
+    #./bat.nix
+    #./direnv.nix
+    #./exa.nix
+    #./git.nix
     ./neovim.nix
-    ./tmux.nix
+    #./tmux.nix
+    ./i3.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -23,7 +24,6 @@
       awscli2
       bat
       brave
-      cargo
       cargo-watch
       codespell
       curl
@@ -43,6 +43,11 @@
       go
       gnumake
       gnupg
+      dmenu
+      i3
+      i3status
+      i3blocks
+      i3lock-fancy-rapid
       kubernetes-helm
       htop
       jq
@@ -53,14 +58,14 @@
       lsof
       mage
       ncdu
-      nodejs_20
+      nodejs
       okular
       pfetch
+      picom
       python311
       ranger
       ripgrep
       rsync
-      rust-analyzer
       signal-desktop
       terraform
       tldr
@@ -78,7 +83,7 @@
     # You can update Home Manager without changing this value. See
     # the Home Manager release notes for a list of state version
     # changes in each release.
-    stateVersion = "22.05";
+    stateVersion = "23.05";
   };
 
   # Let Home Manager install and manage itself.

@@ -19,60 +19,52 @@
     homeDirectory = "/home/aristides";
 
     packages = with pkgs; [
-      alacritty
-      arandr
+      # alacritty
+      # arandr
       awscli2
-      bat
-      brave
-      cargo-watch
-      codespell
-      curl
-      dagger
-      deadnix
+      # bat
+      # brave
+      # cargo-watch
+      # curl
+      # dagger
       dig
-      docker-compose
-      dos2unix
-      fd
-      fish
-      flameshot
+      # docker-compose
+      # dos2unix
+      # fd
+      # fish
+      # flameshot
       flyctl
       gcc12
-      git
-      gitlint
-      git-crypt
-      go
+      # git
+      # git-crypt
+      # go
       gnumake
       gnupg
-      dmenu
-      i3
-      i3status
-      i3blocks
-      i3lock-fancy-rapid
+      # dmenu
       kubernetes-helm
-      htop
-      jq
+      # htop
+      # jq
       kind
-      kubectl
-      lazygit
+      # kubectl
+      # lazygit
       libreoffice
-      lsof
+      # lsof
       mage
-      ncdu
-      nodejs
+      # ncdu
+      # nodejs
       okular
-      pfetch
       picom
       python311
       ranger
-      ripgrep
-      rsync
-      signal-desktop
+      # ripgrep
+      # rsync
+      # signal-desktop
       terraform
       tldr
       tmux
-      tree
-      unzip
-      xclip
+      # tree
+      # unzip
+      # xclip
     ];
 
     # This value determines the Home Manager release that your

@@ -11,10 +11,8 @@
       push.default = "upstream";
       # Sign all commits using ssh key
       commit.gpgsign = true;
-      gpg = {
-        format = "ssh";
-        ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-      };
+      gpg.format = "ssh";
+      gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
       user.signingkey = "~/.ssh/id_rsa.pub";
     };
 

@@ -14,7 +14,6 @@
   outputs = { neovim-nightly-overlay, rust-overlay, nixpkgs, home-manager, ... }:
   let
     system = "x86_64-linux";
-    user = "aristides";
     lib = nixpkgs.lib;
     overlays = [
       neovim-nightly-overlay.overlay

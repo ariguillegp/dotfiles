@@ -5,7 +5,7 @@
     ./alacritty.nix
     ./bat.nix
     ./direnv.nix
-    ./exa.nix
+    ./eza.nix
     ./git.nix
     ./neovim.nix
     ./tmux.nix

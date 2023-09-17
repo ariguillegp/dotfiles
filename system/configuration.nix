@@ -18,7 +18,7 @@
     '';
   };
 
-  # Install Go Mono nerdfont
+  # Install Iosevka nerdfont
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];

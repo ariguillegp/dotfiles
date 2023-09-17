@@ -24,7 +24,7 @@
 
         normal.family = "Iosevka Nerd Font";
         bold.family = "Iosevka Nerd Font";
-        italic.family = "Iosevka Nerd Fon";
+        italic.family = "Iosevka Nerd Font";
       };
 
       colors = {

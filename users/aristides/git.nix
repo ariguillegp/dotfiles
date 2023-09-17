@@ -9,6 +9,10 @@
       core.editor = "nvim";
       pull.rebase = "true";
       push.default = "upstream";
+      # Sign all commits using ssh key
+      commit.gpgsign = true;
+      gpg.format = "ssh";
+      user.signingkey = "~/.ssh/id_rsa.pub";
     };
 
     delta = {

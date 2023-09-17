@@ -22,9 +22,9 @@
           y = 0;
         };
 
-        normal.family = "GoMono Nerd Font";
-        bold.family = "GoMono Nerd Font";
-        italic.family = "GoMono Nerd Font";
+        normal.family = "Iosevka Nerd Font";
+        bold.family = "Iosevka Nerd Font";
+        italic.family = "Iosevka Nerd Fon";
       };
 
       colors = {

@@ -20,7 +20,7 @@
 
   # Install Go Mono nerdfont
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Go-Mono" ]; })
+    (nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
 
   # Bootloader.

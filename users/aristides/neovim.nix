@@ -7,9 +7,9 @@
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
-      # plugins = [
-      #   pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-      # ];
+      plugins = [
+        pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+      ];
     };
   };
 

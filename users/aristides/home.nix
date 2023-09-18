@@ -17,8 +17,6 @@
     username = "aristides";
     homeDirectory = "/home/aristides";
 
-    file.".ssh/allowed_signers".text = "* ${builtins.readFile /home/aristides/.ssh/id_rsa.pub}";
-
     packages = with pkgs; [
       alacritty
       arandr

@@ -1,4 +1,6 @@
 {
+  home.file.".ssh/allowed_signers".text = "aristides@* ${builtins.readFile /home/aristides/.ssh/id_rsa.pub}";
+
   programs.git = {
     enable = true;
     userName  = "Aristides Gonzalez";

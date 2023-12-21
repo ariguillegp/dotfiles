@@ -124,8 +124,12 @@
     #media-session.enable = true;
   };
 
+  # Bluetooth setup
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -154,8 +158,9 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      v = "nvim";
-      V = "sudo nvim";
+      rm = "rm -i";
+      cp = "cp -i";
+      mv = "mv -i";
       cat = "bat --paging=never --style=plain";
       ls = "exa"; # ls
       ll = "exa -lbF --git"; # list, size, type, git
@@ -164,7 +169,12 @@
       lx = "exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale"; # all + extended list
       lS = "exa -1"; # one column, just names
       lt = "exa --tree --level=2"; # tree
+    };
+    shellAbbrs = {
       k = "kubectl";
+      v = "nvim";
+      V = "sudo nvim";
+      g = "git";
     };
   };
 

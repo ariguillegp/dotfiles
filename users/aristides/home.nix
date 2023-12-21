@@ -22,12 +22,15 @@
       arandr
       awscli2
       bat
+      blueman
+      bluez
+      bluez-alsa
       brave
       cargo
       cargo-watch
+      cobra-cli
       codespell
       curl
-      dagger
       deadnix
       dig
       docker-compose

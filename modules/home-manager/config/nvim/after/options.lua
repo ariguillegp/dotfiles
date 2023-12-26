@@ -4,6 +4,10 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
+-- Set <space> as the leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 local indent = 2
 
 -- navigation settings
@@ -65,3 +69,7 @@ vim.o.cmdheight = 1 -- more space in the nvim cli to display messages
 vim.o.hidden = true
 vim.o.errorbells = false
 vim.o.writebackup = false
+
+-- Indent options
+vim.opt.list = true
+vim.opt.listchars:append "eol:↴"

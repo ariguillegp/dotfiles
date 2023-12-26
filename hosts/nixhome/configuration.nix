@@ -94,7 +94,7 @@
         i3lock-fancy-rapid
       ];
       # Path to the i3 configuration file. If left at the default value, $HOME/.i3/config will be used.
-      configFile = "/home/aristides/.dotfiles/users/aristides/config/i3/config";
+      configFile = "/home/aristides/.dotfiles/modules/home-manager/config/i3/config";
     };
   };
 
@@ -221,5 +221,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }

@@ -7,7 +7,7 @@ vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- toggle netrw view
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- move visually selected lines of code up and down
 vim.keymap.set("n", "J", ":m '>+1<CR>gv=gv")
@@ -26,7 +26,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", "\"_dP")
-
+vim.keymap.set("n", "n", "nzzzv")
 -- next greatest remap ever : asbjornHaland
 -- copies the target text to the clipboard so I can paste it everywhere in the OS
 vim.keymap.set("n", "<leader>y", "\"+y")
@@ -61,6 +61,3 @@ vim.keymap.set("n", "<leader>h", "<cmd>wincmd h<CR>")
 vim.keymap.set("n", "<leader>j", "<cmd>wincmd j<CR>")
 vim.keymap.set("n", "<leader>k", "<cmd>wincmd k<CR>")
 vim.keymap.set("n", "<leader>l", "<cmd>wincmd l<CR>")
-
--- Toggleterm
-vim.keymap.set("n", "<leader>tt", vim.cmd.ToggleTerm, { desc = "Toggle floating terminal" })

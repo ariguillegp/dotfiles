@@ -11,7 +11,7 @@
       };
 
       font = {
-        size = 7.0;
+        size = 12.0;
 
         offset = {
           x = 0;

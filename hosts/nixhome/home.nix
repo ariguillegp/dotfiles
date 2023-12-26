@@ -2,13 +2,13 @@
 
 {
   imports = [
-    ./alacritty.nix
-    ./bat.nix
-    ./direnv.nix
-    ./eza.nix
-    ./git.nix
-    ./neovim.nix
-    ./tmux.nix
+    ../../modules/home-manager/alacritty.nix
+    ../../modules/home-manager/bat.nix
+    ../../modules/home-manager/direnv.nix
+    ../../modules/home-manager/eza.nix
+    ../../modules/home-manager/git.nix
+    ../../modules/home-manager/neovim.nix
+    ../../modules/home-manager/tmux.nix
   ];
 
   # Home Manager needs a bit of information about you and the

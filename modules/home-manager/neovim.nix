@@ -102,6 +102,11 @@
 
         # LSP
         {
+          plugin = fidget-nvim;
+          config = toLua "require(\"fidget\").setup()";
+        }
+
+        {
           plugin = nvim-lspconfig;
           config = toLuaFile ./config/nvim/plugins/lsp.lua;
         }

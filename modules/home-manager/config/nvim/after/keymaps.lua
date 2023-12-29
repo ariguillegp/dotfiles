@@ -6,9 +6,6 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- toggle netrw view
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
 -- move visually selected lines of code up and down
 vim.keymap.set("n", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("n", "K", ":m '<-2<CR>gv=gv")

@@ -31,7 +31,6 @@
       cobra-cli
       codespell
       curl
-      deadnix
       dig
       docker-compose
       dos2unix
@@ -60,7 +59,6 @@
       pfetch
       python311
       ranger
-      ripgrep
       rsync
       signal-desktop
       terraform

@@ -65,7 +65,7 @@ vim.o.foldenable = false -- show all text unfolded
 vim.o.winbar = "%=%m %f"
 vim.o.showmode = false
 vim.o.splitright = true -- force vertical splits to go to the right
-vim.o.cmdheight = 1 -- more space in the nvim cli to display messages
+vim.o.cmdheight = 1     -- more space in the nvim cli to display messages
 vim.o.hidden = true
 vim.o.errorbells = false
 vim.o.writebackup = false

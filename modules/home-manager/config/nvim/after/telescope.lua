@@ -26,7 +26,7 @@ end, { desc = '[/] Fuzzily search in current buffer' })
 
 -- Enable telescope worktrees, if installed
 vim.keymap.set('n', '<leader>wl',
-               require("telescope").extensions.git_worktree.git_worktrees,
-               {desc = '[W]orktrees [L]ist'})
+  require("telescope").extensions.git_worktree.git_worktrees,
+  { desc = '[W]orktrees [L]ist' })
 vim.keymap.set('n', '<leader>wn', require('telescope').extensions.git_worktree
-                   .create_git_worktree, {desc = '[W]orktrees [C]reate'})
+  .create_git_worktree, { desc = '[W]orktrees [C]reate' })

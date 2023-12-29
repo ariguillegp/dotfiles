@@ -22,22 +22,22 @@
     };
   in {
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
+    # Available through 'nixos-rebuild --flake .#hostname'
     nixosConfigurations = {
       nixhome = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        # > Our main nixos configuration file <
+        # > Main nixos configuration file <
         modules = [./hosts/nixhome/configuration.nix];
       };
     };
 
     # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
+    # Available through 'home-manager --flake .#username@hostname'
     homeConfigurations = {
       "aristides" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit inputs outputs;};
-        # > Our main home-manager configuration file <
+        # > Main home-manager configuration file <
         modules = [./hosts/nixhome/home.nix];
       };
     };

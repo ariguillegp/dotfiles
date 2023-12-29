@@ -51,7 +51,6 @@
       jq
       kind
       kubectl
-      lazygit
       libreoffice
       lsof
       mage
@@ -63,7 +62,6 @@
       ranger
       ripgrep
       rsync
-      rust-analyzer
       signal-desktop
       terraform
       tldr

@@ -36,11 +36,6 @@ local on_attach = function(_, bufnr)
   nmap('<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
-
-  -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
-  end, { desc = 'Format current buffer with LSP' })
 end
 
 -- -- document existing key chains
@@ -61,55 +56,6 @@ end
 --   ['<leader>h'] = { 'Git [H]unk' },
 -- }, { mode = 'v' })
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
---
---  If you want to override the default filetypes that your language server will attach to you can
---  define the property 'filetypes' to the map in question.
-local servers = {
-  -- clangd = {},
-  rnix = {
-    filetypes = { "nix"},
-  },
-  gopls = {
-    gopls = { gofumpt = true },
-    filetypes = { "go"},
-  },
-  -- pyright = {},
-  rust_analyzer = {
-    ['rust-analyzer'] = {},
-    filetypes = { "rs"},
-  },
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
--- -- Example custom configuration for lua
--- -- Make runtime files discoverable to the server
--- local runtime_path = vim.split(package.path, ';')
--- table.insert(runtime_path, 'lua/?.lua')
--- table.insert(runtime_path, 'lua/?/init.lua')
-
-  lua_ls = {
-    filetypes = { "lua"},
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT)
-        version = 'LuaJIT',
-        -- Setup your lua path
-        -- path = runtime_path
-      },
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-      diagnostics = {globals = {'vim'}},
-      -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-      -- diagnostics = { disable = { 'missing-fields' } },
-    },
-  },
-}
-
 -- Setup neovim lua configuration
 require('neodev').setup()
 
@@ -119,12 +65,42 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Setup language servers.
 local lspconfig = require('lspconfig')
+-- Enable the following language servers
+local servers = { "bashls", "dockerls", "rnix", "ruff_lsp", "rust_analyzer" }
 
 for _, server_name in ipairs(servers) do
-    lspconfig[server_name].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = servers[server_name],
-        filetypes = (servers[server_name] or {}).filetypes,
-    }
+  lspconfig[server_name].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
 end
+
+-- Make runtime files discoverable to the server
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
+
+lspconfig.lua_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT)
+        version = 'LuaJIT',
+        -- Setup your lua path
+        path = runtime_path
+      },
+      diagnostics = { globals = { 'vim' } },
+      workspace = { library = vim.api.nvim_get_runtime_file('', true) },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = { enable = false }
+    }
+  }
+}
+
+lspconfig.gopls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = { gopls = { gofumpt = true } }
+})

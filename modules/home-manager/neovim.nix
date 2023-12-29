@@ -22,6 +22,8 @@
       terraform-ls # tf
       dockerfile-language-server-nodejs # dockerfile
       jq-lsp # jq
+      shellcheck # shell scripting
+      lazygit
 
       xclip
       wl-clipboard

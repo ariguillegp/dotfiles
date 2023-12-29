@@ -51,7 +51,7 @@ vim.keymap.set("n", "<leader>f", vim.cmd.Format, { desc = "Apply LSP builtin for
 -- quickfix list navigation
 -- vim.keymap.set("n", "<S-C-j>", "<cmd>cnext<CR>zz")
 -- vim.keymap.set("n", "<S-C-h>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>c", "<cmd>cclose<CR>")
+-- vim.keymap.set("n", "<leader>c", "<cmd>cclose<CR>")
 
 -- window navigation with vim keys
 vim.keymap.set("n", "<leader>h", "<cmd>wincmd h<CR>")

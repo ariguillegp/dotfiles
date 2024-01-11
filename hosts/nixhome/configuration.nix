@@ -176,6 +176,7 @@
       v = "nvim";
       V = "sudo nvim";
       g = "git";
+      z = "zellij";
     };
   };
 

@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -31,8 +32,8 @@
     efi.canTouchEfiVariables = true;
   };
 
-# Prevents weird behavior introduced pre 23.11
-# ref: https://github.com/NixOS/nixpkgs/issues/254807
+  # Prevents weird behavior introduced pre 23.11
+  # ref: https://github.com/NixOS/nixpkgs/issues/254807
   boot.swraid.enable = false;
 
   networking.hostName = "nixhome"; # Define your hostname.

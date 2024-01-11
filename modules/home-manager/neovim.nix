@@ -48,12 +48,6 @@
         }
 
         {
-          # Terminal
-          plugin = toggleterm-nvim;
-          config = toLua "require(\"toggleterm\").setup()";
-        }
-
-        {
           # Shows possible keybindings
           plugin = which-key-nvim;
           config = toLua "require(\"which-key\").setup()";
@@ -155,7 +149,6 @@
         ${builtins.readFile ./config/nvim/after/diagnostics.lua}
         ${builtins.readFile ./config/nvim/after/harpoon.lua}
         ${builtins.readFile ./config/nvim/after/lazygit.lua}
-        ${builtins.readFile ./config/nvim/after/toggleterm.lua}
       '';
     };
 }

@@ -207,7 +207,7 @@
       lower = "01:00";
       upper = "04:00";
     };
-    channel = "https://nixos.org/channels/nixos-unstable";
+    channel = "https://nixos.org/channels/nixos-23.11";
   };
 
   # Automatic garbage collection

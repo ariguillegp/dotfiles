@@ -43,6 +43,7 @@
       gitlint
       git-crypt
       go
+      golangci-lint
       gnumake
       gnupg
       kubernetes-helm

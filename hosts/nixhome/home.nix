@@ -39,10 +39,12 @@
       flameshot
       flyctl
       gcc12
+      gci
       git
       gitlint
       git-crypt
       go
+      gofumpt
       golangci-lint
       gnumake
       gnupg
@@ -59,6 +61,7 @@
       okular
       pfetch
       python311
+      pre-commit
       ranger
       rsync
       signal-desktop

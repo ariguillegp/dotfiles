@@ -65,6 +65,7 @@
       ranger
       rsync
       signal-desktop
+      sof-firmware
       terraform
       tldr
       tmux

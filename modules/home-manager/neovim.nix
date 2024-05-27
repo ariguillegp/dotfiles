@@ -68,12 +68,6 @@
           config = "colorscheme tokyonight-night";
         }
 
-        {
-          # Code comments
-          plugin = comment-nvim;
-          config = toLua "require(\"Comment\").setup()";
-        }
-
         # Alternate files navigation
         {
           plugin = harpoon;

@@ -36,7 +36,7 @@
   # ref: https://github.com/NixOS/nixpkgs/issues/254807
   boot.swraid.enable = false;
 
-  networking.hostName = "nixhome"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

@@ -35,7 +35,7 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#username@hostname'
       homeConfigurations = {
-        "nixos" = home-manager.lib.homeManagerConfiguration {
+        nixhome = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
           # > Main home-manager configuration file <

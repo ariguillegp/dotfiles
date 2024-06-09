@@ -3,8 +3,8 @@
 
   programs.git = {
     enable = true;
-    userName  = "Aristides Gonzalez";
-    userEmail = "aristides@glezpol.com";
+    userName = "Aristides Gonzalez";
+    userEmail = "aristides@crescentcyber.com";
 
     extraConfig = {
       init = { defaultBranch = "main"; };
@@ -22,8 +22,8 @@
       enable = true;
       options = {
         navigate = true;
-	      line-numbers = true;
-	      synrax-theme = "ansi";
+        line-numbers = true;
+        synrax-theme = "ansi";
       };
     };
 
@@ -51,7 +51,7 @@
 
       # Swap
       "[._]*.s[a-v][a-z]"
-      "!*.svg"  # comment out if you don't need vector files
+      "!*.svg" # comment out if you don't need vector files
       "[._]*.sw[a-p]"
       "[._]s[a-rt-v][a-z]"
       "[._]ss[a-gi-z]"

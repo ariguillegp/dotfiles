@@ -18,7 +18,6 @@
         rnix-lsp # nix
         gopls # go
         ruff-lsp # python
-        rust-analyzer # rust
         terraform-ls # tf
         dockerfile-language-server-nodejs # dockerfile
         jq-lsp # jq

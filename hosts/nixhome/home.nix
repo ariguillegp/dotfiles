@@ -73,6 +73,7 @@
       unzip
       xclip
       zellij
+      zip
     ];
 
     # This value determines the Home Manager release that your

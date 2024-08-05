@@ -15,9 +15,9 @@
 
       extraPackages = with pkgs; [
         lua-language-server # lua
-        rnix-lsp # nix
         gopls # go
         ruff-lsp # python
+        rust-analyzer # rust
         terraform-ls # tf
         dockerfile-language-server-nodejs # dockerfile
         jq-lsp # jq
@@ -65,6 +65,12 @@
           # Color scheme
           plugin = tokyonight-nvim;
           config = "colorscheme tokyonight-night";
+        }
+
+        {
+          # Code comments
+          plugin = comment-nvim;
+          config = toLua "require(\"Comment\").setup()";
         }
 
         # Alternate files navigation

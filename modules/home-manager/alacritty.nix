@@ -58,28 +58,28 @@
           white = "#acb0d0";
         };
 
-        scrolling = {
-          # Maximum number of lines in the scrollback buffer.
-          # Specifying '0' will disable scrolling.
-          history = 10000;
-
-          # Number of lines the viewport will move for every line scrolled when
-          # scrollback is enabled (history > 0).
-          multiplier = 10;
-        };
+        # scrolling = {
+        #   # Maximum number of lines in the scrollback buffer.
+        #   # Specifying '0' will disable scrolling.
+        #   history = 10000;
+        #
+        #   # Number of lines the viewport will move for every line scrolled when
+        #   # scrollback is enabled (history > 0).
+        #   multiplier = 10;
+        # };
 
         ## If `true`, bold text is drawn using the bright color variants.
         draw_bold_text_with_bright_colors = true;
 
-        selection = {
-          save_to_clipboard = true;
-        };
+        # selection = {
+        #   save_to_clipboard = true;
+        # };
 
-        live_config_reload = true;
+        # live_config_reload = true;
 
-        debug = {
-          print_events = true;
-        };
+        # debug = {
+        #   print_events = true;
+        # };
       };
     };
   };

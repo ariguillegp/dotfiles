@@ -60,6 +60,7 @@
       nodejs_20
       okular
       pfetch
+      pgadmin4
       python311
       pre-commit
       ranger
@@ -71,6 +72,7 @@
       tmux
       tree
       unzip
+      wezterm
       xclip
       zellij
       zip

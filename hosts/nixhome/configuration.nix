@@ -68,18 +68,15 @@
   #services.xserver.displayManager.gdm.enable = true;
   #services.xserver.desktopManager.gnome.enable = true;
 
-  # List services that you want to enable:
   # Enable the X11 windowing system.
+  services.displayManager.defaultSession = "none+i3"; # No desktop environment and i3 as the window manager
+
+  # List services that you want to enable:
   services.xserver = {
     enable = true;
 
     desktopManager = {
       xterm.enable = false;
-    };
-
-    displayManager = {
-      # No desktop environment and i3 as the window manager
-      defaultSession = "none+i3";
     };
 
     # Config options available here: https://search.nixos.org/options?channel=22.11&size=50&sort=relevance&type=packages&query=i3
@@ -100,9 +97,9 @@
   };
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -130,7 +127,7 @@
   services.blueman.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -163,13 +160,14 @@
       cp = "cp -i";
       mv = "mv -i";
       cat = "bat --paging=never --style=plain";
-      ls = "exa"; # ls
-      ll = "exa -lbF --git"; # list, size, type, git
-      llm = "exa -lbGd --git --sort=modified"; # long list, modified date sort
-      la = "exa -lbhHigUmuSa --time-style=long-iso --git --color-scale"; # all list
-      lx = "exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale"; # all + extended list
-      lS = "exa -1"; # one column, just names
-      lt = "exa --tree --level=2"; # tree
+      #l = "eza";
+      #ls = "eza"; # ls
+      #ll = "eza -lbF --git"; # list, size, type, git
+      #llm = "eza -lbGd --git --sort=modified"; # long list, modified date sort
+      #la = "eza -lbhHigUmuSa --time-style=long-iso --git --color-scale"; # all list
+      #lx = "eza -lbhHigUmuSa@ --time-style=long-iso --git --color-scale"; # all + extended list
+      #lS = "eza -1"; # one column, just names
+      #lt = "eza --tree --level=2"; # tree
     };
     shellAbbrs = {
       k = "kubectl";
@@ -207,7 +205,7 @@
       lower = "01:00";
       upper = "04:00";
     };
-    channel = "https://nixos.org/channels/nixos-23.11";
+    channel = "https://nixos.org/channels/nixos-24.05";
   };
 
   # Automatic garbage collection

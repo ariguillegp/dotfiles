@@ -48,7 +48,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 -- Enable the following language servers
-local servers = { "bashls", "dockerls", "rnix", "ruff_lsp", "rust_analyzer" }
+local servers = { "bashls", "dockerls", "ruff_lsp", "rust_analyzer" }
 
 -- Basic LSP setup
 for _, server_name in ipairs(servers) do

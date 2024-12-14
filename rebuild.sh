@@ -1,7 +1,7 @@
 #!/bin/sh
 pushd ~/.dotfiles
-printf "\nRebuilding user configurations\n\n"
+printf "\n#################### Rebuilding user configuration  ##################\n\n"
 home-manager switch --impure --flake '.#nixhome'
-printf "Rebuilding system configurations\n\n"
+printf "\n#################### Rebuilding system configuration  ##################\n\n"
 sudo nixos-rebuild switch --flake '.#nixhome'
 popd

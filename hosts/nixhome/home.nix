@@ -9,6 +9,7 @@
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/neovim.nix
     ../../modules/home-manager/tmux.nix
+    ../../modules/home-manager/wezterm.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -63,7 +64,6 @@
       pgadmin4
       python311
       pre-commit
-      ranger
       rsync
       signal-desktop
       sof-firmware
@@ -74,7 +74,6 @@
       unzip
       wezterm
       xclip
-      zellij
       zip
     ];
 

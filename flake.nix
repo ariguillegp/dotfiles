@@ -9,9 +9,15 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Rust overlay
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
+  outputs = { self, nixpkgs, rust-overlay, home-manager, ... } @ inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -29,6 +35,10 @@
           specialArgs = { inherit inputs outputs; };
           # > Main nixos configuration file <
           modules = [ ./hosts/nixhome/configuration.nix ];
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+          })
         };
       };
 

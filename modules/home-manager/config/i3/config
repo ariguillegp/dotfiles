@@ -28,7 +28,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Add keystroke to lock screen
 bindsym $mod+x exec --no-startup-id i3lock-fancy-rapid 3 3
-# bindsym $mod+x exec --no-startup-id ~/.dotfiles/users/aristides/config/i3/scripts/i3lock.sh
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.

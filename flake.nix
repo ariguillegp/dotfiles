@@ -34,11 +34,13 @@
         nixhome = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           # > Main nixos configuration file <
-          modules = [ ./hosts/nixhome/configuration.nix ];
-          ({ pkgs, ... }: {
-            nixpkgs.overlays = [ rust-overlay.overlays.default ];
-            environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
-          })
+          modules = [
+            ./hosts/nixhome/configuration.nix
+            ({ pkgs, ... }: {
+              nixpkgs.overlays = [ rust-overlay.overlays.default ];
+              environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+            })
+          ];
         };
       };
 

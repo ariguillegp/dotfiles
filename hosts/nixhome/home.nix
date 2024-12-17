@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/bat.nix
     ../../modules/home-manager/direnv.nix
     ../../modules/home-manager/eza.nix
@@ -19,7 +18,6 @@
     homeDirectory = "/home/aristides";
 
     packages = with pkgs; [
-      alacritty
       arandr
       awscli2
       bat
@@ -68,6 +66,7 @@
       signal-desktop
       sof-firmware
       terraform
+      thunar
       tldr
       tmux
       tree

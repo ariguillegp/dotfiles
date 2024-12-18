@@ -66,7 +66,6 @@
       signal-desktop
       sof-firmware
       terraform
-      thunar
       tldr
       tmux
       tree

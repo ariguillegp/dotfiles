@@ -16,6 +16,7 @@ vim.o.colorcolumn = "100"
 
 -- set my fat cursor
 vim.o.guicursor = ""
+vim.o.cursorline = true
 
 -- Set highlight on search
 vim.o.hlsearch = false

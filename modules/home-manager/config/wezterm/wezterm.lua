@@ -15,7 +15,7 @@ config.default_workspace = "home"
 config.max_fps = 120
 
 -- Font settings
-config.font = wezterm.font("Inconsolata Nerd Font", { weight = "Light" })
+config.font = wezterm.font("IosevkaTerm Nerd Font", { weight = "Light" })
 config.font_size = 19.0
 
 -- Dim inactive panes

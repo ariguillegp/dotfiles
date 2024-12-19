@@ -21,7 +21,7 @@
 
   # Install IosevkaTerm nerdfont
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Inconsolata" ]; })
+    (nerdfonts.override { fonts = [ "IosevkaTerm" ]; })
   ];
 
   # Bootloader.

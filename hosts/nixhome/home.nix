@@ -40,6 +40,7 @@
       gcc12
       gci
       git
+      git-cliff
       gitlint
       git-crypt
       go

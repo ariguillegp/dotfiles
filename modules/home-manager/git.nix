@@ -4,7 +4,17 @@
   programs.git = {
     enable = true;
     userName = "Aristides Gonzalez";
-    userEmail = "aristides@crescentcyber.com";
+    userEmail = "aristides@glezpol.com";
+
+    includes = [{
+      condition = "gitdir:~/Projects/cc/**";
+      contents = {
+        user.email = "aristides@crescentcyber.com";
+      };
+    }];
+
+    # git extension for versioning large files
+    lfs.enable = true;
 
     extraConfig = {
       init = { defaultBranch = "main"; };

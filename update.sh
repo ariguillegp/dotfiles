@@ -1,6 +1,8 @@
 #!/bin/sh
 
-printf "\n#################### Updating dependencies ##################\n\n"
+printf "\n#############################################################\n"
+printf "#################### Updating dependencies ##################\n"
+printf "#############################################################\n\n"
 # Updates all dependencies
 nix flake update --experimental-features 'nix-command flakes'
 # Rebuilds active configuration

@@ -25,6 +25,7 @@
       bluez
       bluez-alsa
       brave
+      bun
       cargo
       cargo-watch
       cobra-cli
@@ -51,6 +52,7 @@
       kubernetes-helm
       htop
       jq
+      just
       kind
       kubectl
       libreoffice

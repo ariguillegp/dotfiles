@@ -68,6 +68,7 @@
       rsync
       signal-desktop
       sof-firmware
+      ssm-session-manager-plugin
       terraform
       tldr
       tmux

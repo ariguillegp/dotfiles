@@ -66,7 +66,6 @@
       python311
       pre-commit
       rsync
-      signal-desktop
       sof-firmware
       ssm-session-manager-plugin
       terraform

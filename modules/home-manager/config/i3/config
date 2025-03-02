@@ -35,9 +35,6 @@ bindsym $mod+x exec --no-startup-id i3lock-fancy-rapid 3 3
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# # Add keystroke to open file manager -- thunar
-# bindsym $mod+t exec --no-startup-id thunar
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -162,8 +159,6 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # open apps in specific workspaces
 assign [class="org.wezfurlong.wezterm"] $ws1
 assign [class="Brave"] $ws2
-# assign [class="Thunar"] $ws3
-assign [class="Signal"] $ws4
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

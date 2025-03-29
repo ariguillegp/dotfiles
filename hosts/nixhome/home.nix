@@ -49,12 +49,13 @@
       golangci-lint
       gnumake
       gnupg
-      kubernetes-helm
+      hadolint
       htop
       jq
       just
       kind
       kubectl
+      kubernetes-helm
       libreoffice
       lsof
       mage

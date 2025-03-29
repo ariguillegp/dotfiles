@@ -6,9 +6,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Ghostty term emulator
-    ghostty.url = "github:ghostty-org/ghostty";
-
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +17,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ghostty, rust-overlay, home-manager, ... } @ inputs:
+  outputs = { self, nixpkgs, rust-overlay, home-manager, ... } @ inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -43,7 +40,6 @@
               nixpkgs.overlays = [ rust-overlay.overlays.default ];
               environment.systemPackages = [
                 pkgs.rust-bin.stable.latest.default
-                ghostty.packages.x86_64-linux.default
               ];
             })
           ];

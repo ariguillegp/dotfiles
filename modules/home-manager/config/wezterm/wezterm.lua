@@ -72,8 +72,7 @@ config.keys = {
         { Foreground = { AnsiColor = "Fuchsia" } },
         { Text = "Renaming Tab Title:" },
       },
-      -- TODO: Why is the arg `pane` needed here
-      action = wezterm.action_callback(function(window, pane, line)
+      action = wezterm.action_callback(function(window, line)
         if line then
           window:active_tab():set_title(line)
         end
@@ -125,7 +124,7 @@ config.use_fancy_tab_bar = false
 config.status_update_interval = 1000
 
 -- Status
-wezterm.on("update-status", function(window, pane)
+wezterm.on("update-status", function(window)
   -- Workspace name
   local stat = window:active_workspace()
   local stat_color = "#f7768e"

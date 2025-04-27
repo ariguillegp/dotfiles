@@ -58,7 +58,8 @@ config.keys = {
   { key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
 
   -- Tab keybindings
-  { key = "t", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
+  { key = "T", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
+  { key = "t", mods = "LEADER", action = act.ShowLauncherArgs { flags = "FUZZY|TABS" } },
   { key = "[", mods = "LEADER", action = act.ActivateTabRelative(-1) },
   { key = "]", mods = "LEADER", action = act.ActivateTabRelative(1) },
   { key = "n", mods = "LEADER", action = act.ShowTabNavigator },

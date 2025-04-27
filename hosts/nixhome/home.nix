@@ -69,6 +69,7 @@
       rsync
       sof-firmware
       ssm-session-manager-plugin
+      tailscale
       terraform
       tldr
       tmux

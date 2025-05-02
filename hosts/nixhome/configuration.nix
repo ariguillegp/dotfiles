@@ -46,6 +46,11 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  networking.extraHosts =
+  ''
+    100.122.8.81 demo.crescentcyber.com
+  '';
+
   # Set your time zone.
   time.timeZone = "America/New_York";
 
@@ -64,43 +69,58 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the GNOME Desktop Environment.
-  #services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.desktopManager.gnome.enable = true;
-
-  # Enable the X11 windowing system.
-  services.displayManager.defaultSession = "none+i3"; # No desktop environment and i3 as the window manager
-
-  # List services that you want to enable:
-  services.xserver = {
+  # Trying Hyprland (Wayland based compositor)
+  programs.hyprland = {
     enable = true;
-
-    desktopManager = {
-      xterm.enable = false;
-    };
-
-    # Config options available here: https://search.nixos.org/options?channel=22.11&size=50&sort=relevance&type=packages&query=i3
-    windowManager.i3 = {
-      # Whether to enable i3 window manager.
-      enable = true;
-      # i3 package to use.
-      package = pkgs.i3;
-      # Extra packages to be installed system wide.
-      extraPackages = with pkgs; [
-        dmenu
-        i3status
-        i3lock-fancy-rapid
-      ];
-      # Path to the i3 configuration file. If left at the default value, $HOME/.i3/config will be used.
-      configFile = "/home/aristides/.dotfiles/modules/home-manager/config/i3/config";
-    };
+    withUWSM = true; # recommended for most users
+    xwayland.enable = true; # temporary until I can confidently get rid of X11
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+  # # Enable the GNOME Desktop Environment.
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+
+  # # Enable the X11 windowing system.
+  # services.displayManager.defaultSession = "none+i3"; # No desktop environment and i3 as the window manager
+  #
+  # # List services that you want to enable:
+  # services.xserver = {
+  #   enable = true;
+  #
+  #   desktopManager = {
+  #     xterm.enable = false;
+  #   };
+  #
+  #   # Config options available here: https://search.nixos.org/options?channel=22.11&size=50&sort=relevance&type=packages&query=i3
+  #   windowManager.i3 = {
+  #     # Whether to enable i3 window manager.
+  #     enable = true;
+  #     # i3 package to use.
+  #     package = pkgs.i3;
+  #     # Extra packages to be installed system wide.
+  #     extraPackages = with pkgs; [
+  #       dmenu
+  #       i3status
+  #       i3lock-fancy-rapid
+  #     ];
+  #     # Path to the i3 configuration file. If left at the default value, $HOME/.i3/config will be used.
+  #     configFile = "/home/aristides/.dotfiles/modules/home-manager/config/i3/config";
+  #   };
+  # };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
   };
+
+  # Connect to tailscale network.
+  services.tailscale.enable = false;
+
+  # # Configure keymap in X11
+  # services.xserver.xkb = {
+  #   layout = "us";
+  #   variant = "";
+  # };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -114,12 +134,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    jack.enable = true;
   };
 
   # Bluetooth setup
@@ -135,9 +150,15 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    dunst # notification daemon
+    git
+    kitty # trying this out -- it seems cool
+    libnotify # needed by dunst
+    rofi-wayland # app launcher
+    swww # wallpaper
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    git
+    waybar # desktop bar
   ];
 
   # Add/Enable docker daemon
@@ -160,14 +181,6 @@
       cp = "cp -i";
       mv = "mv -i";
       cat = "bat --paging=never --style=plain";
-      #l = "eza";
-      #ls = "eza"; # ls
-      #ll = "eza -lbF --git"; # list, size, type, git
-      #llm = "eza -lbGd --git --sort=modified"; # long list, modified date sort
-      #la = "eza -lbhHigUmuSa --time-style=long-iso --git --color-scale"; # all list
-      #lx = "eza -lbhHigUmuSa@ --time-style=long-iso --git --color-scale"; # all + extended list
-      #lS = "eza -1"; # one column, just names
-      #lt = "eza --tree --level=2"; # tree
     };
     shellAbbrs = {
       k = "kubectl";
@@ -176,25 +189,6 @@
       g = "git";
     };
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Automatic upgrades
   system.autoUpgrade = {
@@ -219,5 +213,4 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
-}
+  system.stateVersion = "23.05";

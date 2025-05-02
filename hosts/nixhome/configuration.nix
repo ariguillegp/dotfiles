@@ -36,16 +36,9 @@
   # ref: https://github.com/NixOS/nixpkgs/issues/254807
   boot.swraid.enable = false;
 
-  networking.hostName = "nixhome"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Enable networking
   networking.networkmanager.enable = true;
-
+  networking.hostName = "nixhome";
   networking.extraHosts =
   ''
     100.122.8.81 demo.crescentcyber.com
@@ -110,7 +103,7 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
 
   # Connect to tailscale network.

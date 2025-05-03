@@ -12,12 +12,7 @@
     ];
 
   # Enable Flakes
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Install IosevkaTerm nerdfont
   fonts.packages = with pkgs; [
@@ -69,57 +64,31 @@
     xwayland.enable = true; # temporary until I can confidently get rid of X11
   };
 
-  # # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+  # Force electron apps to use Wayland.
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # # Enable the X11 windowing system.
-  # services.displayManager.defaultSession = "none+i3"; # No desktop environment and i3 as the window manager
-  #
-  # # List services that you want to enable:
-  # services.xserver = {
-  #   enable = true;
-  #
-  #   desktopManager = {
-  #     xterm.enable = false;
-  #   };
-  #
-  #   # Config options available here: https://search.nixos.org/options?channel=22.11&size=50&sort=relevance&type=packages&query=i3
-  #   windowManager.i3 = {
-  #     # Whether to enable i3 window manager.
-  #     enable = true;
-  #     # i3 package to use.
-  #     package = pkgs.i3;
-  #     # Extra packages to be installed system wide.
-  #     extraPackages = with pkgs; [
-  #       dmenu
-  #       i3status
-  #       i3lock-fancy-rapid
-  #     ];
-  #     # Path to the i3 configuration file. If left at the default value, $HOME/.i3/config will be used.
-  #     configFile = "/home/aristides/.dotfiles/modules/home-manager/config/i3/config";
-  #   };
-  # };
+  # Enable GDM to start Hyprland-UWSM
+  services.xserver = {
+    enable = true;
 
+    displayManager = {
+      gdm.enable = true;
+    };
+  };
+
+  # Screen sharing
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
   };
 
   # Connect to tailscale network.
   services.tailscale.enable = false;
 
-  # # Configure keymap in X11
-  # services.xserver.xkb = {
-  #   layout = "us";
-  #   variant = "";
-  # };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -191,7 +160,7 @@
       lower = "01:00";
       upper = "04:00";
     };
-    channel = "https://nixos.org/channels/nixos-24.05";
+    channel = "https://nixos.org/channels/nixos-24.11";
   };
 
   # Automatic garbage collection
@@ -207,3 +176,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05";
+}

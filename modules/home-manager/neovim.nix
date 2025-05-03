@@ -14,14 +14,14 @@
       vimdiffAlias = true;
 
       extraPackages = with pkgs; [
-        lua-language-server # lua
-        gopls # go
-        ruff-lsp # python
-        rust-analyzer # rust
-        terraform-ls # tf
-        dockerfile-language-server-nodejs # dockerfile
-        jq-lsp # jq
-        shellcheck # shell scripting
+        lua-language-server
+        gopls
+        ruff # python
+        rust-analyzer
+        terraform-ls
+        dockerfile-language-server-nodejs
+        jq-lsp
+        shellcheck
         lazygit
 
         ripgrep

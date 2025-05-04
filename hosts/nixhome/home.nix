@@ -6,6 +6,7 @@
     ../../modules/home-manager/direnv.nix
     ../../modules/home-manager/eza.nix
     ../../modules/home-manager/hyprland.nix
+    ../../modules/home-manager/hyprlock.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/neovim.nix
     ../../modules/home-manager/tmux.nix

@@ -64,6 +64,9 @@
     xwayland.enable = true; # temporary until I can confidently get rid of X11
   };
 
+  # Hyprlock needs PAM access to be able to authenticate the user back.
+  security.pam.services.hyprlock = {};
+
   # # Force electron apps to use Wayland.
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

@@ -150,7 +150,8 @@
         [
           "$mod, RETURN, exec, $terminal"
           "$mod, Q, killactive"
-          "$mod, L, exit"
+          "$mod, M, exit"
+          "$mod, L, exec, hyprlock"
           "$mod, R, exec, $menu"
           "$mod, E, exec, $fileManager"
           "$mod, V, exec, togglefloating"

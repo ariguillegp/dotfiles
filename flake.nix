@@ -1,10 +1,11 @@
 {
-  description = "My nix configs";
+  description = "Local Dev Setup";
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/*";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.11";
@@ -17,7 +18,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, rust-overlay, home-manager, ... } @ inputs:
+  outputs = { self, nixpkgs, determinate, rust-overlay, home-manager, ... } @ inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -33,9 +34,10 @@
       nixosConfigurations = {
         nixhome = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          # > Main nixos configuration file <
+          # Main nixos configuration file
           modules = [
             ./hosts/nixhome/configuration.nix
+            determinate.nixosModules.default
             ({ pkgs, ... }: {
               nixpkgs.overlays = [ rust-overlay.overlays.default ];
               environment.systemPackages = [

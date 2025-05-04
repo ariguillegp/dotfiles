@@ -79,13 +79,6 @@
     };
   };
 
-  # XDG Desktop Portal handles a lot of stuff for your desktop, like file pickers,
-  # screensharing, etc.
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
-  };
-
   # Connect to tailscale network.
   services.tailscale.enable = false;
 
@@ -120,6 +113,9 @@
     git
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
   ];
 
   # Add/Enable docker daemon

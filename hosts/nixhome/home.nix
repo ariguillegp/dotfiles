@@ -5,6 +5,7 @@
     ../../modules/home-manager/bat.nix
     ../../modules/home-manager/direnv.nix
     ../../modules/home-manager/eza.nix
+    ../../modules/home-manager/hyprland.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/neovim.nix
     ../../modules/home-manager/tmux.nix
@@ -18,6 +19,15 @@
     homeDirectory = "/home/aristides";
 
     packages = with pkgs; [
+      # hyprland
+      kitty # trying this out -- looks interesting
+      xfce.thunar
+      dunst # notification daemon
+      libnotify # needed by dunst
+      rofi-wayland # app launcher
+      swww # wallpaper
+      waybar # desktop bar
+      # hyprland
       arandr
       awscli2
       bat
@@ -64,6 +74,7 @@
       okular
       pfetch
       pgadmin4
+      playerctl
       python311
       pre-commit
       rsync

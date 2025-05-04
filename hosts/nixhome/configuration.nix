@@ -64,7 +64,7 @@
     xwayland.enable = true; # temporary until I can confidently get rid of X11
   };
 
-  # Force electron apps to use Wayland.
+  # # Force electron apps to use Wayland.
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Enable GDM to start Hyprland-UWSM
@@ -76,7 +76,8 @@
     };
   };
 
-  # Screen sharing
+  # XDG Desktop Portal handles a lot of stuff for your desktop, like file pickers,
+  # screensharing, etc.
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
@@ -97,6 +98,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    wireplumber.enable = true;
   };
 
   # Bluetooth setup
@@ -112,15 +114,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    dunst # notification daemon
     git
-    kitty # trying this out -- it seems cool
-    libnotify # needed by dunst
-    rofi-wayland # app launcher
-    swww # wallpaper
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    waybar # desktop bar
   ];
 
   # Add/Enable docker daemon

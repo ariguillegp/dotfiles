@@ -119,7 +119,7 @@
 
       # Set programs that you use↴
       # https://wiki.hyprland.org/Configuring/Keywords/
-      "$terminal" = "kitty";
+      "$terminal" = "wezterm";
       "$webBrowser" = "brave";
       "$fileManager" = "thunar";
       "$menu" = "rofi -show drun -show-icons";

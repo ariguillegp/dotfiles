@@ -16,7 +16,7 @@ config.max_fps = 120
 
 -- Font settings
 config.font = wezterm.font("IosevkaTerm Nerd Font", { weight = "Light" })
-config.font_size = 17.0
+config.font_size = 15.0
 
 -- Dim inactive panes
 config.inactive_pane_hsb = {

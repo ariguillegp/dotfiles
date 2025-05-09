@@ -22,7 +22,6 @@
 
     packages = with pkgs; [
       # hyprland
-      kitty # trying this out -- looks interesting
       xfce.thunar
       dunst # notification daemon
       libnotify # needed by dunst

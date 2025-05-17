@@ -8,15 +8,13 @@ if wezterm.config_builder then config = wezterm.config_builder() end
 -- Settings
 config.color_scheme = "Tokyo Night"
 config.window_background_opacity = 0.98
-config.window_decorations = "RESIZE"
-config.window_close_confirmation = "AlwaysPrompt"
 config.scrollback_lines = 3000
 config.default_workspace = "home"
 config.max_fps = 120
 
 -- Font settings
 config.font = wezterm.font("IosevkaTerm Nerd Font", { weight = "Light" })
-config.font_size = 15.0
+config.font_size = 10.0
 
 -- Dim inactive panes
 config.inactive_pane_hsb = {

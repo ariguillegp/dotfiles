@@ -165,6 +165,12 @@
           "$mod, right, movefocus, r"
           "$mod, up, movefocus, u"
           "$mod, down, movefocus, d"
+          # Screenshot a window (mod + PrtSc)
+          "$mod, PRINT, exec, hyprshot -m window"
+          # Screenshot a monitor (PrtSc)
+          ", PRINT, exec, hyprshot -m region"
+          # Screenshot a region (Shift + mod + PrtSc)
+          "$mod SHIFT, PRINT, exec, hyprshot -m output"
         ]
         ++ (
           # workspaces

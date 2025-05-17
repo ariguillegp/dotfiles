@@ -24,6 +24,7 @@
       # hyprland
       xfce.thunar
       dunst # notification daemon
+      hyprshot # screenshots
       libnotify # needed by dunst
       rofi-wayland # app launcher
       swww # wallpaper
@@ -47,7 +48,6 @@
       dos2unix
       fd
       fish
-      flameshot
       flyctl
       gcc12
       gci

@@ -80,7 +80,7 @@
   };
 
   # Connect to tailscale network.
-  services.tailscale.enable = false;
+  services.tailscale.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -155,7 +155,7 @@
       lower = "01:00";
       upper = "04:00";
     };
-    channel = "https://nixos.org/channels/nixos-24.11";
+    channel = "https://nixos.org/channels/nixos-25.05";
   };
 
   # Automatic garbage collection

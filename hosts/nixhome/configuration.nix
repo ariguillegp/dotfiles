@@ -147,33 +147,6 @@
     };
   };
 
-  programs.ssh = {
-    enable = true;
-    # Optional: if you want Home Manager to manage starting the SSH agent.
-    # If you manage it via systemd user session or shell startup, you might set this to false or omit it.
-    startAgent = true;
-
-    # This is where you define your host-specific configurations.
-    # It will generate entries in ~/.ssh/config
-    matchBlocks = {
-      # Alias for your personal GitHub account (ariguillegp)
-      "github.com-personal" = { # You can name this alias whatever you like
-        hostName = "github.com";
-        user = "git";
-        identityFile = "~/.ssh/id_rsa"; # Path to your personal SSH private key
-        identitiesOnly = "yes"; # Important: only use this specified key
-      };
-
-      # Alias for your work GitHub account (aristides-cc)
-      "github.com-cc" = { # Alias for your work identity
-        hostName = "github.com";
-        user = "git";
-        identityFile = "~/.ssh/crescent_rsa"; # Path to your work SSH private key
-        identitiesOnly = "yes";
-      };
-    };
-  };
-
   # Automatic upgrades
   system.autoUpgrade = {
     enable = true;

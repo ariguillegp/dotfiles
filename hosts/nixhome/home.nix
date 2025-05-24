@@ -8,6 +8,7 @@
     ../../modules/home-manager/hyprland.nix
     ../../modules/home-manager/hyprlock.nix
     ../../modules/home-manager/git.nix
+    ../../modules/home-manager/ssh.nix
     ../../modules/home-manager/neovim.nix
     ../../modules/home-manager/tmux.nix
     ../../modules/home-manager/xdg-portals.nix
@@ -51,6 +52,7 @@
       flyctl
       gcc12
       gci
+      gh
       git
       git-cliff
       gitlint

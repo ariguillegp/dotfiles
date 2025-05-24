@@ -1,5 +1,8 @@
 {
-  home.file.".ssh/allowed_signers".text = "aristides@* ${builtins.readFile /home/aristides/.ssh/id_rsa.pub}";
+  home.file.".ssh/allowed_signers".text = ''
+    aristides@crescentcyber.com ${builtins.readFile /home/aristides/.ssh/crescent_rsa.pub}
+    aristides@glezpol.com ${builtins.readFile /home/aristides/.ssh/id_rsa.pub}
+  '';
 
   programs.git = {
     enable = true;
@@ -10,6 +13,7 @@
       condition = "gitdir:~/Projects/cc/**";
       contents = {
         user.email = "aristides@crescentcyber.com";
+        user.signingkey = "~/.ssh/crescent_rsa.pub";
       };
     }];
 

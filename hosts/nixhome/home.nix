@@ -13,7 +13,6 @@ in
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/neovim.nix
     ../../modules/home-manager/ssh.nix
-    ../../modules/home-manager/tmux.nix
     ../../modules/home-manager/xdg-portals.nix
     ../../modules/home-manager/wezterm.nix
   ];

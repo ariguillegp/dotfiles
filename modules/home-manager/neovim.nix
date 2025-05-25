@@ -16,7 +16,7 @@
       extraPackages = with pkgs; [
         lua-language-server
         gopls
-        ruff # python
+        ruff
         rust-analyzer
         terraform-ls
         dockerfile-language-server-nodejs
@@ -31,15 +31,13 @@
 
       plugins = with pkgs.vimPlugins; [
 
-
         # Git plugins
         vim-rhubarb
         lazygit-nvim
 
-        {
-          plugin = git-worktree-nvim;
-          config = toLuaFile ./config/nvim/plugins/git-worktree.lua;
-        }
+        # {
+        #   plugin = git-worktree-nvim;
+        # }
 
         {
           plugin = gitsigns-nvim;

@@ -16,7 +16,7 @@
 
   # Install IosevkaTerm nerdfont
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "IosevkaTerm" ]; })
+    nerd-fonts.iosevka-term
   ];
 
   # Bootloader.
@@ -86,7 +86,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -163,7 +163,7 @@
       lower = "01:00";
       upper = "04:00";
     };
-    channel = "https://nixos.org/channels/nixos-24.11";
+    channel = "https://nixos.org/channels/nixos-25.05";
   };
 
   # Automatic garbage collection

@@ -83,7 +83,7 @@ in
       lsof
       ncdu
       nodejs_20
-      okular
+      kdePackages.okular
       pfetch
       pgadmin4
       playerctl

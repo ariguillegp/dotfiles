@@ -41,8 +41,6 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- don't ever press Q
 vim.keymap.set("n", "Q", "<nop>")
--- fuzzy finds tmux sessions
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww smux<CR>")
 -- makes your current file executable
 vim.keymap.set("n", "<C-x>", "<cmd>silent !chmod +x %<CR>")
 

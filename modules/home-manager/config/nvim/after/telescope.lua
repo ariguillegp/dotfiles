@@ -24,9 +24,8 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
--- Enable telescope worktrees, if installed
-vim.keymap.set('n', '<leader>wl',
-  require("telescope").extensions.git_worktree.git_worktrees,
-  { desc = '[W]orktrees [L]ist' })
-vim.keymap.set('n', '<leader>wn', require('telescope').extensions.git_worktree
-  .create_git_worktree, { desc = '[W]orktrees [C]reate' })
+-- -- Enable telescope worktrees, if installed
+-- vim.keymap.set('n', '<leader>wl', require("telescope").extensions.git_worktree.telescope_git_worktree,
+--   { desc = '[W]orktrees [L]ist' })
+-- vim.keymap.set('n', '<leader>wn', require('telescope').extensions.git_worktree.telescope_create_worktree,
+--   { desc = '[W]orktrees [C]reate' })

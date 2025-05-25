@@ -150,7 +150,7 @@ in
           required_ssh_key="${identities.cc.sshPrivKey}"
           github_host="${identities.cc.githubHost}"
           context="${identities.cc.context}"
-        elif [[ "$current_dir" == *"/Projects/personal/"* ]] || [[ "$current_dir" == *"/\.dotfiles/"* ]]; then
+        elif [[ "$current_dir" == *"/Projects/personal/"* ]] || [[ "$current_dir" == *"dotfiles"* ]]; then
           expected_email="${identities.personal.email}"
           expected_key="${identities.personal.sshPubKey}"
           required_ssh_key="${identities.personal.sshPrivKey}"

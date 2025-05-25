@@ -1,20 +1,23 @@
+{ pkgs, identities, ... }:
+
 {
   programs.ssh = {
     enable = true;
+    addKeysToAgent = "yes";
 
     matchBlocks = {
-      "github.com-personal" = {
-        hostName = "github.com";
+      "${identities.personal.githubHost}" = {
+        hostname = "${identities.githubURL}";
         user = "git";
-        identityFile = "~/.ssh/id_rsa";
-        identitiesOnly = true; # Direct option, not nested in 'data'
+        identityFile = "${identities.personal.sshPrivKey}";
+        identitiesOnly = true;
       };
 
-      "github.com-cc" = {
-        hostName = "github.com";
+      "${identities.cc.githubHost}" = {
+        hostname = "${identities.githubURL}";
         user = "git";
-        identityFile = "~/.ssh/crescent_rsa";
-        identitiesOnly = true; # Direct option, not nested in 'data'
+        identityFile = "${identities.cc.sshPrivKey}";
+        identitiesOnly = true;
       };
     };
   };

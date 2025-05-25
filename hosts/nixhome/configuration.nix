@@ -131,8 +131,16 @@
     };
   };
 
+  programs.ssh.startAgent = true;
+
   programs.fish = {
     enable = true;
+    shellInit = ''
+      # SSH Agent for Fish
+      if not set -q SSH_AUTH_SOCK
+        eval (ssh-agent -c)
+      end
+    '';
     shellAliases = {
       rm = "rm -i";
       cp = "cp -i";

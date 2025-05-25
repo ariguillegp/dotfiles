@@ -1,21 +1,32 @@
+{ pkgs, identities, paths, ... }:
+
 {
   home.file.".ssh/allowed_signers".text = ''
-    aristides@crescentcyber.com ${builtins.readFile /home/aristides/.ssh/id_rsa_crescent.pub}
-    aristides@glezpol.com ${builtins.readFile /home/aristides/.ssh/id_rsa.pub}
+    ${identities.personal.email} ${builtins.readFile identities.personal.sshPubKey}
+    ${identities.cc.email} ${builtins.readFile identities.cc.sshPubKey}
   '';
 
   programs.git = {
     enable = true;
-    userName = "Aristides Gonzalez";
-    userEmail = "aristides@glezpol.com";
+    userName = "${identities.fullName}";
+    userEmail = "${identities.personal.email}";
 
-    includes = [{
-      condition = "gitdir:~/Projects/cc/**";
-      contents = {
-        user.email = "aristides@crescentcyber.com";
-        user.signingkey = "~/.ssh/id_rsa_crescent.pub";
-      };
-    }];
+    includes = [
+      {
+        condition = "gitdir:${identities.personal.projDir}/**";
+        contents = {
+          user.email = "${identities.personal.email}";
+          user.signingkey = "${identities.personal.sshPubKey}";
+        };
+      }
+      {
+        condition = "gitdir:${identities.cc.projDir}/**";
+        contents = {
+          user.email = "${identities.cc.email}";
+          user.signingkey = "${identities.cc.sshPubKey}";
+        };
+      }
+    ];
 
     # git extension for versioning large files
     lfs.enable = true;
@@ -23,13 +34,35 @@
     extraConfig = {
       init = { defaultBranch = "main"; };
       core.editor = "nvim";
+      core.hooksPath = "${paths.gitHooks}";
       pull.rebase = "true";
+      fetch.prune = true;      # Remove remote-tracking branches that no longer exist
+      fetch.fsckObjects = true;
+      rebase.autoStash = true; # Automatically stash/unstash when rebasing
+      transfer.fsckObjects = true;
+      receive.fsckObjects = true;
+      diff.algorithm = "patience";
+      merge.conflictStyle = "diff3";
       push.default = "upstream";
-      # Sign all commits using ssh key
+      push.followTags = true;  # Push tags along with commits
       commit.gpgsign = true;
       gpg.format = "ssh";
-      gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-      user.signingkey = "~/.ssh/id_rsa.pub";
+      gpg.ssh.allowedSignersFile = "${paths.allowedSigners}";
+      user.signingkey = "${identities.personal.sshPubKey}";
+
+      alias = {
+        # Quick identity check
+        whoami = "!git config user.name && git config user.email && git config user.signingkey";
+
+        # Show current repo's Git config
+        config-local = "config --local --list";
+
+        # Better aliases for signature verification
+        sig-head = "verify-commit HEAD";
+        sig-log = "log --show-signature --oneline -10";
+        sig-status = "log --pretty=format:'%h %G? %aN %s' -10";
+        sig-test = "!git commit --allow-empty -m 'Test commit signature' && git verify-commit HEAD";
+      };
     };
 
     delta = {
@@ -37,7 +70,7 @@
       options = {
         navigate = true;
         line-numbers = true;
-        synrax-theme = "ansi";
+        syntax-theme = "ansi";
       };
     };
 

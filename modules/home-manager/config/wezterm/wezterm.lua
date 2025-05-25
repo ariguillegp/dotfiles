@@ -12,6 +12,9 @@ config.scrollback_lines = 3000
 config.default_workspace = "home"
 config.max_fps = 120
 
+-- Disable WezTerm's SSH agent management
+config.default_ssh_auth_sock = nil
+
 -- Font settings
 config.font = wezterm.font("IosevkaTerm Nerd Font", { weight = "Light" })
 config.font_size = 10.0

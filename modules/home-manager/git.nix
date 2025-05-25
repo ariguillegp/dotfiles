@@ -62,6 +62,9 @@
         sig-log = "log --show-signature --oneline -10";
         sig-status = "log --pretty=format:'%h %G? %aN %s' -10";
         sig-test = "!git commit --allow-empty -m 'Test commit signature' && git verify-commit HEAD";
+
+        # Streamlined repo creation for heavy worktree usage
+        clone-worktree = "!git-clone-worktree";
       };
     };
 

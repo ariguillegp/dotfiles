@@ -106,6 +106,111 @@ in
       waybar # desktop bar
       zip
 
+      (writeShellScriptBin "git-clone-worktree" ''
+        #!/usr/bin/env bash
+        set -e
+
+        # git-clone-worktree - Clone a repository ready for git worktrees
+        #
+        # Usage:
+        #   git clone-worktree <repo-url> [directory-name]
+        #
+        # Examples:
+        #   git clone-worktree git@github.com:user/repo.git
+        #   git clone-worktree https://github.com/user/repo.git my-project
+
+        show_usage() {
+            echo "Usage: git clone-worktree <repo-url> [directory-name]"
+            echo ""
+            echo "Clone a repository in worktree-ready format with:"
+            echo "  - Bare repository in .bare/"
+            echo "  - Ready to create worktrees as siblings"
+            echo ""
+            echo "Examples:"
+            echo "    git clone-worktree git@github.com:user/repo.git"
+            echo "    git clone-worktree https://github.com/user/repo.git my-project"
+        }
+
+        # Validate arguments
+        if [ $# -eq 0 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+            show_usage
+            exit 0
+        fi
+
+        url="$1"
+
+        # Extract repository name from URL
+        basename=$(basename "$url")
+        default_name="''${basename%.*}"  # Remove .git extension if present
+        name="''${2:-$default_name}"
+
+        # Validate inputs
+        if [ -z "$url" ]; then
+            echo "Error: Repository URL is required"
+            show_usage
+            exit 1
+        fi
+
+        if [ -d "$name" ]; then
+            echo "Error: Directory '$name' already exists"
+            exit 1
+        fi
+
+        echo "Setting up worktree repository: $name"
+        echo "Source: $url"
+
+        # Create project directory
+        mkdir "$name"
+        cd "$name"
+
+        echo "Cloning bare repository..."
+        # Clone as bare repository
+        git clone --bare "$url" .bare
+
+        # Create .git file pointing to bare repo
+        echo "gitdir: ./.bare" > .git
+
+        echo "Configuring repository..."
+        # Configure remote fetch to get all branches
+        git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+
+        # Fetch all branches
+        echo "Fetching all branches..."
+        git fetch origin
+
+        # Get default branch name
+        default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || echo "main")
+
+        # Check if default branch exists, fallback to main, then master
+        if ! git show-ref --verify --quiet "refs/remotes/origin/$default_branch"; then
+            if git show-ref --verify --quiet "refs/remotes/origin/main"; then
+                default_branch="main"
+            elif git show-ref --verify --quiet "refs/remotes/origin/master"; then
+                default_branch="master"
+            else
+                # Get the first available branch
+                default_branch=$(git branch -r | head -n1 | sed 's/.*origin\///' | tr -d ' ')
+            fi
+        fi
+
+        echo "Repository setup complete!"
+        echo ""
+        echo "Structure created:"
+        echo "   $name/"
+        echo "   ├── .bare/          # Bare repository"
+        echo "   └── .git            # Points to .bare"
+        echo ""
+        echo "Next steps:"
+        echo "   git worktree add $default_branch $default_branch    # Create main worktree"
+        echo "   git worktree add -b feature/new feature             # Create feature branch"
+        echo ""
+        echo "Useful commands:"
+        echo "   git worktree list                    # List all worktrees"
+        echo "   git worktree add <branch> <path>     # Add existing branch"
+        echo "   git worktree add -b <branch> <path>  # Create new branch"
+        echo "   git fetch origin                     # Fetch updates"
+      '')
+
       (writeShellScriptBin "core-precommit" ''
         #!/usr/bin/env bash
 

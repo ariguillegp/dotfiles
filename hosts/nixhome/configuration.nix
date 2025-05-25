@@ -135,6 +135,20 @@
 
   programs.fish = {
     enable = true;
+    interactiveShellInit = ''
+      function gcw --description "Git clone worktree and cd into the directory"
+        if git-clone-worktree $argv
+          set url $argv[1]
+          set basename (basename "$url")
+          if test -n "$argv[2]"
+            set name $argv[2]
+          else
+            set name (string replace -r '\.git$' "" "$basename")
+          end
+          cd "$name"
+        end
+      end
+    '';
     shellInit = ''
       # SSH Agent for Fish
       if not set -q SSH_AUTH_SOCK

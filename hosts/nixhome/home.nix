@@ -8,6 +8,7 @@
     ../../modules/home-manager/hyprland.nix
     ../../modules/home-manager/hyprlock.nix
     ../../modules/home-manager/git.nix
+    ../../modules/home-manager/ssh.nix
     ../../modules/home-manager/neovim.nix
     ../../modules/home-manager/tmux.nix
     ../../modules/home-manager/xdg-portals.nix
@@ -21,16 +22,6 @@
     homeDirectory = "/home/aristides";
 
     packages = with pkgs; [
-      # hyprland
-      xfce.thunar
-      dunst # notification daemon
-      hyprshot # screenshots
-      libnotify # needed by dunst
-      rofi-wayland # app launcher
-      swww # wallpaper
-      waybar # desktop bar
-      # hyprland
-      arandr
       awscli2
       bat
       blueman
@@ -38,14 +29,13 @@
       bluez-alsa
       brave
       bun
-      cargo
-      cargo-watch
       cobra-cli
       codespell
       curl
       dig
       docker-compose
       dos2unix
+      dunst # notification daemon
       fd
       fish
       flyctl
@@ -63,14 +53,15 @@
       gnupg
       hadolint
       htop
+      hyprshot # screenshots
       jq
       just
       kind
       kubectl
       kubernetes-helm
       libreoffice
+      libnotify # needed by dunst
       lsof
-      mage
       ncdu
       nodejs_20
       okular
@@ -80,8 +71,10 @@
       python311
       pre-commit
       rsync
+      rofi-wayland # app launcher
       sof-firmware
       ssm-session-manager-plugin
+      swww # wallpaper
       tailscale
       terraform
       tldr
@@ -89,7 +82,9 @@
       tree
       unzip
       wezterm
+      xfce.thunar
       xclip
+      waybar # desktop bar
       zip
     ];
 
@@ -102,33 +97,6 @@
     # the Home Manager release notes for a list of state version
     # changes in each release.
     stateVersion = "23.05";
-  };
-
-  programs.ssh = {
-    enable = true;
-    # Optional: if you want Home Manager to manage starting the SSH agent.
-    # If you manage it via systemd user session or shell startup, you might set this to false or omit it.
-    startAgent = true;
-
-    # This is where you define your host-specific configurations.
-    # It will generate entries in ~/.ssh/config
-    matchBlocks = {
-      # Alias for your personal GitHub account (ariguillegp)
-      "github.com-personal" = { # You can name this alias whatever you like
-        hostName = "github.com";
-        user = "git";
-        identityFile = "~/.ssh/id_rsa"; # Path to your personal SSH private key
-        identitiesOnly = "yes"; # Important: only use this specified key
-      };
-
-      # Alias for your work GitHub account (aristides-cc)
-      "github.com-cc" = { # Alias for your work identity
-        hostName = "github.com";
-        user = "git";
-        identityFile = "~/.ssh/crescent_rsa"; # Path to your work SSH private key
-        identitiesOnly = "yes";
-      };
-    };
   };
 
   # Let Home Manager install and manage itself.

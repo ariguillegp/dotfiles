@@ -1,6 +1,6 @@
 {
   home.file.".ssh/allowed_signers".text = ''
-    aristides@crescentcyber.com ${builtins.readFile /home/aristides/.ssh/crescent_rsa.pub}
+    aristides@crescentcyber.com ${builtins.readFile /home/aristides/.ssh/id_rsa_crescent.pub}
     aristides@glezpol.com ${builtins.readFile /home/aristides/.ssh/id_rsa.pub}
   '';
 
@@ -13,7 +13,7 @@
       condition = "gitdir:~/Projects/cc/**";
       contents = {
         user.email = "aristides@crescentcyber.com";
-        user.signingkey = "~/.ssh/crescent_rsa.pub";
+        user.signingkey = "~/.ssh/id_rsa_crescent.pub";
       };
     }];
 

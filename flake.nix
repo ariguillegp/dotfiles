@@ -1,18 +1,17 @@
 {
-  description = "Local Dev Setup";
+  description = "Home Dev Setup";
 
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, determinate, rust-overlay, home-manager, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -28,7 +27,6 @@
       nixosConfigurations = {
         nixhome = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          # Main nixos configuration file
           modules = [
             ./hosts/nixhome/configuration.nix
           ];
@@ -41,7 +39,6 @@
         nixhome = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
-          # Main home-manager configuration file
           modules = [ ./hosts/nixhome/home.nix ];
         };
       };

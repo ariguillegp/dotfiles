@@ -135,6 +135,12 @@
 
   programs.fish = {
     enable = true;
+    shellInit = ''
+      # SSH Agent for Fish
+      if not set -q SSH_AUTH_SOCK
+        eval (ssh-agent -c)
+      end
+    '';
     interactiveShellInit = ''
       function gcw --description "Git clone worktree and cd into the directory"
         if git-clone-worktree $argv
@@ -148,11 +154,15 @@
           cd "$name"
         end
       end
-    '';
-    shellInit = ''
-      # SSH Agent for Fish
-      if not set -q SSH_AUTH_SOCK
-        eval (ssh-agent -c)
+
+      # Auto-allow direnv for your own projects
+      function __auto_direnv_allow --on-variable PWD
+        if test -f .envrc -a -f shell.nix
+          if not direnv status | grep -q "Found RC allowed true"
+            echo "Auto-allowing direnv for this project..."
+            direnv allow
+          end
+        end
       end
     '';
     shellAliases = {

@@ -113,6 +113,7 @@
         cmp_luasnip
         cmp-nvim-lsp
         cmp-path
+        nvim-treesitter-parsers.typespec
 
         {
           plugin = nvim-cmp;

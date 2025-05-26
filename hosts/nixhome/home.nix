@@ -81,10 +81,8 @@ in
       libnotify # needed by dunst
       lsof
       ncdu
-      nodejs_20
       kdePackages.okular
       pfetch
-      pgadmin4
       playerctl
       python311
       pre-commit

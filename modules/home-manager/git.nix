@@ -34,7 +34,7 @@
     extraConfig = {
       init = { defaultBranch = "main"; };
       core.editor = "nvim";
-      core.hooksPath = "${paths.gitHooks}";
+      # core.hooksPath = "${paths.gitHooks}";
       pull.rebase = "true";
       fetch.prune = true;      # Remove remote-tracking branches that no longer exist
       fetch.fsckObjects = true;

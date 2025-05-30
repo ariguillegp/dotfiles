@@ -88,6 +88,7 @@ in
       pre-commit
       rsync
       rofi-wayland # app launcher
+      signal-desktop
       sof-firmware
       ssm-session-manager-plugin
       swww # wallpaper

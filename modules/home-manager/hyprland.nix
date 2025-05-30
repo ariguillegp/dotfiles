@@ -122,23 +122,21 @@
       "$terminal" = "wezterm";
       "$webBrowser" = "brave";
       "$fileManager" = "thunar";
+      "$messenger" = "signal";
       "$menu" = "rofi -show drun -show-icons";
 
       # Autostart
       exec-once = [
-        # # finalize startup
-        # "uwsm finalize"
-        # # set cursor for HL itself
-        # "hyprctl setcursor ${cursorName} ${toString pointer.size}"
-        # "hyprlock"
         "[workspace 1 silent] $terminal"
         "[workspace 2 silent] $webBrowser"
+        "[workspace 4 silent] $messenger"
       ];
 
       windowrulev2 = [
-        "workspace 1, class:^(kitty)$"
+        "workspace 1, class:^(wezterm)$"
         "workspace 2, class:^(brave-browser)$"
         "workspace 3, class:^(thunar)$"
+        "workspace 4, class:^(signal)$"
       ];
 
       # Keybindings

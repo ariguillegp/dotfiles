@@ -120,7 +120,7 @@
       # Set programs that you use↴
       # https://wiki.hyprland.org/Configuring/Keywords/
       "$terminal" = "wezterm";
-      "$webBrowser" = "brave";
+      "$webBrowser" = "google-chrome";
       "$fileManager" = "thunar";
       "$messenger" = "signal";
       "$menu" = "rofi -show drun -show-icons";
@@ -134,7 +134,7 @@
 
       windowrulev2 = [
         "workspace 1, class:^(wezterm)$"
-        "workspace 2, class:^(brave-browser)$"
+        "workspace 2, class:^(google-chrome)$"
         "workspace 3, class:^(thunar)$"
         "workspace 4, class:^(signal)$"
       ];

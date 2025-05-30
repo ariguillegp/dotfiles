@@ -14,6 +14,7 @@ in
     ../../modules/home-manager/neovim.nix
     ../../modules/home-manager/ssh.nix
     ../../modules/home-manager/xdg-portals.nix
+    ../../modules/home-manager/waybar.nix
     ../../modules/home-manager/wezterm.nix
   ];
 
@@ -45,10 +46,7 @@ in
       blueman
       bluez
       bluez-alsa
-      brave
-      bun
-      cobra-cli
-      codespell
+      google-chrome
       curl
       dig
       docker-compose
@@ -56,7 +54,6 @@ in
       dunst # notification daemon
       fd
       fish
-      flyctl
       gcc12
       gci
       gh
@@ -95,7 +92,6 @@ in
       tailscale
       terraform
       tldr
-      tmux
       tree
       unzip
       wezterm

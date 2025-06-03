@@ -120,23 +120,27 @@
       # Set programs that you use↴
       # https://wiki.hyprland.org/Configuring/Keywords/
       "$terminal" = "wezterm";
-      "$webBrowser" = "google-chrome";
+      "$webBrowser" = "google-chrome-stable";
       "$fileManager" = "thunar";
       "$messenger" = "signal";
       "$menu" = "rofi -show drun -show-icons";
+      "$editor" = "cursor";
 
       # Autostart
       exec-once = [
         "[workspace 1 silent] $terminal"
-        "[workspace 2 silent] $webBrowser"
-        "[workspace 4 silent] $messenger"
+        "[workspace 2 silent] $editor"
+        "[workspace 3 silent] $webBrowser"
+        "[workspace 4 silent] $fileManager"
+        "[workspace 5 silent] $messenger"
       ];
 
       windowrulev2 = [
         "workspace 1, class:^(wezterm)$"
-        "workspace 2, class:^(google-chrome)$"
-        "workspace 3, class:^(thunar)$"
-        "workspace 4, class:^(signal)$"
+        "workspace 2, class:^(cursor)$"
+        "workspace 3, class:^(google-chrome)$"
+        "workspace 4, class:^(thunar)$"
+        "workspace 5, class:^(signal)$"
       ];
 
       # Keybindings

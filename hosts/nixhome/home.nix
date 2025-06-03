@@ -48,6 +48,7 @@ in
       bluez-alsa
       google-chrome
       curl
+      code-cursor
       dig
       docker-compose
       dos2unix

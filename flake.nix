@@ -11,12 +11,17 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... } @ inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
 
       pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      pkgs-unstable = import nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
       };
@@ -38,7 +43,7 @@
       homeConfigurations = {
         nixhome = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit inputs outputs; };
+          extraSpecialArgs = { inherit inputs outputs pkgs-unstable; };
           modules = [ ./hosts/nixhome/home.nix ];
         };
       };
